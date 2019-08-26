@@ -1,0 +1,1168 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>23. Module 的加载实现 · ECMAScript 6 入门</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="阮一峰">
+        <meta name="identifier" content="9787121324758" scheme="ISBN">
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="style.html" />
+    
+    
+    <link rel="prev" href="module.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://www.ruanyifeng.com/blog/" target="_blank" class="custom-link">阮一峰的个人网站</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    0. 前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="intro.html">
+            
+                <a href="intro.html">
+            
+                    
+                    1. ECMAScript 6简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="let.html">
+            
+                <a href="let.html">
+            
+                    
+                    2. let 和 const 命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="destructuring.html">
+            
+                <a href="destructuring.html">
+            
+                    
+                    3. 变量的解构赋值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="string.html">
+            
+                <a href="string.html">
+            
+                    
+                    4. 字符串的扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="regex.html">
+            
+                <a href="regex.html">
+            
+                    
+                    5. 正则的扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="number.html">
+            
+                <a href="number.html">
+            
+                    
+                    6. 数值的扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="function.html">
+            
+                <a href="function.html">
+            
+                    
+                    7. 函数的扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="array.html">
+            
+                <a href="array.html">
+            
+                    
+                    8. 数组的扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="object.html">
+            
+                <a href="object.html">
+            
+                    
+                    9. 对象的扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="symbol.html">
+            
+                <a href="symbol.html">
+            
+                    
+                    10. Symbol
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="set-map.html">
+            
+                <a href="set-map.html">
+            
+                    
+                    11. Set 和 Map 数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="proxy.html">
+            
+                <a href="proxy.html">
+            
+                    
+                    12. Proxy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="reflect.html">
+            
+                <a href="reflect.html">
+            
+                    
+                    13. Reflect
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="promise.html">
+            
+                <a href="promise.html">
+            
+                    
+                    14. Promise 对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="iterator.html">
+            
+                <a href="iterator.html">
+            
+                    
+                    15. Iterator 和 for...of 循环
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="generator.html">
+            
+                <a href="generator.html">
+            
+                    
+                    16. Generator 函数的语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="generator-async.html">
+            
+                <a href="generator-async.html">
+            
+                    
+                    17. Generator 函数的异步应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="async.html">
+            
+                <a href="async.html">
+            
+                    
+                    18. async 函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="class.html">
+            
+                <a href="class.html">
+            
+                    
+                    19. Class 的基本语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="class-extends.html">
+            
+                <a href="class-extends.html">
+            
+                    
+                    20. Class 的继承
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="decorator.html">
+            
+                <a href="decorator.html">
+            
+                    
+                    21. Decorator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" data-path="module.html">
+            
+                <a href="module.html">
+            
+                    
+                    22. Module 的语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.24" data-path="module-loader.html">
+            
+                <a href="module-loader.html">
+            
+                    
+                    23. Module 的加载实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25" data-path="style.html">
+            
+                <a href="style.html">
+            
+                    
+                    24. 编程风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.26" data-path="spec.html">
+            
+                <a href="spec.html">
+            
+                    
+                    25. 读懂规格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.27" data-path="arraybuffer.html">
+            
+                <a href="arraybuffer.html">
+            
+                    
+                    26. ArrayBuffer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.28" data-path="proposals.html">
+            
+                <a href="proposals.html">
+            
+                    
+                    27. 最新提案
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.29" data-path="reference.html">
+            
+                <a href="reference.html">
+            
+                    
+                    28. 参考链接
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >23. Module 的加载实现</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="module-&#x7684;&#x52A0;&#x8F7D;&#x5B9E;&#x73B0;">Module &#x7684;&#x52A0;&#x8F7D;&#x5B9E;&#x73B0;</h1>
+<p>&#x4E0A;&#x4E00;&#x7AE0;&#x4ECB;&#x7ECD;&#x4E86;&#x6A21;&#x5757;&#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x672C;&#x7AE0;&#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x548C; Node &#x4E4B;&#x4E2D;&#x52A0;&#x8F7D; ES6 &#x6A21;&#x5757;&#xFF0C;&#x4EE5;&#x53CA;&#x5B9E;&#x9645;&#x5F00;&#x53D1;&#x4E2D;&#x7ECF;&#x5E38;&#x9047;&#x5230;&#x7684;&#x4E00;&#x4E9B;&#x95EE;&#x9898;&#xFF08;&#x6BD4;&#x5982;&#x5FAA;&#x73AF;&#x52A0;&#x8F7D;&#xFF09;&#x3002;</p>
+<h2 id="&#x6D4F;&#x89C8;&#x5668;&#x52A0;&#x8F7D;">&#x6D4F;&#x89C8;&#x5668;&#x52A0;&#x8F7D;</h2>
+<h3 id="&#x4F20;&#x7EDF;&#x65B9;&#x6CD5;">&#x4F20;&#x7EDF;&#x65B9;&#x6CD5;</h3>
+<p>HTML &#x7F51;&#x9875;&#x4E2D;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x901A;&#x8FC7;<code>&lt;script&gt;</code>&#x6807;&#x7B7E;&#x52A0;&#x8F7D; JavaScript &#x811A;&#x672C;&#x3002;</p>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- &#x9875;&#x9762;&#x5185;&#x5D4C;&#x7684;&#x811A;&#x672C; --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;application/javascript&quot;</span>&gt;</span><span class="actionscript">
+  <span class="hljs-comment">// module code</span>
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- &#x5916;&#x90E8;&#x811A;&#x672C; --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;application/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;path/to/myModule.js&quot;</span>&gt;</span><span class="undefined">
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x7531;&#x4E8E;&#x6D4F;&#x89C8;&#x5668;&#x811A;&#x672C;&#x7684;&#x9ED8;&#x8BA4;&#x8BED;&#x8A00;&#x662F; JavaScript&#xFF0C;&#x56E0;&#x6B64;<code>type=&quot;application/javascript&quot;</code>&#x53EF;&#x4EE5;&#x7701;&#x7565;&#x3002;</p>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x662F;&#x540C;&#x6B65;&#x52A0;&#x8F7D; JavaScript &#x811A;&#x672C;&#xFF0C;&#x5373;&#x6E32;&#x67D3;&#x5F15;&#x64CE;&#x9047;&#x5230;<code>&lt;script&gt;</code>&#x6807;&#x7B7E;&#x5C31;&#x4F1A;&#x505C;&#x4E0B;&#x6765;&#xFF0C;&#x7B49;&#x5230;&#x6267;&#x884C;&#x5B8C;&#x811A;&#x672C;&#xFF0C;&#x518D;&#x7EE7;&#x7EED;&#x5411;&#x4E0B;&#x6E32;&#x67D3;&#x3002;&#x5982;&#x679C;&#x662F;&#x5916;&#x90E8;&#x811A;&#x672C;&#xFF0C;&#x8FD8;&#x5FC5;&#x987B;&#x52A0;&#x5165;&#x811A;&#x672C;&#x4E0B;&#x8F7D;&#x7684;&#x65F6;&#x95F4;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x811A;&#x672C;&#x4F53;&#x79EF;&#x5F88;&#x5927;&#xFF0C;&#x4E0B;&#x8F7D;&#x548C;&#x6267;&#x884C;&#x7684;&#x65F6;&#x95F4;&#x5C31;&#x4F1A;&#x5F88;&#x957F;&#xFF0C;&#x56E0;&#x6B64;&#x9020;&#x6210;&#x6D4F;&#x89C8;&#x5668;&#x5835;&#x585E;&#xFF0C;&#x7528;&#x6237;&#x4F1A;&#x611F;&#x89C9;&#x5230;&#x6D4F;&#x89C8;&#x5668;&#x201C;&#x5361;&#x6B7B;&#x201D;&#x4E86;&#xFF0C;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x54CD;&#x5E94;&#x3002;&#x8FD9;&#x663E;&#x7136;&#x662F;&#x5F88;&#x4E0D;&#x597D;&#x7684;&#x4F53;&#x9A8C;&#xFF0C;&#x6240;&#x4EE5;&#x6D4F;&#x89C8;&#x5668;&#x5141;&#x8BB8;&#x811A;&#x672C;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#xFF0C;&#x4E0B;&#x9762;&#x5C31;&#x662F;&#x4E24;&#x79CD;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x7684;&#x8BED;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;path/to/myModule.js&quot;</span> <span class="hljs-attr">defer</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;path/to/myModule.js&quot;</span> <span class="hljs-attr">async</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>&lt;script&gt;</code>&#x6807;&#x7B7E;&#x6253;&#x5F00;<code>defer</code>&#x6216;<code>async</code>&#x5C5E;&#x6027;&#xFF0C;&#x811A;&#x672C;&#x5C31;&#x4F1A;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x3002;&#x6E32;&#x67D3;&#x5F15;&#x64CE;&#x9047;&#x5230;&#x8FD9;&#x4E00;&#x884C;&#x547D;&#x4EE4;&#xFF0C;&#x5C31;&#x4F1A;&#x5F00;&#x59CB;&#x4E0B;&#x8F7D;&#x5916;&#x90E8;&#x811A;&#x672C;&#xFF0C;&#x4F46;&#x4E0D;&#x4F1A;&#x7B49;&#x5B83;&#x4E0B;&#x8F7D;&#x548C;&#x6267;&#x884C;&#xFF0C;&#x800C;&#x662F;&#x76F4;&#x63A5;&#x6267;&#x884C;&#x540E;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x3002;</p>
+<p><code>defer</code>&#x4E0E;<code>async</code>&#x7684;&#x533A;&#x522B;&#x662F;&#xFF1A;<code>defer</code>&#x8981;&#x7B49;&#x5230;&#x6574;&#x4E2A;&#x9875;&#x9762;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x6B63;&#x5E38;&#x6E32;&#x67D3;&#x7ED3;&#x675F;&#xFF08;DOM &#x7ED3;&#x6784;&#x5B8C;&#x5168;&#x751F;&#x6210;&#xFF0C;&#x4EE5;&#x53CA;&#x5176;&#x4ED6;&#x811A;&#x672C;&#x6267;&#x884C;&#x5B8C;&#x6210;&#xFF09;&#xFF0C;&#x624D;&#x4F1A;&#x6267;&#x884C;&#xFF1B;<code>async</code>&#x4E00;&#x65E6;&#x4E0B;&#x8F7D;&#x5B8C;&#xFF0C;&#x6E32;&#x67D3;&#x5F15;&#x64CE;&#x5C31;&#x4F1A;&#x4E2D;&#x65AD;&#x6E32;&#x67D3;&#xFF0C;&#x6267;&#x884C;&#x8FD9;&#x4E2A;&#x811A;&#x672C;&#x4EE5;&#x540E;&#xFF0C;&#x518D;&#x7EE7;&#x7EED;&#x6E32;&#x67D3;&#x3002;&#x4E00;&#x53E5;&#x8BDD;&#xFF0C;<code>defer</code>&#x662F;&#x201C;&#x6E32;&#x67D3;&#x5B8C;&#x518D;&#x6267;&#x884C;&#x201D;&#xFF0C;<code>async</code>&#x662F;&#x201C;&#x4E0B;&#x8F7D;&#x5B8C;&#x5C31;&#x6267;&#x884C;&#x201D;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x591A;&#x4E2A;<code>defer</code>&#x811A;&#x672C;&#xFF0C;&#x4F1A;&#x6309;&#x7167;&#x5B83;&#x4EEC;&#x5728;&#x9875;&#x9762;&#x51FA;&#x73B0;&#x7684;&#x987A;&#x5E8F;&#x52A0;&#x8F7D;&#xFF0C;&#x800C;&#x591A;&#x4E2A;<code>async</code>&#x811A;&#x672C;&#x662F;&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1;&#x52A0;&#x8F7D;&#x987A;&#x5E8F;&#x7684;&#x3002;</p>
+<h3 id="&#x52A0;&#x8F7D;&#x89C4;&#x5219;">&#x52A0;&#x8F7D;&#x89C4;&#x5219;</h3>
+<p>&#x6D4F;&#x89C8;&#x5668;&#x52A0;&#x8F7D; ES6 &#x6A21;&#x5757;&#xFF0C;&#x4E5F;&#x4F7F;&#x7528;<code>&lt;script&gt;</code>&#x6807;&#x7B7E;&#xFF0C;&#x4F46;&#x662F;&#x8981;&#x52A0;&#x5165;<code>type=&quot;module&quot;</code>&#x5C5E;&#x6027;&#x3002;</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;./foo.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x5728;&#x7F51;&#x9875;&#x4E2D;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x6A21;&#x5757;<code>foo.js</code>&#xFF0C;&#x7531;&#x4E8E;<code>type</code>&#x5C5E;&#x6027;&#x8BBE;&#x4E3A;<code>module</code>&#xFF0C;&#x6240;&#x4EE5;&#x6D4F;&#x89C8;&#x5668;&#x77E5;&#x9053;&#x8FD9;&#x662F;&#x4E00;&#x4E2A; ES6 &#x6A21;&#x5757;&#x3002;</p>
+<p>&#x6D4F;&#x89C8;&#x5668;&#x5BF9;&#x4E8E;&#x5E26;&#x6709;<code>type=&quot;module&quot;</code>&#x7684;<code>&lt;script&gt;</code>&#xFF0C;&#x90FD;&#x662F;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#xFF0C;&#x4E0D;&#x4F1A;&#x9020;&#x6210;&#x5835;&#x585E;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x5373;&#x7B49;&#x5230;&#x6574;&#x4E2A;&#x9875;&#x9762;&#x6E32;&#x67D3;&#x5B8C;&#xFF0C;&#x518D;&#x6267;&#x884C;&#x6A21;&#x5757;&#x811A;&#x672C;&#xFF0C;&#x7B49;&#x540C;&#x4E8E;&#x6253;&#x5F00;&#x4E86;<code>&lt;script&gt;</code>&#x6807;&#x7B7E;&#x7684;<code>defer</code>&#x5C5E;&#x6027;&#x3002;</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;./foo.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- &#x7B49;&#x540C;&#x4E8E; --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;./foo.js&quot;</span> <span class="hljs-attr">defer</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>&#x5982;&#x679C;&#x7F51;&#x9875;&#x6709;&#x591A;&#x4E2A;<code>&lt;script type=&quot;module&quot;&gt;</code>&#xFF0C;&#x5B83;&#x4EEC;&#x4F1A;&#x6309;&#x7167;&#x5728;&#x9875;&#x9762;&#x51FA;&#x73B0;&#x7684;&#x987A;&#x5E8F;&#x4F9D;&#x6B21;&#x6267;&#x884C;&#x3002;</p>
+<p><code>&lt;script&gt;</code>&#x6807;&#x7B7E;&#x7684;<code>async</code>&#x5C5E;&#x6027;&#x4E5F;&#x53EF;&#x4EE5;&#x6253;&#x5F00;&#xFF0C;&#x8FD9;&#x65F6;&#x53EA;&#x8981;&#x52A0;&#x8F7D;&#x5B8C;&#x6210;&#xFF0C;&#x6E32;&#x67D3;&#x5F15;&#x64CE;&#x5C31;&#x4F1A;&#x4E2D;&#x65AD;&#x6E32;&#x67D3;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x3002;&#x6267;&#x884C;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x518D;&#x6062;&#x590D;&#x6E32;&#x67D3;&#x3002;</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;./foo.js&quot;</span> <span class="hljs-attr">async</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>&#x4E00;&#x65E6;&#x4F7F;&#x7528;&#x4E86;<code>async</code>&#x5C5E;&#x6027;&#xFF0C;<code>&lt;script type=&quot;module&quot;&gt;</code>&#x5C31;&#x4E0D;&#x4F1A;&#x6309;&#x7167;&#x5728;&#x9875;&#x9762;&#x51FA;&#x73B0;&#x7684;&#x987A;&#x5E8F;&#x6267;&#x884C;&#xFF0C;&#x800C;&#x662F;&#x53EA;&#x8981;&#x8BE5;&#x6A21;&#x5757;&#x52A0;&#x8F7D;&#x5B8C;&#x6210;&#xFF0C;&#x5C31;&#x6267;&#x884C;&#x8BE5;&#x6A21;&#x5757;&#x3002;</p>
+<p>ES6 &#x6A21;&#x5757;&#x4E5F;&#x5141;&#x8BB8;&#x5185;&#x5D4C;&#x5728;&#x7F51;&#x9875;&#x4E2D;&#xFF0C;&#x8BED;&#x6CD5;&#x884C;&#x4E3A;&#x4E0E;&#x52A0;&#x8F7D;&#x5916;&#x90E8;&#x811A;&#x672C;&#x5B8C;&#x5168;&#x4E00;&#x81F4;&#x3002;</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span>&gt;</span><span class="javascript">
+  <span class="hljs-keyword">import</span> utils <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./utils.js&quot;</span>;
+
+  <span class="hljs-comment">// other code</span>
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>&#x5BF9;&#x4E8E;&#x5916;&#x90E8;&#x7684;&#x6A21;&#x5757;&#x811A;&#x672C;&#xFF08;&#x4E0A;&#x4F8B;&#x662F;<code>foo.js</code>&#xFF09;&#xFF0C;&#x6709;&#x51E0;&#x70B9;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x3002;</p>
+<ul>
+<li>&#x4EE3;&#x7801;&#x662F;&#x5728;&#x6A21;&#x5757;&#x4F5C;&#x7528;&#x57DF;&#x4E4B;&#x4E2D;&#x8FD0;&#x884C;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5728;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#x8FD0;&#x884C;&#x3002;&#x6A21;&#x5757;&#x5185;&#x90E8;&#x7684;&#x9876;&#x5C42;&#x53D8;&#x91CF;&#xFF0C;&#x5916;&#x90E8;&#x4E0D;&#x53EF;&#x89C1;&#x3002;</li>
+<li>&#x6A21;&#x5757;&#x811A;&#x672C;&#x81EA;&#x52A8;&#x91C7;&#x7528;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#xFF0C;&#x4E0D;&#x7BA1;&#x6709;&#x6CA1;&#x6709;&#x58F0;&#x660E;<code>use strict</code>&#x3002;</li>
+<li>&#x6A21;&#x5757;&#x4E4B;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>import</code>&#x547D;&#x4EE4;&#x52A0;&#x8F7D;&#x5176;&#x4ED6;&#x6A21;&#x5757;&#xFF08;<code>.js</code>&#x540E;&#x7F00;&#x4E0D;&#x53EF;&#x7701;&#x7565;&#xFF0C;&#x9700;&#x8981;&#x63D0;&#x4F9B;&#x7EDD;&#x5BF9; URL &#x6216;&#x76F8;&#x5BF9; URL&#xFF09;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>export</code>&#x547D;&#x4EE4;&#x8F93;&#x51FA;&#x5BF9;&#x5916;&#x63A5;&#x53E3;&#x3002;</li>
+<li>&#x6A21;&#x5757;&#x4E4B;&#x4E2D;&#xFF0C;&#x9876;&#x5C42;&#x7684;<code>this</code>&#x5173;&#x952E;&#x5B57;&#x8FD4;&#x56DE;<code>undefined</code>&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6307;&#x5411;<code>window</code>&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5728;&#x6A21;&#x5757;&#x9876;&#x5C42;&#x4F7F;&#x7528;<code>this</code>&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x662F;&#x65E0;&#x610F;&#x4E49;&#x7684;&#x3002;</li>
+<li>&#x540C;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x5982;&#x679C;&#x52A0;&#x8F7D;&#x591A;&#x6B21;&#xFF0C;&#x5C06;&#x53EA;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x3002;</li>
+</ul>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x793A;&#x4F8B;&#x6A21;&#x5757;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> utils <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;https://example.com/js/utils.js&apos;</span>;
+
+<span class="hljs-keyword">const</span> x = <span class="hljs-number">1</span>;
+
+<span class="hljs-built_in">console</span>.log(x === <span class="hljs-built_in">window</span>.x); <span class="hljs-comment">//false</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span> === <span class="hljs-literal">undefined</span>); <span class="hljs-comment">// true</span>
+</code></pre>
+<p>&#x5229;&#x7528;&#x9876;&#x5C42;&#x7684;<code>this</code>&#x7B49;&#x4E8E;<code>undefined</code>&#x8FD9;&#x4E2A;&#x8BED;&#x6CD5;&#x70B9;&#xFF0C;&#x53EF;&#x4EE5;&#x4FA6;&#x6D4B;&#x5F53;&#x524D;&#x4EE3;&#x7801;&#x662F;&#x5426;&#x5728; ES6 &#x6A21;&#x5757;&#x4E4B;&#x4E2D;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> isNotModuleScript = <span class="hljs-keyword">this</span> !== <span class="hljs-literal">undefined</span>;
+</code></pre>
+<h2 id="es6-&#x6A21;&#x5757;&#x4E0E;-commonjs-&#x6A21;&#x5757;&#x7684;&#x5DEE;&#x5F02;">ES6 &#x6A21;&#x5757;&#x4E0E; CommonJS &#x6A21;&#x5757;&#x7684;&#x5DEE;&#x5F02;</h2>
+<p>&#x8BA8;&#x8BBA; Node &#x52A0;&#x8F7D; ES6 &#x6A21;&#x5757;&#x4E4B;&#x524D;&#xFF0C;&#x5FC5;&#x987B;&#x4E86;&#x89E3; ES6 &#x6A21;&#x5757;&#x4E0E; CommonJS &#x6A21;&#x5757;&#x5B8C;&#x5168;&#x4E0D;&#x540C;&#x3002;</p>
+<p>&#x5B83;&#x4EEC;&#x6709;&#x4E24;&#x4E2A;&#x91CD;&#x5927;&#x5DEE;&#x5F02;&#x3002;</p>
+<ul>
+<li>CommonJS &#x6A21;&#x5757;&#x8F93;&#x51FA;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x503C;&#x7684;&#x62F7;&#x8D1D;&#xFF0C;ES6 &#x6A21;&#x5757;&#x8F93;&#x51FA;&#x7684;&#x662F;&#x503C;&#x7684;&#x5F15;&#x7528;&#x3002;</li>
+<li>CommonJS &#x6A21;&#x5757;&#x662F;&#x8FD0;&#x884C;&#x65F6;&#x52A0;&#x8F7D;&#xFF0C;ES6 &#x6A21;&#x5757;&#x662F;&#x7F16;&#x8BD1;&#x65F6;&#x8F93;&#x51FA;&#x63A5;&#x53E3;&#x3002;</li>
+</ul>
+<p>&#x7B2C;&#x4E8C;&#x4E2A;&#x5DEE;&#x5F02;&#x662F;&#x56E0;&#x4E3A; CommonJS &#x52A0;&#x8F7D;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF08;&#x5373;<code>module.exports</code>&#x5C5E;&#x6027;&#xFF09;&#xFF0C;&#x8BE5;&#x5BF9;&#x8C61;&#x53EA;&#x6709;&#x5728;&#x811A;&#x672C;&#x8FD0;&#x884C;&#x5B8C;&#x624D;&#x4F1A;&#x751F;&#x6210;&#x3002;&#x800C; ES6 &#x6A21;&#x5757;&#x4E0D;&#x662F;&#x5BF9;&#x8C61;&#xFF0C;&#x5B83;&#x7684;&#x5BF9;&#x5916;&#x63A5;&#x53E3;&#x53EA;&#x662F;&#x4E00;&#x79CD;&#x9759;&#x6001;&#x5B9A;&#x4E49;&#xFF0C;&#x5728;&#x4EE3;&#x7801;&#x9759;&#x6001;&#x89E3;&#x6790;&#x9636;&#x6BB5;&#x5C31;&#x4F1A;&#x751F;&#x6210;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x91CD;&#x70B9;&#x89E3;&#x91CA;&#x7B2C;&#x4E00;&#x4E2A;&#x5DEE;&#x5F02;&#x3002;</p>
+<p>CommonJS &#x6A21;&#x5757;&#x8F93;&#x51FA;&#x7684;&#x662F;&#x503C;&#x7684;&#x62F7;&#x8D1D;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x4E00;&#x65E6;&#x8F93;&#x51FA;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x6A21;&#x5757;&#x5185;&#x90E8;&#x7684;&#x53D8;&#x5316;&#x5C31;&#x5F71;&#x54CD;&#x4E0D;&#x5230;&#x8FD9;&#x4E2A;&#x503C;&#x3002;&#x8BF7;&#x770B;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x6587;&#x4EF6;<code>lib.js</code>&#x7684;&#x4F8B;&#x5B50;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// lib.js</span>
+<span class="hljs-keyword">var</span> counter = <span class="hljs-number">3</span>;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">incCounter</span>(<span class="hljs-params"></span>) </span>{
+  counter++;
+}
+<span class="hljs-built_in">module</span>.exports = {
+  counter: counter,
+  incCounter: incCounter,
+};
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x8F93;&#x51FA;&#x5185;&#x90E8;&#x53D8;&#x91CF;<code>counter</code>&#x548C;&#x6539;&#x5199;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x7684;&#x5185;&#x90E8;&#x65B9;&#x6CD5;<code>incCounter</code>&#x3002;&#x7136;&#x540E;&#xFF0C;&#x5728;<code>main.js</code>&#x91CC;&#x9762;&#x52A0;&#x8F7D;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// main.js</span>
+<span class="hljs-keyword">var</span> mod = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./lib&apos;</span>);
+
+<span class="hljs-built_in">console</span>.log(mod.counter);  <span class="hljs-comment">// 3</span>
+mod.incCounter();
+<span class="hljs-built_in">console</span>.log(mod.counter); <span class="hljs-comment">// 3</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x8BF4;&#x660E;&#xFF0C;<code>lib.js</code>&#x6A21;&#x5757;&#x52A0;&#x8F7D;&#x4EE5;&#x540E;&#xFF0C;&#x5B83;&#x7684;&#x5185;&#x90E8;&#x53D8;&#x5316;&#x5C31;&#x5F71;&#x54CD;&#x4E0D;&#x5230;&#x8F93;&#x51FA;&#x7684;<code>mod.counter</code>&#x4E86;&#x3002;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;<code>mod.counter</code>&#x662F;&#x4E00;&#x4E2A;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x7684;&#x503C;&#xFF0C;&#x4F1A;&#x88AB;&#x7F13;&#x5B58;&#x3002;&#x9664;&#x975E;&#x5199;&#x6210;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x624D;&#x80FD;&#x5F97;&#x5230;&#x5185;&#x90E8;&#x53D8;&#x52A8;&#x540E;&#x7684;&#x503C;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// lib.js</span>
+<span class="hljs-keyword">var</span> counter = <span class="hljs-number">3</span>;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">incCounter</span>(<span class="hljs-params"></span>) </span>{
+  counter++;
+}
+<span class="hljs-built_in">module</span>.exports = {
+  get counter() {
+    <span class="hljs-keyword">return</span> counter
+  },
+  incCounter: incCounter,
+};
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x8F93;&#x51FA;&#x7684;<code>counter</code>&#x5C5E;&#x6027;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x4E00;&#x4E2A;&#x53D6;&#x503C;&#x5668;&#x51FD;&#x6570;&#x3002;&#x73B0;&#x5728;&#x518D;&#x6267;&#x884C;<code>main.js</code>&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x6B63;&#x786E;&#x8BFB;&#x53D6;&#x5185;&#x90E8;&#x53D8;&#x91CF;<code>counter</code>&#x7684;&#x53D8;&#x52A8;&#x4E86;&#x3002;</p>
+<pre><code class="lang-bash">$ node main.js
+3
+4
+</code></pre>
+<p>ES6 &#x6A21;&#x5757;&#x7684;&#x8FD0;&#x884C;&#x673A;&#x5236;&#x4E0E; CommonJS &#x4E0D;&#x4E00;&#x6837;&#x3002;JS &#x5F15;&#x64CE;&#x5BF9;&#x811A;&#x672C;&#x9759;&#x6001;&#x5206;&#x6790;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9047;&#x5230;&#x6A21;&#x5757;&#x52A0;&#x8F7D;&#x547D;&#x4EE4;<code>import</code>&#xFF0C;&#x5C31;&#x4F1A;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x53EA;&#x8BFB;&#x5F15;&#x7528;&#x3002;&#x7B49;&#x5230;&#x811A;&#x672C;&#x771F;&#x6B63;&#x6267;&#x884C;&#x65F6;&#xFF0C;&#x518D;&#x6839;&#x636E;&#x8FD9;&#x4E2A;&#x53EA;&#x8BFB;&#x5F15;&#x7528;&#xFF0C;&#x5230;&#x88AB;&#x52A0;&#x8F7D;&#x7684;&#x90A3;&#x4E2A;&#x6A21;&#x5757;&#x91CC;&#x9762;&#x53BB;&#x53D6;&#x503C;&#x3002;&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;ES6 &#x7684;<code>import</code>&#x6709;&#x70B9;&#x50CF; Unix &#x7CFB;&#x7EDF;&#x7684;&#x201C;&#x7B26;&#x53F7;&#x8FDE;&#x63A5;&#x201D;&#xFF0C;&#x539F;&#x59CB;&#x503C;&#x53D8;&#x4E86;&#xFF0C;<code>import</code>&#x52A0;&#x8F7D;&#x7684;&#x503C;&#x4E5F;&#x4F1A;&#x8DDF;&#x7740;&#x53D8;&#x3002;&#x56E0;&#x6B64;&#xFF0C;ES6 &#x6A21;&#x5757;&#x662F;&#x52A8;&#x6001;&#x5F15;&#x7528;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x4F1A;&#x7F13;&#x5B58;&#x503C;&#xFF0C;&#x6A21;&#x5757;&#x91CC;&#x9762;&#x7684;&#x53D8;&#x91CF;&#x7ED1;&#x5B9A;&#x5176;&#x6240;&#x5728;&#x7684;&#x6A21;&#x5757;&#x3002;</p>
+<p>&#x8FD8;&#x662F;&#x4E3E;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// lib.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> counter = <span class="hljs-number">3</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">incCounter</span>(<span class="hljs-params"></span>) </span>{
+  counter++;
+}
+
+<span class="hljs-comment">// main.js</span>
+<span class="hljs-keyword">import</span> { counter, incCounter } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./lib&apos;</span>;
+<span class="hljs-built_in">console</span>.log(counter); <span class="hljs-comment">// 3</span>
+incCounter();
+<span class="hljs-built_in">console</span>.log(counter); <span class="hljs-comment">// 4</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x8BF4;&#x660E;&#xFF0C;ES6 &#x6A21;&#x5757;&#x8F93;&#x5165;&#x7684;&#x53D8;&#x91CF;<code>counter</code>&#x662F;&#x6D3B;&#x7684;&#xFF0C;&#x5B8C;&#x5168;&#x53CD;&#x5E94;&#x5176;&#x6240;&#x5728;&#x6A21;&#x5757;<code>lib.js</code>&#x5185;&#x90E8;&#x7684;&#x53D8;&#x5316;&#x3002;</p>
+<p>&#x518D;&#x4E3E;&#x4E00;&#x4E2A;&#x51FA;&#x73B0;&#x5728;<code>export</code>&#x4E00;&#x8282;&#x4E2D;&#x7684;&#x4F8B;&#x5B50;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// m1.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">var</span> foo = <span class="hljs-string">&apos;bar&apos;</span>;
+setTimeout(() =&gt; foo = <span class="hljs-string">&apos;baz&apos;</span>, <span class="hljs-number">500</span>);
+
+<span class="hljs-comment">// m2.js</span>
+<span class="hljs-keyword">import</span> {foo} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./m1.js&apos;</span>;
+<span class="hljs-built_in">console</span>.log(foo);
+setTimeout(() =&gt; <span class="hljs-built_in">console</span>.log(foo), <span class="hljs-number">500</span>);
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>m1.js</code>&#x7684;&#x53D8;&#x91CF;<code>foo</code>&#xFF0C;&#x5728;&#x521A;&#x52A0;&#x8F7D;&#x65F6;&#x7B49;&#x4E8E;<code>bar</code>&#xFF0C;&#x8FC7;&#x4E86; 500 &#x6BEB;&#x79D2;&#xFF0C;&#x53C8;&#x53D8;&#x4E3A;&#x7B49;&#x4E8E;<code>baz</code>&#x3002;</p>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x770B;&#xFF0C;<code>m2.js</code>&#x80FD;&#x5426;&#x6B63;&#x786E;&#x8BFB;&#x53D6;&#x8FD9;&#x4E2A;&#x53D8;&#x5316;&#x3002;</p>
+<pre><code class="lang-bash">$ babel-node m2.js
+
+bar
+baz
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x8868;&#x660E;&#xFF0C;ES6 &#x6A21;&#x5757;&#x4E0D;&#x4F1A;&#x7F13;&#x5B58;&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#xFF0C;&#x800C;&#x662F;&#x52A8;&#x6001;&#x5730;&#x53BB;&#x88AB;&#x52A0;&#x8F7D;&#x7684;&#x6A21;&#x5757;&#x53D6;&#x503C;&#xFF0C;&#x5E76;&#x4E14;&#x53D8;&#x91CF;&#x603B;&#x662F;&#x7ED1;&#x5B9A;&#x5176;&#x6240;&#x5728;&#x7684;&#x6A21;&#x5757;&#x3002;</p>
+<p>&#x7531;&#x4E8E; ES6 &#x8F93;&#x5165;&#x7684;&#x6A21;&#x5757;&#x53D8;&#x91CF;&#xFF0C;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x201C;&#x7B26;&#x53F7;&#x8FDE;&#x63A5;&#x201D;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x662F;&#x53EA;&#x8BFB;&#x7684;&#xFF0C;&#x5BF9;&#x5B83;&#x8FDB;&#x884C;&#x91CD;&#x65B0;&#x8D4B;&#x503C;&#x4F1A;&#x62A5;&#x9519;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// lib.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> obj = {};
+
+<span class="hljs-comment">// main.js</span>
+<span class="hljs-keyword">import</span> { obj } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./lib&apos;</span>;
+
+obj.prop = <span class="hljs-number">123</span>; <span class="hljs-comment">// OK</span>
+obj = {}; <span class="hljs-comment">// TypeError</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>main.js</code>&#x4ECE;<code>lib.js</code>&#x8F93;&#x5165;&#x53D8;&#x91CF;<code>obj</code>&#xFF0C;&#x53EF;&#x4EE5;&#x5BF9;<code>obj</code>&#x6DFB;&#x52A0;&#x5C5E;&#x6027;&#xFF0C;&#x4F46;&#x662F;&#x91CD;&#x65B0;&#x8D4B;&#x503C;&#x5C31;&#x4F1A;&#x62A5;&#x9519;&#x3002;&#x56E0;&#x4E3A;&#x53D8;&#x91CF;<code>obj</code>&#x6307;&#x5411;&#x7684;&#x5730;&#x5740;&#x662F;&#x53EA;&#x8BFB;&#x7684;&#xFF0C;&#x4E0D;&#x80FD;&#x91CD;&#x65B0;&#x8D4B;&#x503C;&#xFF0C;&#x8FD9;&#x5C31;&#x597D;&#x6BD4;<code>main.js</code>&#x521B;&#x9020;&#x4E86;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;<code>obj</code>&#x7684;<code>const</code>&#x53D8;&#x91CF;&#x3002;</p>
+<p>&#x6700;&#x540E;&#xFF0C;<code>export</code>&#x901A;&#x8FC7;&#x63A5;&#x53E3;&#xFF0C;&#x8F93;&#x51FA;&#x7684;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x503C;&#x3002;&#x4E0D;&#x540C;&#x7684;&#x811A;&#x672C;&#x52A0;&#x8F7D;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x5F97;&#x5230;&#x7684;&#x90FD;&#x662F;&#x540C;&#x6837;&#x7684;&#x5B9E;&#x4F8B;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// mod.js</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">C</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">this</span>.sum = <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">this</span>.add = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.sum += <span class="hljs-number">1</span>;
+  };
+  <span class="hljs-keyword">this</span>.show = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.sum);
+  };
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> c = <span class="hljs-keyword">new</span> C();
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x811A;&#x672C;<code>mod.js</code>&#xFF0C;&#x8F93;&#x51FA;&#x7684;&#x662F;&#x4E00;&#x4E2A;<code>C</code>&#x7684;&#x5B9E;&#x4F8B;&#x3002;&#x4E0D;&#x540C;&#x7684;&#x811A;&#x672C;&#x52A0;&#x8F7D;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x5F97;&#x5230;&#x7684;&#x90FD;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// x.js</span>
+<span class="hljs-keyword">import</span> {c} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./mod&apos;</span>;
+c.add();
+
+<span class="hljs-comment">// y.js</span>
+<span class="hljs-keyword">import</span> {c} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./mod&apos;</span>;
+c.show();
+
+<span class="hljs-comment">// main.js</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./x&apos;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./y&apos;</span>;
+</code></pre>
+<p>&#x73B0;&#x5728;&#x6267;&#x884C;<code>main.js</code>&#xFF0C;&#x8F93;&#x51FA;&#x7684;&#x662F;<code>1</code>&#x3002;</p>
+<pre><code class="lang-bash">$ babel-node main.js
+1
+</code></pre>
+<p>&#x8FD9;&#x5C31;&#x8BC1;&#x660E;&#x4E86;<code>x.js</code>&#x548C;<code>y.js</code>&#x52A0;&#x8F7D;&#x7684;&#x90FD;&#x662F;<code>C</code>&#x7684;&#x540C;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x3002;</p>
+<h2 id="node-&#x52A0;&#x8F7D;">Node &#x52A0;&#x8F7D;</h2>
+<h3 id="&#x6982;&#x8FF0;">&#x6982;&#x8FF0;</h3>
+<p>Node &#x5BF9; ES6 &#x6A21;&#x5757;&#x7684;&#x5904;&#x7406;&#x6BD4;&#x8F83;&#x9EBB;&#x70E6;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x6709;&#x81EA;&#x5DF1;&#x7684; CommonJS &#x6A21;&#x5757;&#x683C;&#x5F0F;&#xFF0C;&#x4E0E; ES6 &#x6A21;&#x5757;&#x683C;&#x5F0F;&#x662F;&#x4E0D;&#x517C;&#x5BB9;&#x7684;&#x3002;&#x76EE;&#x524D;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x662F;&#xFF0C;&#x5C06;&#x4E24;&#x8005;&#x5206;&#x5F00;&#xFF0C;ES6 &#x6A21;&#x5757;&#x548C; CommonJS &#x91C7;&#x7528;&#x5404;&#x81EA;&#x7684;&#x52A0;&#x8F7D;&#x65B9;&#x6848;&#x3002;</p>
+<p>Node &#x8981;&#x6C42; ES6 &#x6A21;&#x5757;&#x91C7;&#x7528;<code>.mjs</code>&#x540E;&#x7F00;&#x6587;&#x4EF6;&#x540D;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x53EA;&#x8981;&#x811A;&#x672C;&#x6587;&#x4EF6;&#x91CC;&#x9762;&#x4F7F;&#x7528;<code>import</code>&#x6216;&#x8005;<code>export</code>&#x547D;&#x4EE4;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x5FC5;&#x987B;&#x91C7;&#x7528;<code>.mjs</code>&#x540E;&#x7F00;&#x540D;&#x3002;<code>require</code>&#x547D;&#x4EE4;&#x4E0D;&#x80FD;&#x52A0;&#x8F7D;<code>.mjs</code>&#x6587;&#x4EF6;&#xFF0C;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x53EA;&#x6709;<code>import</code>&#x547D;&#x4EE4;&#x624D;&#x53EF;&#x4EE5;&#x52A0;&#x8F7D;<code>.mjs</code>&#x6587;&#x4EF6;&#x3002;&#x53CD;&#x8FC7;&#x6765;&#xFF0C;<code>.mjs</code>&#x6587;&#x4EF6;&#x91CC;&#x9762;&#x4E5F;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;<code>require</code>&#x547D;&#x4EE4;&#xFF0C;&#x5FC5;&#x987B;&#x4F7F;&#x7528;<code>import</code>&#x3002;</p>
+<p>&#x76EE;&#x524D;&#xFF0C;&#x8FD9;&#x9879;&#x529F;&#x80FD;&#x8FD8;&#x5728;&#x8BD5;&#x9A8C;&#x9636;&#x6BB5;&#x3002;&#x5B89;&#x88C5; Node v8.5.0 &#x6216;&#x4EE5;&#x4E0A;&#x7248;&#x672C;&#xFF0C;&#x8981;&#x7528;<code>--experimental-modules</code>&#x53C2;&#x6570;&#x624D;&#x80FD;&#x6253;&#x5F00;&#x8BE5;&#x529F;&#x80FD;&#x3002;</p>
+<pre><code class="lang-bash">$ node --experimental-modules my-app.mjs
+</code></pre>
+<p>&#x4E3A;&#x4E86;&#x4E0E;&#x6D4F;&#x89C8;&#x5668;&#x7684;<code>import</code>&#x52A0;&#x8F7D;&#x89C4;&#x5219;&#x76F8;&#x540C;&#xFF0C;Node &#x7684;<code>.mjs</code>&#x6587;&#x4EF6;&#x652F;&#x6301; URL &#x8DEF;&#x5F84;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./foo?query=1&apos;</span>; <span class="hljs-comment">// &#x52A0;&#x8F7D; ./foo &#x4F20;&#x5165;&#x53C2;&#x6570; ?query=1</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x811A;&#x672C;&#x8DEF;&#x5F84;&#x5E26;&#x6709;&#x53C2;&#x6570;<code>?query=1</code>&#xFF0C;Node &#x4F1A;&#x6309; URL &#x89C4;&#x5219;&#x89E3;&#x8BFB;&#x3002;&#x540C;&#x4E00;&#x4E2A;&#x811A;&#x672C;&#x53EA;&#x8981;&#x53C2;&#x6570;&#x4E0D;&#x540C;&#xFF0C;&#x5C31;&#x4F1A;&#x88AB;&#x52A0;&#x8F7D;&#x591A;&#x6B21;&#xFF0C;&#x5E76;&#x4E14;&#x4FDD;&#x5B58;&#x6210;&#x4E0D;&#x540C;&#x7684;&#x7F13;&#x5B58;&#x3002;&#x7531;&#x4E8E;&#x8FD9;&#x4E2A;&#x539F;&#x56E0;&#xFF0C;&#x53EA;&#x8981;&#x6587;&#x4EF6;&#x540D;&#x4E2D;&#x542B;&#x6709;<code>:</code>&#x3001;<code>%</code>&#x3001;<code>#</code>&#x3001;<code>?</code>&#x7B49;&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#xFF0C;&#x6700;&#x597D;&#x5BF9;&#x8FD9;&#x4E9B;&#x5B57;&#x7B26;&#x8FDB;&#x884C;&#x8F6C;&#x4E49;&#x3002;</p>
+<p>&#x76EE;&#x524D;&#xFF0C;Node &#x7684;<code>import</code>&#x547D;&#x4EE4;&#x53EA;&#x652F;&#x6301;&#x52A0;&#x8F7D;&#x672C;&#x5730;&#x6A21;&#x5757;&#xFF08;<code>file:</code>&#x534F;&#x8BAE;&#xFF09;&#xFF0C;&#x4E0D;&#x652F;&#x6301;&#x52A0;&#x8F7D;&#x8FDC;&#x7A0B;&#x6A21;&#x5757;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6A21;&#x5757;&#x540D;&#x4E0D;&#x542B;&#x8DEF;&#x5F84;&#xFF0C;&#x90A3;&#x4E48;<code>import</code>&#x547D;&#x4EE4;&#x4F1A;&#x53BB;<code>node_modules</code>&#x76EE;&#x5F55;&#x5BFB;&#x627E;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> <span class="hljs-string">&apos;baz&apos;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;abc/123&apos;</span>;
+</code></pre>
+<p>&#x5982;&#x679C;&#x6A21;&#x5757;&#x540D;&#x5305;&#x542B;&#x8DEF;&#x5F84;&#xFF0C;&#x90A3;&#x4E48;<code>import</code>&#x547D;&#x4EE4;&#x4F1A;&#x6309;&#x7167;&#x8DEF;&#x5F84;&#x53BB;&#x5BFB;&#x627E;&#x8FD9;&#x4E2A;&#x540D;&#x5B57;&#x7684;&#x811A;&#x672C;&#x6587;&#x4EF6;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> <span class="hljs-string">&apos;file:///etc/config/app.json&apos;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./foo&apos;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./foo?search&apos;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;../bar&apos;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;/baz&apos;</span>;
+</code></pre>
+<p>&#x5982;&#x679C;&#x811A;&#x672C;&#x6587;&#x4EF6;&#x7701;&#x7565;&#x4E86;&#x540E;&#x7F00;&#x540D;&#xFF0C;&#x6BD4;&#x5982;<code>import &apos;./foo&apos;</code>&#xFF0C;Node &#x4F1A;&#x4F9D;&#x6B21;&#x5C1D;&#x8BD5;&#x56DB;&#x4E2A;&#x540E;&#x7F00;&#x540D;&#xFF1A;<code>./foo.mjs</code>&#x3001;<code>./foo.js</code>&#x3001;<code>./foo.json</code>&#x3001;<code>./foo.node</code>&#x3002;&#x5982;&#x679C;&#x8FD9;&#x4E9B;&#x811A;&#x672C;&#x6587;&#x4EF6;&#x90FD;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;Node &#x5C31;&#x4F1A;&#x53BB;&#x52A0;&#x8F7D;<code>./foo/package.json</code>&#x7684;<code>main</code>&#x5B57;&#x6BB5;&#x6307;&#x5B9A;&#x7684;&#x811A;&#x672C;&#x3002;&#x5982;&#x679C;<code>./foo/package.json</code>&#x4E0D;&#x5B58;&#x5728;&#x6216;&#x8005;&#x6CA1;&#x6709;<code>main</code>&#x5B57;&#x6BB5;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4F1A;&#x4F9D;&#x6B21;&#x52A0;&#x8F7D;<code>./foo/index.mjs</code>&#x3001;<code>./foo/index.js</code>&#x3001;<code>./foo/index.json</code>&#x3001;<code>./foo/index.node</code>&#x3002;&#x5982;&#x679C;&#x4EE5;&#x4E0A;&#x56DB;&#x4E2A;&#x6587;&#x4EF6;&#x8FD8;&#x662F;&#x90FD;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5C31;&#x4F1A;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x3002;</p>
+<p>&#x6700;&#x540E;&#xFF0C;Node &#x7684;<code>import</code>&#x547D;&#x4EE4;&#x662F;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#xFF0C;&#x8FD9;&#x4E00;&#x70B9;&#x4E0E;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x5904;&#x7406;&#x65B9;&#x6CD5;&#x76F8;&#x540C;&#x3002;</p>
+<h3 id="&#x5185;&#x90E8;&#x53D8;&#x91CF;">&#x5185;&#x90E8;&#x53D8;&#x91CF;</h3>
+<p>ES6 &#x6A21;&#x5757;&#x5E94;&#x8BE5;&#x662F;&#x901A;&#x7528;&#x7684;&#xFF0C;&#x540C;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x4E0D;&#x7528;&#x4FEE;&#x6539;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x7528;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x73AF;&#x5883;&#x548C;&#x670D;&#x52A1;&#x5668;&#x73AF;&#x5883;&#x3002;&#x4E3A;&#x4E86;&#x8FBE;&#x5230;&#x8FD9;&#x4E2A;&#x76EE;&#x6807;&#xFF0C;Node &#x89C4;&#x5B9A; ES6 &#x6A21;&#x5757;&#x4E4B;&#x4E2D;&#x4E0D;&#x80FD;&#x4F7F;&#x7528; CommonJS &#x6A21;&#x5757;&#x7684;&#x7279;&#x6709;&#x7684;&#x4E00;&#x4E9B;&#x5185;&#x90E8;&#x53D8;&#x91CF;&#x3002;</p>
+<p>&#x9996;&#x5148;&#xFF0C;&#x5C31;&#x662F;<code>this</code>&#x5173;&#x952E;&#x5B57;&#x3002;ES6 &#x6A21;&#x5757;&#x4E4B;&#x4E2D;&#xFF0C;&#x9876;&#x5C42;&#x7684;<code>this</code>&#x6307;&#x5411;<code>undefined</code>&#xFF1B;CommonJS &#x6A21;&#x5757;&#x7684;&#x9876;&#x5C42;<code>this</code>&#x6307;&#x5411;&#x5F53;&#x524D;&#x6A21;&#x5757;&#xFF0C;&#x8FD9;&#x662F;&#x4E24;&#x8005;&#x7684;&#x4E00;&#x4E2A;&#x91CD;&#x5927;&#x5DEE;&#x5F02;&#x3002;</p>
+<p>&#x5176;&#x6B21;&#xFF0C;&#x4EE5;&#x4E0B;&#x8FD9;&#x4E9B;&#x9876;&#x5C42;&#x53D8;&#x91CF;&#x5728; ES6 &#x6A21;&#x5757;&#x4E4B;&#x4E2D;&#x90FD;&#x662F;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x3002;</p>
+<ul>
+<li><code>arguments</code></li>
+<li><code>require</code></li>
+<li><code>module</code></li>
+<li><code>exports</code></li>
+<li><code>__filename</code></li>
+<li><code>__dirname</code></li>
+</ul>
+<p>&#x5982;&#x679C;&#x4F60;&#x4E00;&#x5B9A;&#x8981;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x53D8;&#x91CF;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;&#x53D8;&#x901A;&#x65B9;&#x6CD5;&#xFF0C;&#x5C31;&#x662F;&#x5199;&#x4E00;&#x4E2A; CommonJS &#x6A21;&#x5757;&#x8F93;&#x51FA;&#x8FD9;&#x4E9B;&#x53D8;&#x91CF;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x7528; ES6 &#x6A21;&#x5757;&#x52A0;&#x8F7D;&#x8FD9;&#x4E2A; CommonJS &#x6A21;&#x5757;&#x3002;&#x4F46;&#x662F;&#x8FD9;&#x6837;&#x4E00;&#x6765;&#xFF0C;&#x8BE5; ES6 &#x6A21;&#x5757;&#x5C31;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x7528;&#x4E8E;&#x6D4F;&#x89C8;&#x5668;&#x73AF;&#x5883;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x63A8;&#x8350;&#x8FD9;&#x6837;&#x505A;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// expose.js</span>
+<span class="hljs-built_in">module</span>.exports = {__dirname};
+
+<span class="hljs-comment">// use.mjs</span>
+<span class="hljs-keyword">import</span> expose <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./expose.js&apos;</span>;
+<span class="hljs-keyword">const</span> {__dirname} = expose;
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>expose.js</code>&#x662F;&#x4E00;&#x4E2A; CommonJS &#x6A21;&#x5757;&#xFF0C;&#x8F93;&#x51FA;&#x53D8;&#x91CF;<code>__dirname</code>&#xFF0C;&#x8BE5;&#x53D8;&#x91CF;&#x5728; ES6 &#x6A21;&#x5757;&#x4E4B;&#x4E2D;&#x4E0D;&#x5B58;&#x5728;&#x3002;ES6 &#x6A21;&#x5757;&#x52A0;&#x8F7D;<code>expose.js</code>&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x5230;<code>__dirname</code>&#x3002;</p>
+<h3 id="es6-&#x6A21;&#x5757;&#x52A0;&#x8F7D;-commonjs-&#x6A21;&#x5757;">ES6 &#x6A21;&#x5757;&#x52A0;&#x8F7D; CommonJS &#x6A21;&#x5757;</h3>
+<p>CommonJS &#x6A21;&#x5757;&#x7684;&#x8F93;&#x51FA;&#x90FD;&#x5B9A;&#x4E49;&#x5728;<code>module.exports</code>&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x4E0A;&#x9762;&#x3002;Node &#x7684;<code>import</code>&#x547D;&#x4EE4;&#x52A0;&#x8F7D; CommonJS &#x6A21;&#x5757;&#xFF0C;Node &#x4F1A;&#x81EA;&#x52A8;&#x5C06;<code>module.exports</code>&#x5C5E;&#x6027;&#xFF0C;&#x5F53;&#x4F5C;&#x6A21;&#x5757;&#x7684;&#x9ED8;&#x8BA4;&#x8F93;&#x51FA;&#xFF0C;&#x5373;&#x7B49;&#x540C;&#x4E8E;<code>export default xxx</code>&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A; CommonJS &#x6A21;&#x5757;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// a.js</span>
+<span class="hljs-built_in">module</span>.exports = {
+  foo: <span class="hljs-string">&apos;hello&apos;</span>,
+  bar: <span class="hljs-string">&apos;world&apos;</span>
+};
+
+<span class="hljs-comment">// &#x7B49;&#x540C;&#x4E8E;</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  foo: <span class="hljs-string">&apos;hello&apos;</span>,
+  bar: <span class="hljs-string">&apos;world&apos;</span>
+};
+</code></pre>
+<p><code>import</code>&#x547D;&#x4EE4;&#x52A0;&#x8F7D;&#x4E0A;&#x9762;&#x7684;&#x6A21;&#x5757;&#xFF0C;<code>module.exports</code>&#x4F1A;&#x88AB;&#x89C6;&#x4E3A;&#x9ED8;&#x8BA4;&#x8F93;&#x51FA;&#xFF0C;&#x5373;<code>import</code>&#x547D;&#x4EE4;&#x5B9E;&#x9645;&#x4E0A;&#x8F93;&#x5165;&#x7684;&#x662F;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;<code>{ default: module.exports }</code>&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#xFF0C;&#x4E00;&#x5171;&#x6709;&#x4E09;&#x79CD;&#x5199;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x62FF;&#x5230; CommonJS &#x6A21;&#x5757;&#x7684;<code>module.exports</code>&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x5199;&#x6CD5;&#x4E00;</span>
+<span class="hljs-keyword">import</span> baz <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./a&apos;</span>;
+<span class="hljs-comment">// baz = {foo: &apos;hello&apos;, bar: &apos;world&apos;};</span>
+
+<span class="hljs-comment">// &#x5199;&#x6CD5;&#x4E8C;</span>
+<span class="hljs-keyword">import</span> {<span class="hljs-keyword">default</span> <span class="hljs-keyword">as</span> baz} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./a&apos;</span>;
+<span class="hljs-comment">// baz = {foo: &apos;hello&apos;, bar: &apos;world&apos;};</span>
+
+<span class="hljs-comment">// &#x5199;&#x6CD5;&#x4E09;</span>
+<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> baz <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./a&apos;</span>;
+<span class="hljs-comment">// baz = {</span>
+<span class="hljs-comment">//   get default() {return module.exports;},</span>
+<span class="hljs-comment">//   get foo() {return this.default.foo}.bind(baz),</span>
+<span class="hljs-comment">//   get bar() {return this.default.bar}.bind(baz)</span>
+<span class="hljs-comment">// }</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x7684;&#x7B2C;&#x4E09;&#x79CD;&#x5199;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>baz.default</code>&#x62FF;&#x5230;<code>module.exports</code>&#x3002;<code>foo</code>&#x5C5E;&#x6027;&#x548C;<code>bar</code>&#x5C5E;&#x6027;&#x5C31;&#x662F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x62FF;&#x5230;&#x4E86;<code>module.exports</code>&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E9B;&#x4F8B;&#x5B50;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// b.js</span>
+<span class="hljs-built_in">module</span>.exports = <span class="hljs-literal">null</span>;
+
+<span class="hljs-comment">// es.js</span>
+<span class="hljs-keyword">import</span> foo <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./b&apos;</span>;
+<span class="hljs-comment">// foo = null;</span>
+
+<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> bar <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./b&apos;</span>;
+<span class="hljs-comment">// bar = { default:null };</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>es.js</code>&#x91C7;&#x7528;&#x7B2C;&#x4E8C;&#x79CD;&#x5199;&#x6CD5;&#x65F6;&#xFF0C;&#x8981;&#x901A;&#x8FC7;<code>bar.default</code>&#x8FD9;&#x6837;&#x7684;&#x5199;&#x6CD5;&#xFF0C;&#x624D;&#x80FD;&#x62FF;&#x5230;<code>module.exports</code>&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// c.js</span>
+<span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">two</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>;
+};
+
+<span class="hljs-comment">// es.js</span>
+<span class="hljs-keyword">import</span> foo <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./c&apos;</span>;
+foo(); <span class="hljs-comment">// 2</span>
+
+<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> bar <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./c&apos;</span>;
+bar.default(); <span class="hljs-comment">// 2</span>
+bar(); <span class="hljs-comment">// throws, bar is not a function</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>bar</code>&#x672C;&#x8EAB;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x4E0D;&#x80FD;&#x5F53;&#x4F5C;&#x51FD;&#x6570;&#x8C03;&#x7528;&#xFF0C;&#x53EA;&#x80FD;&#x901A;&#x8FC7;<code>bar.default</code>&#x8C03;&#x7528;&#x3002;</p>
+<p>CommonJS &#x6A21;&#x5757;&#x7684;&#x8F93;&#x51FA;&#x7F13;&#x5B58;&#x673A;&#x5236;&#xFF0C;&#x5728; ES6 &#x52A0;&#x8F7D;&#x65B9;&#x5F0F;&#x4E0B;&#x4F9D;&#x7136;&#x6709;&#x6548;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// foo.js</span>
+<span class="hljs-built_in">module</span>.exports = <span class="hljs-number">123</span>;
+setTimeout(_ =&gt; <span class="hljs-built_in">module</span>.exports = <span class="hljs-literal">null</span>);
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x5BF9;&#x4E8E;&#x52A0;&#x8F7D;<code>foo.js</code>&#x7684;&#x811A;&#x672C;&#xFF0C;<code>module.exports</code>&#x5C06;&#x4E00;&#x76F4;&#x662F;<code>123</code>&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x53D8;&#x6210;<code>null</code>&#x3002;</p>
+<p>&#x7531;&#x4E8E; ES6 &#x6A21;&#x5757;&#x662F;&#x7F16;&#x8BD1;&#x65F6;&#x786E;&#x5B9A;&#x8F93;&#x51FA;&#x63A5;&#x53E3;&#xFF0C;CommonJS &#x6A21;&#x5757;&#x662F;&#x8FD0;&#x884C;&#x65F6;&#x786E;&#x5B9A;&#x8F93;&#x51FA;&#x63A5;&#x53E3;&#xFF0C;&#x6240;&#x4EE5;&#x91C7;&#x7528;<code>import</code>&#x547D;&#x4EE4;&#x52A0;&#x8F7D; CommonJS &#x6A21;&#x5757;&#x65F6;&#xFF0C;&#x4E0D;&#x5141;&#x8BB8;&#x91C7;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x5199;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x4E0D;&#x6B63;&#x786E;</span>
+<span class="hljs-keyword">import</span> { readFile } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;fs&apos;</span>;
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x5199;&#x6CD5;&#x4E0D;&#x6B63;&#x786E;&#xFF0C;&#x56E0;&#x4E3A;<code>fs</code>&#x662F; CommonJS &#x683C;&#x5F0F;&#xFF0C;&#x53EA;&#x6709;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x624D;&#x80FD;&#x786E;&#x5B9A;<code>readFile</code>&#x63A5;&#x53E3;&#xFF0C;&#x800C;<code>import</code>&#x547D;&#x4EE4;&#x8981;&#x6C42;&#x7F16;&#x8BD1;&#x65F6;&#x5C31;&#x786E;&#x5B9A;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x3002;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x6539;&#x4E3A;&#x6574;&#x4F53;&#x8F93;&#x5165;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x6B63;&#x786E;&#x7684;&#x5199;&#x6CD5;&#x4E00;</span>
+<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> express <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;express&apos;</span>;
+<span class="hljs-keyword">const</span> app = express.default();
+
+<span class="hljs-comment">// &#x6B63;&#x786E;&#x7684;&#x5199;&#x6CD5;&#x4E8C;</span>
+<span class="hljs-keyword">import</span> express <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;express&apos;</span>;
+<span class="hljs-keyword">const</span> app = express();
+</code></pre>
+<h3 id="commonjs-&#x6A21;&#x5757;&#x52A0;&#x8F7D;-es6-&#x6A21;&#x5757;">CommonJS &#x6A21;&#x5757;&#x52A0;&#x8F7D; ES6 &#x6A21;&#x5757;</h3>
+<p>CommonJS &#x6A21;&#x5757;&#x52A0;&#x8F7D; ES6 &#x6A21;&#x5757;&#xFF0C;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;<code>require</code>&#x547D;&#x4EE4;&#xFF0C;&#x800C;&#x8981;&#x4F7F;&#x7528;<code>import()</code>&#x51FD;&#x6570;&#x3002;ES6 &#x6A21;&#x5757;&#x7684;&#x6240;&#x6709;&#x8F93;&#x51FA;&#x63A5;&#x53E3;&#xFF0C;&#x4F1A;&#x6210;&#x4E3A;&#x8F93;&#x5165;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// es.mjs</span>
+<span class="hljs-keyword">let</span> foo = { bar: <span class="hljs-string">&apos;my-default&apos;</span> };
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> foo;
+
+<span class="hljs-comment">// cjs.js</span>
+<span class="hljs-keyword">const</span> es_namespace = <span class="hljs-keyword">await</span> <span class="hljs-keyword">import</span>(<span class="hljs-string">&apos;./es.mjs&apos;</span>);
+<span class="hljs-comment">// es_namespace = {</span>
+<span class="hljs-comment">//   get default() {</span>
+<span class="hljs-comment">//     ...</span>
+<span class="hljs-comment">//   }</span>
+<span class="hljs-comment">// }</span>
+<span class="hljs-built_in">console</span>.log(es_namespace.default);
+<span class="hljs-comment">// { bar:&apos;my-default&apos; }</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>default</code>&#x63A5;&#x53E3;&#x53D8;&#x6210;&#x4E86;<code>es_namespace.default</code>&#x5C5E;&#x6027;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// es.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> foo = { bar:<span class="hljs-string">&apos;my-default&apos;</span> };
+<span class="hljs-keyword">export</span> { foo <span class="hljs-keyword">as</span> bar };
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span>(<span class="hljs-params"></span>) </span>{};
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">c</span> </span>{};
+
+<span class="hljs-comment">// cjs.js</span>
+<span class="hljs-keyword">const</span> es_namespace = <span class="hljs-keyword">await</span> <span class="hljs-keyword">import</span>(<span class="hljs-string">&apos;./es&apos;</span>);
+<span class="hljs-comment">// es_namespace = {</span>
+<span class="hljs-comment">//   get foo() {return foo;}</span>
+<span class="hljs-comment">//   get bar() {return foo;}</span>
+<span class="hljs-comment">//   get f() {return f;}</span>
+<span class="hljs-comment">//   get c() {return c;}</span>
+<span class="hljs-comment">// }</span>
+</code></pre>
+<h2 id="&#x5FAA;&#x73AF;&#x52A0;&#x8F7D;">&#x5FAA;&#x73AF;&#x52A0;&#x8F7D;</h2>
+<p>&#x201C;&#x5FAA;&#x73AF;&#x52A0;&#x8F7D;&#x201D;&#xFF08;circular dependency&#xFF09;&#x6307;&#x7684;&#x662F;&#xFF0C;<code>a</code>&#x811A;&#x672C;&#x7684;&#x6267;&#x884C;&#x4F9D;&#x8D56;<code>b</code>&#x811A;&#x672C;&#xFF0C;&#x800C;<code>b</code>&#x811A;&#x672C;&#x7684;&#x6267;&#x884C;&#x53C8;&#x4F9D;&#x8D56;<code>a</code>&#x811A;&#x672C;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// a.js</span>
+<span class="hljs-keyword">var</span> b = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;b&apos;</span>);
+
+<span class="hljs-comment">// b.js</span>
+<span class="hljs-keyword">var</span> a = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;a&apos;</span>);
+</code></pre>
+<p>&#x901A;&#x5E38;&#xFF0C;&#x201C;&#x5FAA;&#x73AF;&#x52A0;&#x8F7D;&#x201D;&#x8868;&#x793A;&#x5B58;&#x5728;&#x5F3A;&#x8026;&#x5408;&#xFF0C;&#x5982;&#x679C;&#x5904;&#x7406;&#x4E0D;&#x597D;&#xFF0C;&#x8FD8;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x9012;&#x5F52;&#x52A0;&#x8F7D;&#xFF0C;&#x4F7F;&#x5F97;&#x7A0B;&#x5E8F;&#x65E0;&#x6CD5;&#x6267;&#x884C;&#xFF0C;&#x56E0;&#x6B64;&#x5E94;&#x8BE5;&#x907F;&#x514D;&#x51FA;&#x73B0;&#x3002;</p>
+<p>&#x4F46;&#x662F;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x8FD9;&#x662F;&#x5F88;&#x96BE;&#x907F;&#x514D;&#x7684;&#xFF0C;&#x5C24;&#x5176;&#x662F;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x590D;&#x6742;&#x7684;&#x5927;&#x9879;&#x76EE;&#xFF0C;&#x5F88;&#x5BB9;&#x6613;&#x51FA;&#x73B0;<code>a</code>&#x4F9D;&#x8D56;<code>b</code>&#xFF0C;<code>b</code>&#x4F9D;&#x8D56;<code>c</code>&#xFF0C;<code>c</code>&#x53C8;&#x4F9D;&#x8D56;<code>a</code>&#x8FD9;&#x6837;&#x7684;&#x60C5;&#x51B5;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x6A21;&#x5757;&#x52A0;&#x8F7D;&#x673A;&#x5236;&#x5FC5;&#x987B;&#x8003;&#x8651;&#x201C;&#x5FAA;&#x73AF;&#x52A0;&#x8F7D;&#x201D;&#x7684;&#x60C5;&#x51B5;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E; JavaScript &#x8BED;&#x8A00;&#x6765;&#x8BF4;&#xFF0C;&#x76EE;&#x524D;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x4E24;&#x79CD;&#x6A21;&#x5757;&#x683C;&#x5F0F; CommonJS &#x548C; ES6&#xFF0C;&#x5904;&#x7406;&#x201C;&#x5FAA;&#x73AF;&#x52A0;&#x8F7D;&#x201D;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x4E0D;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#x4E5F;&#x4E0D;&#x4E00;&#x6837;&#x3002;</p>
+<h3 id="commonjs-&#x6A21;&#x5757;&#x7684;&#x52A0;&#x8F7D;&#x539F;&#x7406;">CommonJS &#x6A21;&#x5757;&#x7684;&#x52A0;&#x8F7D;&#x539F;&#x7406;</h3>
+<p>&#x4ECB;&#x7ECD; ES6 &#x5982;&#x4F55;&#x5904;&#x7406;&#x201C;&#x5FAA;&#x73AF;&#x52A0;&#x8F7D;&#x201D;&#x4E4B;&#x524D;&#xFF0C;&#x5148;&#x4ECB;&#x7ECD;&#x76EE;&#x524D;&#x6700;&#x6D41;&#x884C;&#x7684; CommonJS &#x6A21;&#x5757;&#x683C;&#x5F0F;&#x7684;&#x52A0;&#x8F7D;&#x539F;&#x7406;&#x3002;</p>
+<p>CommonJS &#x7684;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x811A;&#x672C;&#x6587;&#x4EF6;&#x3002;<code>require</code>&#x547D;&#x4EE4;&#x7B2C;&#x4E00;&#x6B21;&#x52A0;&#x8F7D;&#x8BE5;&#x811A;&#x672C;&#xFF0C;&#x5C31;&#x4F1A;&#x6267;&#x884C;&#x6574;&#x4E2A;&#x811A;&#x672C;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x5185;&#x5B58;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;</p>
+<pre><code class="lang-javascript">{
+  id: <span class="hljs-string">&apos;...&apos;</span>,
+  exports: { ... },
+  loaded: <span class="hljs-literal">true</span>,
+  ...
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x5C31;&#x662F; Node &#x5185;&#x90E8;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#x540E;&#x751F;&#x6210;&#x7684;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;&#x8BE5;&#x5BF9;&#x8C61;&#x7684;<code>id</code>&#x5C5E;&#x6027;&#x662F;&#x6A21;&#x5757;&#x540D;&#xFF0C;<code>exports</code>&#x5C5E;&#x6027;&#x662F;&#x6A21;&#x5757;&#x8F93;&#x51FA;&#x7684;&#x5404;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;<code>loaded</code>&#x5C5E;&#x6027;&#x662F;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x8BE5;&#x6A21;&#x5757;&#x7684;&#x811A;&#x672C;&#x662F;&#x5426;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x3002;&#x5176;&#x4ED6;&#x8FD8;&#x6709;&#x5F88;&#x591A;&#x5C5E;&#x6027;&#xFF0C;&#x8FD9;&#x91CC;&#x90FD;&#x7701;&#x7565;&#x4E86;&#x3002;</p>
+<p>&#x4EE5;&#x540E;&#x9700;&#x8981;&#x7528;&#x5230;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x4F1A;&#x5230;<code>exports</code>&#x5C5E;&#x6027;&#x4E0A;&#x9762;&#x53D6;&#x503C;&#x3002;&#x5373;&#x4F7F;&#x518D;&#x6B21;&#x6267;&#x884C;<code>require</code>&#x547D;&#x4EE4;&#xFF0C;&#x4E5F;&#x4E0D;&#x4F1A;&#x518D;&#x6B21;&#x6267;&#x884C;&#x8BE5;&#x6A21;&#x5757;&#xFF0C;&#x800C;&#x662F;&#x5230;&#x7F13;&#x5B58;&#x4E4B;&#x4E2D;&#x53D6;&#x503C;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;CommonJS &#x6A21;&#x5757;&#x65E0;&#x8BBA;&#x52A0;&#x8F7D;&#x591A;&#x5C11;&#x6B21;&#xFF0C;&#x90FD;&#x53EA;&#x4F1A;&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x52A0;&#x8F7D;&#x65F6;&#x8FD0;&#x884C;&#x4E00;&#x6B21;&#xFF0C;&#x4EE5;&#x540E;&#x518D;&#x52A0;&#x8F7D;&#xFF0C;&#x5C31;&#x8FD4;&#x56DE;&#x7B2C;&#x4E00;&#x6B21;&#x8FD0;&#x884C;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x9664;&#x975E;&#x624B;&#x52A8;&#x6E05;&#x9664;&#x7CFB;&#x7EDF;&#x7F13;&#x5B58;&#x3002;</p>
+<h3 id="commonjs-&#x6A21;&#x5757;&#x7684;&#x5FAA;&#x73AF;&#x52A0;&#x8F7D;">CommonJS &#x6A21;&#x5757;&#x7684;&#x5FAA;&#x73AF;&#x52A0;&#x8F7D;</h3>
+<p>CommonJS &#x6A21;&#x5757;&#x7684;&#x91CD;&#x8981;&#x7279;&#x6027;&#x662F;&#x52A0;&#x8F7D;&#x65F6;&#x6267;&#x884C;&#xFF0C;&#x5373;&#x811A;&#x672C;&#x4EE3;&#x7801;&#x5728;<code>require</code>&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x4F1A;&#x5168;&#x90E8;&#x6267;&#x884C;&#x3002;&#x4E00;&#x65E6;&#x51FA;&#x73B0;&#x67D0;&#x4E2A;&#x6A21;&#x5757;&#x88AB;&quot;&#x5FAA;&#x73AF;&#x52A0;&#x8F7D;&quot;&#xFF0C;&#x5C31;&#x53EA;&#x8F93;&#x51FA;&#x5DF2;&#x7ECF;&#x6267;&#x884C;&#x7684;&#x90E8;&#x5206;&#xFF0C;&#x8FD8;&#x672A;&#x6267;&#x884C;&#x7684;&#x90E8;&#x5206;&#x4E0D;&#x4F1A;&#x8F93;&#x51FA;&#x3002;</p>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x6765;&#x770B;&#xFF0C;Node <a href="https://nodejs.org/api/modules.html#modules_cycles" target="_blank">&#x5B98;&#x65B9;&#x6587;&#x6863;</a>&#x91CC;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x3002;&#x811A;&#x672C;&#x6587;&#x4EF6;<code>a.js</code>&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#x3002;</p>
+<pre><code class="lang-javascript">exports.done = <span class="hljs-literal">false</span>;
+<span class="hljs-keyword">var</span> b = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./b.js&apos;</span>);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x5728; a.js &#x4E4B;&#x4E2D;&#xFF0C;b.done = %j&apos;</span>, b.done);
+exports.done = <span class="hljs-literal">true</span>;
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;a.js &#x6267;&#x884C;&#x5B8C;&#x6BD5;&apos;</span>);
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E4B;&#x4E2D;&#xFF0C;<code>a.js</code>&#x811A;&#x672C;&#x5148;&#x8F93;&#x51FA;&#x4E00;&#x4E2A;<code>done</code>&#x53D8;&#x91CF;&#xFF0C;&#x7136;&#x540E;&#x52A0;&#x8F7D;&#x53E6;&#x4E00;&#x4E2A;&#x811A;&#x672C;&#x6587;&#x4EF6;<code>b.js</code>&#x3002;&#x6CE8;&#x610F;&#xFF0C;&#x6B64;&#x65F6;<code>a.js</code>&#x4EE3;&#x7801;&#x5C31;&#x505C;&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x7B49;&#x5F85;<code>b.js</code>&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#xFF0C;&#x518D;&#x5F80;&#x4E0B;&#x6267;&#x884C;&#x3002;</p>
+<p>&#x518D;&#x770B;<code>b.js</code>&#x7684;&#x4EE3;&#x7801;&#x3002;</p>
+<pre><code class="lang-javascript">exports.done = <span class="hljs-literal">false</span>;
+<span class="hljs-keyword">var</span> a = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./a.js&apos;</span>);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x5728; b.js &#x4E4B;&#x4E2D;&#xFF0C;a.done = %j&apos;</span>, a.done);
+exports.done = <span class="hljs-literal">true</span>;
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;b.js &#x6267;&#x884C;&#x5B8C;&#x6BD5;&apos;</span>);
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E4B;&#x4E2D;&#xFF0C;<code>b.js</code>&#x6267;&#x884C;&#x5230;&#x7B2C;&#x4E8C;&#x884C;&#xFF0C;&#x5C31;&#x4F1A;&#x53BB;&#x52A0;&#x8F7D;<code>a.js</code>&#xFF0C;&#x8FD9;&#x65F6;&#xFF0C;&#x5C31;&#x53D1;&#x751F;&#x4E86;&#x201C;&#x5FAA;&#x73AF;&#x52A0;&#x8F7D;&#x201D;&#x3002;&#x7CFB;&#x7EDF;&#x4F1A;&#x53BB;<code>a.js</code>&#x6A21;&#x5757;&#x5BF9;&#x5E94;&#x5BF9;&#x8C61;&#x7684;<code>exports</code>&#x5C5E;&#x6027;&#x53D6;&#x503C;&#xFF0C;&#x53EF;&#x662F;&#x56E0;&#x4E3A;<code>a.js</code>&#x8FD8;&#x6CA1;&#x6709;&#x6267;&#x884C;&#x5B8C;&#xFF0C;&#x4ECE;<code>exports</code>&#x5C5E;&#x6027;&#x53EA;&#x80FD;&#x53D6;&#x56DE;&#x5DF2;&#x7ECF;&#x6267;&#x884C;&#x7684;&#x90E8;&#x5206;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6700;&#x540E;&#x7684;&#x503C;&#x3002;</p>
+<p><code>a.js</code>&#x5DF2;&#x7ECF;&#x6267;&#x884C;&#x7684;&#x90E8;&#x5206;&#xFF0C;&#x53EA;&#x6709;&#x4E00;&#x884C;&#x3002;</p>
+<pre><code class="lang-javascript">exports.done = <span class="hljs-literal">false</span>;
+</code></pre>
+<p>&#x56E0;&#x6B64;&#xFF0C;&#x5BF9;&#x4E8E;<code>b.js</code>&#x6765;&#x8BF4;&#xFF0C;&#x5B83;&#x4ECE;<code>a.js</code>&#x53EA;&#x8F93;&#x5165;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;<code>done</code>&#xFF0C;&#x503C;&#x4E3A;<code>false</code>&#x3002;</p>
+<p>&#x7136;&#x540E;&#xFF0C;<code>b.js</code>&#x63A5;&#x7740;&#x5F80;&#x4E0B;&#x6267;&#x884C;&#xFF0C;&#x7B49;&#x5230;&#x5168;&#x90E8;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#xFF0C;&#x518D;&#x628A;&#x6267;&#x884C;&#x6743;&#x4EA4;&#x8FD8;&#x7ED9;<code>a.js</code>&#x3002;&#x4E8E;&#x662F;&#xFF0C;<code>a.js</code>&#x63A5;&#x7740;&#x5F80;&#x4E0B;&#x6267;&#x884C;&#xFF0C;&#x76F4;&#x5230;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x3002;&#x6211;&#x4EEC;&#x5199;&#x4E00;&#x4E2A;&#x811A;&#x672C;<code>main.js</code>&#xFF0C;&#x9A8C;&#x8BC1;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> a = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./a.js&apos;</span>);
+<span class="hljs-keyword">var</span> b = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./b.js&apos;</span>);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x5728; main.js &#x4E4B;&#x4E2D;, a.done=%j, b.done=%j&apos;</span>, a.done, b.done);
+</code></pre>
+<p>&#x6267;&#x884C;<code>main.js</code>&#xFF0C;&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#x3002;</p>
+<pre><code class="lang-bash">$ node main.js
+
+&#x5728; b.js &#x4E4B;&#x4E2D;&#xFF0C;a.done = <span class="hljs-literal">false</span>
+b.js &#x6267;&#x884C;&#x5B8C;&#x6BD5;
+&#x5728; a.js &#x4E4B;&#x4E2D;&#xFF0C;b.done = <span class="hljs-literal">true</span>
+a.js &#x6267;&#x884C;&#x5B8C;&#x6BD5;
+&#x5728; main.js &#x4E4B;&#x4E2D;, a.done=<span class="hljs-literal">true</span>, b.done=<span class="hljs-literal">true</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x8BC1;&#x660E;&#x4E86;&#x4E24;&#x4EF6;&#x4E8B;&#x3002;&#x4E00;&#x662F;&#xFF0C;&#x5728;<code>b.js</code>&#x4E4B;&#x4E2D;&#xFF0C;<code>a.js</code>&#x6CA1;&#x6709;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#xFF0C;&#x53EA;&#x6267;&#x884C;&#x4E86;&#x7B2C;&#x4E00;&#x884C;&#x3002;&#x4E8C;&#x662F;&#xFF0C;<code>main.js</code>&#x6267;&#x884C;&#x5230;&#x7B2C;&#x4E8C;&#x884C;&#x65F6;&#xFF0C;&#x4E0D;&#x4F1A;&#x518D;&#x6B21;&#x6267;&#x884C;<code>b.js</code>&#xFF0C;&#x800C;&#x662F;&#x8F93;&#x51FA;&#x7F13;&#x5B58;&#x7684;<code>b.js</code>&#x7684;&#x6267;&#x884C;&#x7ED3;&#x679C;&#xFF0C;&#x5373;&#x5B83;&#x7684;&#x7B2C;&#x56DB;&#x884C;&#x3002;</p>
+<pre><code class="lang-javascript">exports.done = <span class="hljs-literal">true</span>;
+</code></pre>
+<p>&#x603B;&#x4E4B;&#xFF0C;CommonJS &#x8F93;&#x5165;&#x7684;&#x662F;&#x88AB;&#x8F93;&#x51FA;&#x503C;&#x7684;&#x62F7;&#x8D1D;&#xFF0C;&#x4E0D;&#x662F;&#x5F15;&#x7528;&#x3002;</p>
+<p>&#x53E6;&#x5916;&#xFF0C;&#x7531;&#x4E8E; CommonJS &#x6A21;&#x5757;&#x9047;&#x5230;&#x5FAA;&#x73AF;&#x52A0;&#x8F7D;&#x65F6;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x5F53;&#x524D;&#x5DF2;&#x7ECF;&#x6267;&#x884C;&#x7684;&#x90E8;&#x5206;&#x7684;&#x503C;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4EE3;&#x7801;&#x5168;&#x90E8;&#x6267;&#x884C;&#x540E;&#x7684;&#x503C;&#xFF0C;&#x4E24;&#x8005;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x5DEE;&#x5F02;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x8F93;&#x5165;&#x53D8;&#x91CF;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5FC5;&#x987B;&#x975E;&#x5E38;&#x5C0F;&#x5FC3;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> a = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;a&apos;</span>); <span class="hljs-comment">// &#x5B89;&#x5168;&#x7684;&#x5199;&#x6CD5;</span>
+<span class="hljs-keyword">var</span> foo = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;a&apos;</span>).foo; <span class="hljs-comment">// &#x5371;&#x9669;&#x7684;&#x5199;&#x6CD5;</span>
+
+exports.good = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">arg</span>) </span>{
+  <span class="hljs-keyword">return</span> a.foo(<span class="hljs-string">&apos;good&apos;</span>, arg); <span class="hljs-comment">// &#x4F7F;&#x7528;&#x7684;&#x662F; a.foo &#x7684;&#x6700;&#x65B0;&#x503C;</span>
+};
+
+exports.bad = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">arg</span>) </span>{
+  <span class="hljs-keyword">return</span> foo(<span class="hljs-string">&apos;bad&apos;</span>, arg); <span class="hljs-comment">// &#x4F7F;&#x7528;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x90E8;&#x5206;&#x52A0;&#x8F7D;&#x65F6;&#x7684;&#x503C;</span>
+};
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x53D1;&#x751F;&#x5FAA;&#x73AF;&#x52A0;&#x8F7D;&#xFF0C;<code>require(&apos;a&apos;).foo</code>&#x7684;&#x503C;&#x5F88;&#x53EF;&#x80FD;&#x540E;&#x9762;&#x4F1A;&#x88AB;&#x6539;&#x5199;&#xFF0C;&#x6539;&#x7528;<code>require(&apos;a&apos;)</code>&#x4F1A;&#x66F4;&#x4FDD;&#x9669;&#x4E00;&#x70B9;&#x3002;</p>
+<h3 id="es6-&#x6A21;&#x5757;&#x7684;&#x5FAA;&#x73AF;&#x52A0;&#x8F7D;">ES6 &#x6A21;&#x5757;&#x7684;&#x5FAA;&#x73AF;&#x52A0;&#x8F7D;</h3>
+<p>ES6 &#x5904;&#x7406;&#x201C;&#x5FAA;&#x73AF;&#x52A0;&#x8F7D;&#x201D;&#x4E0E; CommonJS &#x6709;&#x672C;&#x8D28;&#x7684;&#x4E0D;&#x540C;&#x3002;ES6 &#x6A21;&#x5757;&#x662F;&#x52A8;&#x6001;&#x5F15;&#x7528;&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528;<code>import</code>&#x4ECE;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x52A0;&#x8F7D;&#x53D8;&#x91CF;&#xFF08;&#x5373;<code>import foo from &apos;foo&apos;</code>&#xFF09;&#xFF0C;&#x90A3;&#x4E9B;&#x53D8;&#x91CF;&#x4E0D;&#x4F1A;&#x88AB;&#x7F13;&#x5B58;&#xFF0C;&#x800C;&#x662F;&#x6210;&#x4E3A;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x88AB;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x9700;&#x8981;&#x5F00;&#x53D1;&#x8005;&#x81EA;&#x5DF1;&#x4FDD;&#x8BC1;&#xFF0C;&#x771F;&#x6B63;&#x53D6;&#x503C;&#x7684;&#x65F6;&#x5019;&#x80FD;&#x591F;&#x53D6;&#x5230;&#x503C;&#x3002;</p>
+<p>&#x8BF7;&#x770B;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// a.mjs</span>
+<span class="hljs-keyword">import</span> {bar} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./b&apos;</span>;
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;a.mjs&apos;</span>);
+<span class="hljs-built_in">console</span>.log(bar);
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> foo = <span class="hljs-string">&apos;foo&apos;</span>;
+
+<span class="hljs-comment">// b.mjs</span>
+<span class="hljs-keyword">import</span> {foo} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./a&apos;</span>;
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;b.mjs&apos;</span>);
+<span class="hljs-built_in">console</span>.log(foo);
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> bar = <span class="hljs-string">&apos;bar&apos;</span>;
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>a.mjs</code>&#x52A0;&#x8F7D;<code>b.mjs</code>&#xFF0C;<code>b.mjs</code>&#x53C8;&#x52A0;&#x8F7D;<code>a.mjs</code>&#xFF0C;&#x6784;&#x6210;&#x5FAA;&#x73AF;&#x52A0;&#x8F7D;&#x3002;&#x6267;&#x884C;<code>a.mjs</code>&#xFF0C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#x3002;</p>
+<pre><code class="lang-bash">$ node --experimental-modules a.mjs
+b.mjs
+ReferenceError: foo is not defined
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x6267;&#x884C;<code>a.mjs</code>&#x4EE5;&#x540E;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;<code>foo</code>&#x53D8;&#x91CF;&#x672A;&#x5B9A;&#x4E49;&#xFF0C;&#x8FD9;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#xFF1F;</p>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x4E00;&#x884C;&#x884C;&#x6765;&#x770B;&#xFF0C;ES6 &#x5FAA;&#x73AF;&#x52A0;&#x8F7D;&#x662F;&#x600E;&#x4E48;&#x5904;&#x7406;&#x7684;&#x3002;&#x9996;&#x5148;&#xFF0C;&#x6267;&#x884C;<code>a.mjs</code>&#x4EE5;&#x540E;&#xFF0C;&#x5F15;&#x64CE;&#x53D1;&#x73B0;&#x5B83;&#x52A0;&#x8F7D;&#x4E86;<code>b.mjs</code>&#xFF0C;&#x56E0;&#x6B64;&#x4F1A;&#x4F18;&#x5148;&#x6267;&#x884C;<code>b.mjs</code>&#xFF0C;&#x7136;&#x540E;&#x518D;&#x6267;&#x884C;<code>a.mjs</code>&#x3002;&#x63A5;&#x7740;&#xFF0C;&#x6267;&#x884C;<code>b.mjs</code>&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5DF2;&#x77E5;&#x5B83;&#x4ECE;<code>a.mjs</code>&#x8F93;&#x5165;&#x4E86;<code>foo</code>&#x63A5;&#x53E3;&#xFF0C;&#x8FD9;&#x65F6;&#x4E0D;&#x4F1A;&#x53BB;&#x6267;&#x884C;<code>a.mjs</code>&#xFF0C;&#x800C;&#x662F;&#x8BA4;&#x4E3A;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x4E86;&#xFF0C;&#x7EE7;&#x7EED;&#x5F80;&#x4E0B;&#x6267;&#x884C;&#x3002;&#x6267;&#x884C;&#x5230;&#x7B2C;&#x4E09;&#x884C;<code>console.log(foo)</code>&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x624D;&#x53D1;&#x73B0;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x6839;&#x672C;&#x6CA1;&#x5B9A;&#x4E49;&#xFF0C;&#x56E0;&#x6B64;&#x62A5;&#x9519;&#x3002;</p>
+<p>&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5C31;&#x662F;&#x8BA9;<code>b.mjs</code>&#x8FD0;&#x884C;&#x7684;&#x65F6;&#x5019;&#xFF0C;<code>foo</code>&#x5DF2;&#x7ECF;&#x6709;&#x5B9A;&#x4E49;&#x4E86;&#x3002;&#x8FD9;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5C06;<code>foo</code>&#x5199;&#x6210;&#x51FD;&#x6570;&#x6765;&#x89E3;&#x51B3;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// a.mjs</span>
+<span class="hljs-keyword">import</span> {bar} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./b&apos;</span>;
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;a.mjs&apos;</span>);
+<span class="hljs-built_in">console</span>.log(bar());
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;foo&apos;</span> }
+<span class="hljs-keyword">export</span> {foo};
+
+<span class="hljs-comment">// b.mjs</span>
+<span class="hljs-keyword">import</span> {foo} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./a&apos;</span>;
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;b.mjs&apos;</span>);
+<span class="hljs-built_in">console</span>.log(foo());
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">bar</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;bar&apos;</span> }
+<span class="hljs-keyword">export</span> {bar};
+</code></pre>
+<p>&#x8FD9;&#x65F6;&#x518D;&#x6267;&#x884C;<code>a.mjs</code>&#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x9884;&#x671F;&#x7ED3;&#x679C;&#x3002;</p>
+<pre><code class="lang-bash">$ node --experimental-modules a.mjs
+b.mjs
+foo
+a.mjs
+bar
+</code></pre>
+<p>&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x51FD;&#x6570;&#x5177;&#x6709;&#x63D0;&#x5347;&#x4F5C;&#x7528;&#xFF0C;&#x5728;&#x6267;&#x884C;<code>import {bar} from &apos;./b&apos;</code>&#x65F6;&#xFF0C;&#x51FD;&#x6570;<code>foo</code>&#x5C31;&#x5DF2;&#x7ECF;&#x6709;&#x5B9A;&#x4E49;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;<code>b.mjs</code>&#x52A0;&#x8F7D;&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x4F1A;&#x62A5;&#x9519;&#x3002;&#x8FD9;&#x4E5F;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x5982;&#x679C;&#x628A;&#x51FD;&#x6570;<code>foo</code>&#x6539;&#x5199;&#x6210;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x4E5F;&#x4F1A;&#x62A5;&#x9519;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// a.mjs</span>
+<span class="hljs-keyword">import</span> {bar} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./b&apos;</span>;
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;a.mjs&apos;</span>);
+<span class="hljs-built_in">console</span>.log(bar());
+<span class="hljs-keyword">const</span> foo = () =&gt; <span class="hljs-string">&apos;foo&apos;</span>;
+<span class="hljs-keyword">export</span> {foo};
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x7684;&#x7B2C;&#x56DB;&#x884C;&#xFF0C;&#x6539;&#x6210;&#x4E86;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x5C31;&#x4E0D;&#x5177;&#x6709;&#x63D0;&#x5347;&#x4F5C;&#x7528;&#xFF0C;&#x6267;&#x884C;&#x5C31;&#x4F1A;&#x62A5;&#x9519;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x518D;&#x6765;&#x770B; ES6 &#x6A21;&#x5757;&#x52A0;&#x8F7D;&#x5668;<a href="https://github.com/ModuleLoader/es6-module-loader/blob/master/docs/circular-references-bindings.md" target="_blank">SystemJS</a>&#x7ED9;&#x51FA;&#x7684;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// even.js</span>
+<span class="hljs-keyword">import</span> { odd } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./odd&apos;</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">var</span> counter = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">even</span>(<span class="hljs-params">n</span>) </span>{
+  counter++;
+  <span class="hljs-keyword">return</span> n === <span class="hljs-number">0</span> || odd(n - <span class="hljs-number">1</span>);
+}
+
+<span class="hljs-comment">// odd.js</span>
+<span class="hljs-keyword">import</span> { even } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./even&apos;</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">odd</span>(<span class="hljs-params">n</span>) </span>{
+  <span class="hljs-keyword">return</span> n !== <span class="hljs-number">0</span> &amp;&amp; even(n - <span class="hljs-number">1</span>);
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>even.js</code>&#x91CC;&#x9762;&#x7684;&#x51FD;&#x6570;<code>even</code>&#x6709;&#x4E00;&#x4E2A;&#x53C2;&#x6570;<code>n</code>&#xFF0C;&#x53EA;&#x8981;&#x4E0D;&#x7B49;&#x4E8E; 0&#xFF0C;&#x5C31;&#x4F1A;&#x51CF;&#x53BB; 1&#xFF0C;&#x4F20;&#x5165;&#x52A0;&#x8F7D;&#x7684;<code>odd()</code>&#x3002;<code>odd.js</code>&#x4E5F;&#x4F1A;&#x505A;&#x7C7B;&#x4F3C;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x8FD0;&#x884C;&#x4E0A;&#x9762;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#xFF0C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#x3002;</p>
+<pre><code class="lang-javascript">$ babel-node
+&gt; <span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> m <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./even.js&apos;</span>;
+&gt; m.even(<span class="hljs-number">10</span>);
+<span class="hljs-literal">true</span>
+&gt; m.counter
+<span class="hljs-number">6</span>
+&gt; m.even(<span class="hljs-number">20</span>)
+<span class="hljs-literal">true</span>
+&gt; m.counter
+<span class="hljs-number">17</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x53C2;&#x6570;<code>n</code>&#x4ECE; 10 &#x53D8;&#x4E3A; 0 &#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;<code>even()</code>&#x4E00;&#x5171;&#x4F1A;&#x6267;&#x884C; 6 &#x6B21;&#xFF0C;&#x6240;&#x4EE5;&#x53D8;&#x91CF;<code>counter</code>&#x7B49;&#x4E8E; 6&#x3002;&#x7B2C;&#x4E8C;&#x6B21;&#x8C03;&#x7528;<code>even()</code>&#x65F6;&#xFF0C;&#x53C2;&#x6570;<code>n</code>&#x4ECE; 20 &#x53D8;&#x4E3A; 0&#xFF0C;<code>even()</code>&#x4E00;&#x5171;&#x4F1A;&#x6267;&#x884C; 11 &#x6B21;&#xFF0C;&#x52A0;&#x4E0A;&#x524D;&#x9762;&#x7684; 6 &#x6B21;&#xFF0C;&#x6240;&#x4EE5;&#x53D8;&#x91CF;<code>counter</code>&#x7B49;&#x4E8E; 17&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x8981;&#x662F;&#x6539;&#x5199;&#x6210; CommonJS&#xFF0C;&#x5C31;&#x6839;&#x672C;&#x65E0;&#x6CD5;&#x6267;&#x884C;&#xFF0C;&#x4F1A;&#x62A5;&#x9519;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// even.js</span>
+<span class="hljs-keyword">var</span> odd = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./odd&apos;</span>);
+<span class="hljs-keyword">var</span> counter = <span class="hljs-number">0</span>;
+exports.counter = counter;
+exports.even = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">n</span>) </span>{
+  counter++;
+  <span class="hljs-keyword">return</span> n == <span class="hljs-number">0</span> || odd(n - <span class="hljs-number">1</span>);
+}
+
+<span class="hljs-comment">// odd.js</span>
+<span class="hljs-keyword">var</span> even = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./even&apos;</span>).even;
+<span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">n</span>) </span>{
+  <span class="hljs-keyword">return</span> n != <span class="hljs-number">0</span> &amp;&amp; even(n - <span class="hljs-number">1</span>);
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>even.js</code>&#x52A0;&#x8F7D;<code>odd.js</code>&#xFF0C;&#x800C;<code>odd.js</code>&#x53C8;&#x53BB;&#x52A0;&#x8F7D;<code>even.js</code>&#xFF0C;&#x5F62;&#x6210;&#x201C;&#x5FAA;&#x73AF;&#x52A0;&#x8F7D;&#x201D;&#x3002;&#x8FD9;&#x65F6;&#xFF0C;&#x6267;&#x884C;&#x5F15;&#x64CE;&#x5C31;&#x4F1A;&#x8F93;&#x51FA;<code>even.js</code>&#x5DF2;&#x7ECF;&#x6267;&#x884C;&#x7684;&#x90E8;&#x5206;&#xFF08;&#x4E0D;&#x5B58;&#x5728;&#x4EFB;&#x4F55;&#x7ED3;&#x679C;&#xFF09;&#xFF0C;&#x6240;&#x4EE5;&#x5728;<code>odd.js</code>&#x4E4B;&#x4E2D;&#xFF0C;&#x53D8;&#x91CF;<code>even</code>&#x7B49;&#x4E8E;<code>undefined</code>&#xFF0C;&#x7B49;&#x5230;&#x540E;&#x9762;&#x8C03;&#x7528;<code>even(n - 1)</code>&#x5C31;&#x4F1A;&#x62A5;&#x9519;&#x3002;</p>
+<pre><code class="lang-bash">$ node
+&gt; var m = require(<span class="hljs-string">&apos;./even&apos;</span>);
+&gt; m.even(10)
+TypeError: even is not a <span class="hljs-keyword">function</span>
+</code></pre>
+<h2 id="es6-&#x6A21;&#x5757;&#x7684;&#x8F6C;&#x7801;">ES6 &#x6A21;&#x5757;&#x7684;&#x8F6C;&#x7801;</h2>
+<p>&#x6D4F;&#x89C8;&#x5668;&#x76EE;&#x524D;&#x8FD8;&#x4E0D;&#x652F;&#x6301; ES6 &#x6A21;&#x5757;&#xFF0C;&#x4E3A;&#x4E86;&#x73B0;&#x5728;&#x5C31;&#x80FD;&#x4F7F;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x8F6C;&#x4E3A; ES5 &#x7684;&#x5199;&#x6CD5;&#x3002;&#x9664;&#x4E86; Babel &#x53EF;&#x4EE5;&#x7528;&#x6765;&#x8F6C;&#x7801;&#x4E4B;&#x5916;&#xFF0C;&#x8FD8;&#x6709;&#x4EE5;&#x4E0B;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x8F6C;&#x7801;&#x3002;</p>
+<h3 id="es6-module-transpiler">ES6 module transpiler</h3>
+<p><a href="https://github.com/esnext/es6-module-transpiler" target="_blank">ES6 module transpiler</a>&#x662F; square &#x516C;&#x53F8;&#x5F00;&#x6E90;&#x7684;&#x4E00;&#x4E2A;&#x8F6C;&#x7801;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06; ES6 &#x6A21;&#x5757;&#x8F6C;&#x4E3A; CommonJS &#x6A21;&#x5757;&#x6216; AMD &#x6A21;&#x5757;&#x7684;&#x5199;&#x6CD5;&#xFF0C;&#x4ECE;&#x800C;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x9996;&#x5148;&#xFF0C;&#x5B89;&#x88C5;&#x8FD9;&#x4E2A;&#x8F6C;&#x7801;&#x5668;&#x3002;</p>
+<pre><code class="lang-bash">$ npm install -g es6-module-transpiler
+</code></pre>
+<p>&#x7136;&#x540E;&#xFF0C;&#x4F7F;&#x7528;<code>compile-modules convert</code>&#x547D;&#x4EE4;&#xFF0C;&#x5C06; ES6 &#x6A21;&#x5757;&#x6587;&#x4EF6;&#x8F6C;&#x7801;&#x3002;</p>
+<pre><code class="lang-bash">$ compile-modules convert file1.js file2.js
+</code></pre>
+<p><code>-o</code>&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x8F6C;&#x7801;&#x540E;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x3002;</p>
+<pre><code class="lang-bash">$ compile-modules convert -o out.js file1.js
+</code></pre>
+<h3 id="systemjs">SystemJS</h3>
+<p>&#x53E6;&#x4E00;&#x79CD;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x662F;&#x4F7F;&#x7528; <a href="https://github.com/systemjs/systemjs" target="_blank">SystemJS</a>&#x3002;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x57AB;&#x7247;&#x5E93;&#xFF08;polyfill&#xFF09;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x5185;&#x52A0;&#x8F7D; ES6 &#x6A21;&#x5757;&#x3001;AMD &#x6A21;&#x5757;&#x548C; CommonJS &#x6A21;&#x5757;&#xFF0C;&#x5C06;&#x5176;&#x8F6C;&#x4E3A; ES5 &#x683C;&#x5F0F;&#x3002;&#x5B83;&#x5728;&#x540E;&#x53F0;&#x8C03;&#x7528;&#x7684;&#x662F; Google &#x7684; Traceur &#x8F6C;&#x7801;&#x5668;&#x3002;</p>
+<p>&#x4F7F;&#x7528;&#x65F6;&#xFF0C;&#x5148;&#x5728;&#x7F51;&#x9875;&#x5185;&#x8F7D;&#x5165;<code>system.js</code>&#x6587;&#x4EF6;&#x3002;</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;system.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>&#x7136;&#x540E;&#xFF0C;&#x4F7F;&#x7528;<code>System.import</code>&#x65B9;&#x6CD5;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#x6587;&#x4EF6;&#x3002;</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+  System.import(<span class="hljs-string">&apos;./app.js&apos;</span>);
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#x7684;<code>./app</code>&#xFF0C;&#x6307;&#x7684;&#x662F;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4E0B;&#x7684; app.js &#x6587;&#x4EF6;&#x3002;&#x5B83;&#x53EF;&#x4EE5;&#x662F; ES6 &#x6A21;&#x5757;&#x6587;&#x4EF6;&#xFF0C;<code>System.import</code>&#x4F1A;&#x81EA;&#x52A8;&#x5C06;&#x5176;&#x8F6C;&#x7801;&#x3002;</p>
+<p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;<code>System.import</code>&#x4F7F;&#x7528;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; Promise &#x5BF9;&#x8C61;&#xFF0C;&#x53EF;&#x4EE5;&#x9488;&#x5BF9;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x6587;&#x4EF6;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// app/es6-file.js:</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">q</span> </span>{
+  <span class="hljs-keyword">constructor</span>() {
+    <span class="hljs-keyword">this</span>.es6 = <span class="hljs-string">&apos;hello&apos;</span>;
+  }
+}
+</code></pre>
+<p>&#x7136;&#x540E;&#xFF0C;&#x5728;&#x7F51;&#x9875;&#x5185;&#x52A0;&#x8F7D;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x6587;&#x4EF6;&#x3002;</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+
+System.import(<span class="hljs-string">&apos;app/es6-file&apos;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">m</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">new</span> m.q().es6); <span class="hljs-comment">// hello</span>
+});
+
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>System.import</code>&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A; Promise &#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x7528;<code>then</code>&#x65B9;&#x6CD5;&#x6307;&#x5B9A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="module.html" class="navigation navigation-prev " aria-label="Previous page: 22. Module 的语法">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="style.html" class="navigation navigation-next " aria-label="Next page: 24. 编程风格">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"23. Module 的加载实现","level":"1.24","depth":1,"next":{"title":"24. 编程风格","level":"1.25","depth":1,"path":"docs/style.md","ref":"docs/style.md","articles":[]},"previous":{"title":"22. Module 的语法","level":"1.23","depth":1,"path":"docs/module.md","ref":"docs/module.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"阮一峰","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"9787121324758","variables":{},"title":"ECMAScript 6 入门","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"阮一峰的个人网站":"http://www.ruanyifeng.com/blog/"}},"gitbook":"*","description":"《ECMAScript 6 入门》是一本开源的 JavaScript 语言教程，全面介绍 ECMAScript 6 新引入的语法特性。","extension":null},"file":{"path":"docs/module-loader.md","mtime":"2019-08-26T10:52:54.080Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-26T12:40:06.208Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

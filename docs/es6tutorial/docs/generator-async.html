@@ -1,0 +1,1183 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>17. Generator 函数的异步应用 · ECMAScript 6 入门</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="阮一峰">
+        <meta name="identifier" content="9787121324758" scheme="ISBN">
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="async.html" />
+    
+    
+    <link rel="prev" href="generator.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://www.ruanyifeng.com/blog/" target="_blank" class="custom-link">阮一峰的个人网站</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    0. 前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="intro.html">
+            
+                <a href="intro.html">
+            
+                    
+                    1. ECMAScript 6简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="let.html">
+            
+                <a href="let.html">
+            
+                    
+                    2. let 和 const 命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="destructuring.html">
+            
+                <a href="destructuring.html">
+            
+                    
+                    3. 变量的解构赋值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="string.html">
+            
+                <a href="string.html">
+            
+                    
+                    4. 字符串的扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="regex.html">
+            
+                <a href="regex.html">
+            
+                    
+                    5. 正则的扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="number.html">
+            
+                <a href="number.html">
+            
+                    
+                    6. 数值的扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="function.html">
+            
+                <a href="function.html">
+            
+                    
+                    7. 函数的扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="array.html">
+            
+                <a href="array.html">
+            
+                    
+                    8. 数组的扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="object.html">
+            
+                <a href="object.html">
+            
+                    
+                    9. 对象的扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="symbol.html">
+            
+                <a href="symbol.html">
+            
+                    
+                    10. Symbol
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="set-map.html">
+            
+                <a href="set-map.html">
+            
+                    
+                    11. Set 和 Map 数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="proxy.html">
+            
+                <a href="proxy.html">
+            
+                    
+                    12. Proxy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="reflect.html">
+            
+                <a href="reflect.html">
+            
+                    
+                    13. Reflect
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="promise.html">
+            
+                <a href="promise.html">
+            
+                    
+                    14. Promise 对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="iterator.html">
+            
+                <a href="iterator.html">
+            
+                    
+                    15. Iterator 和 for...of 循环
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="generator.html">
+            
+                <a href="generator.html">
+            
+                    
+                    16. Generator 函数的语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.18" data-path="generator-async.html">
+            
+                <a href="generator-async.html">
+            
+                    
+                    17. Generator 函数的异步应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="async.html">
+            
+                <a href="async.html">
+            
+                    
+                    18. async 函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="class.html">
+            
+                <a href="class.html">
+            
+                    
+                    19. Class 的基本语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="class-extends.html">
+            
+                <a href="class-extends.html">
+            
+                    
+                    20. Class 的继承
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="decorator.html">
+            
+                <a href="decorator.html">
+            
+                    
+                    21. Decorator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" data-path="module.html">
+            
+                <a href="module.html">
+            
+                    
+                    22. Module 的语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.24" data-path="module-loader.html">
+            
+                <a href="module-loader.html">
+            
+                    
+                    23. Module 的加载实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25" data-path="style.html">
+            
+                <a href="style.html">
+            
+                    
+                    24. 编程风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.26" data-path="spec.html">
+            
+                <a href="spec.html">
+            
+                    
+                    25. 读懂规格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.27" data-path="arraybuffer.html">
+            
+                <a href="arraybuffer.html">
+            
+                    
+                    26. ArrayBuffer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.28" data-path="proposals.html">
+            
+                <a href="proposals.html">
+            
+                    
+                    27. 最新提案
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.29" data-path="reference.html">
+            
+                <a href="reference.html">
+            
+                    
+                    28. 参考链接
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >17. Generator 函数的异步应用</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="generator-&#x51FD;&#x6570;&#x7684;&#x5F02;&#x6B65;&#x5E94;&#x7528;">Generator &#x51FD;&#x6570;&#x7684;&#x5F02;&#x6B65;&#x5E94;&#x7528;</h1>
+<p>&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x5BF9; JavaScript &#x8BED;&#x8A00;&#x592A;&#x91CD;&#x8981;&#x3002;JavaScript &#x8BED;&#x8A00;&#x7684;&#x6267;&#x884C;&#x73AF;&#x5883;&#x662F;&#x201C;&#x5355;&#x7EBF;&#x7A0B;&#x201D;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#xFF0C;&#x6839;&#x672C;&#x6CA1;&#x6CD5;&#x7528;&#xFF0C;&#x975E;&#x5361;&#x6B7B;&#x4E0D;&#x53EF;&#x3002;&#x672C;&#x7AE0;&#x4E3B;&#x8981;&#x4ECB;&#x7ECD; Generator &#x51FD;&#x6570;&#x5982;&#x4F55;&#x5B8C;&#x6210;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x3002;</p>
+<h2 id="&#x4F20;&#x7EDF;&#x65B9;&#x6CD5;">&#x4F20;&#x7EDF;&#x65B9;&#x6CD5;</h2>
+<p>ES6 &#x8BDE;&#x751F;&#x4EE5;&#x524D;&#xFF0C;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5927;&#x6982;&#x6709;&#x4E0B;&#x9762;&#x56DB;&#x79CD;&#x3002;</p>
+<ul>
+<li>&#x56DE;&#x8C03;&#x51FD;&#x6570;</li>
+<li>&#x4E8B;&#x4EF6;&#x76D1;&#x542C;</li>
+<li>&#x53D1;&#x5E03;/&#x8BA2;&#x9605;</li>
+<li>Promise &#x5BF9;&#x8C61;</li>
+</ul>
+<p>Generator &#x51FD;&#x6570;&#x5C06; JavaScript &#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x5E26;&#x5165;&#x4E86;&#x4E00;&#x4E2A;&#x5168;&#x65B0;&#x7684;&#x9636;&#x6BB5;&#x3002;</p>
+<h2 id="&#x57FA;&#x672C;&#x6982;&#x5FF5;">&#x57FA;&#x672C;&#x6982;&#x5FF5;</h2>
+<h3 id="&#x5F02;&#x6B65;">&#x5F02;&#x6B65;</h3>
+<p>&#x6240;&#x8C13;&quot;&#x5F02;&#x6B65;&quot;&#xFF0C;&#x7B80;&#x5355;&#x8BF4;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;&#x4E0D;&#x662F;&#x8FDE;&#x7EED;&#x5B8C;&#x6210;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x6210;&#x8BE5;&#x4EFB;&#x52A1;&#x88AB;&#x4EBA;&#x4E3A;&#x5206;&#x6210;&#x4E24;&#x6BB5;&#xFF0C;&#x5148;&#x6267;&#x884C;&#x7B2C;&#x4E00;&#x6BB5;&#xFF0C;&#x7136;&#x540E;&#x8F6C;&#x800C;&#x6267;&#x884C;&#x5176;&#x4ED6;&#x4EFB;&#x52A1;&#xFF0C;&#x7B49;&#x505A;&#x597D;&#x4E86;&#x51C6;&#x5907;&#xFF0C;&#x518D;&#x56DE;&#x8FC7;&#x5934;&#x6267;&#x884C;&#x7B2C;&#x4E8C;&#x6BB5;&#x3002;</p>
+<p>&#x6BD4;&#x5982;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;&#x662F;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x4EFB;&#x52A1;&#x7684;&#x7B2C;&#x4E00;&#x6BB5;&#x662F;&#x5411;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x53D1;&#x51FA;&#x8BF7;&#x6C42;&#xFF0C;&#x8981;&#x6C42;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x3002;&#x7136;&#x540E;&#xFF0C;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#x5176;&#x4ED6;&#x4EFB;&#x52A1;&#xFF0C;&#x7B49;&#x5230;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x8FD4;&#x56DE;&#x6587;&#x4EF6;&#xFF0C;&#x518D;&#x63A5;&#x7740;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x7684;&#x7B2C;&#x4E8C;&#x6BB5;&#xFF08;&#x5904;&#x7406;&#x6587;&#x4EF6;&#xFF09;&#x3002;&#x8FD9;&#x79CD;&#x4E0D;&#x8FDE;&#x7EED;&#x7684;&#x6267;&#x884C;&#xFF0C;&#x5C31;&#x53EB;&#x505A;&#x5F02;&#x6B65;&#x3002;</p>
+<p>&#x76F8;&#x5E94;&#x5730;&#xFF0C;&#x8FDE;&#x7EED;&#x7684;&#x6267;&#x884C;&#x5C31;&#x53EB;&#x505A;&#x540C;&#x6B65;&#x3002;&#x7531;&#x4E8E;&#x662F;&#x8FDE;&#x7EED;&#x6267;&#x884C;&#xFF0C;&#x4E0D;&#x80FD;&#x63D2;&#x5165;&#x5176;&#x4ED6;&#x4EFB;&#x52A1;&#xFF0C;&#x6240;&#x4EE5;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4ECE;&#x786C;&#x76D8;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x7684;&#x8FD9;&#x6BB5;&#x65F6;&#x95F4;&#xFF0C;&#x7A0B;&#x5E8F;&#x53EA;&#x80FD;&#x5E72;&#x7B49;&#x7740;&#x3002;</p>
+<h3 id="&#x56DE;&#x8C03;&#x51FD;&#x6570;">&#x56DE;&#x8C03;&#x51FD;&#x6570;</h3>
+<p>JavaScript &#x8BED;&#x8A00;&#x5BF9;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x5C31;&#x662F;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;&#x6240;&#x8C13;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x5C31;&#x662F;&#x628A;&#x4EFB;&#x52A1;&#x7684;&#x7B2C;&#x4E8C;&#x6BB5;&#x5355;&#x72EC;&#x5199;&#x5728;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x91CC;&#x9762;&#xFF0C;&#x7B49;&#x5230;&#x91CD;&#x65B0;&#x6267;&#x884C;&#x8FD9;&#x4E2A;&#x4EFB;&#x52A1;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x3002;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x82F1;&#x8BED;&#x540D;&#x5B57;<code>callback</code>&#xFF0C;&#x76F4;&#x8BD1;&#x8FC7;&#x6765;&#x5C31;&#x662F;&quot;&#x91CD;&#x65B0;&#x8C03;&#x7528;&quot;&#x3002;</p>
+<p>&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x662F;&#x8FD9;&#x6837;&#x5199;&#x7684;&#x3002;</p>
+<pre><code class="lang-javascript">fs.readFile(<span class="hljs-string">&apos;/etc/passwd&apos;</span>, <span class="hljs-string">&apos;utf-8&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, data</span>) </span>{
+  <span class="hljs-keyword">if</span> (err) <span class="hljs-keyword">throw</span> err;
+  <span class="hljs-built_in">console</span>.log(data);
+});
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>readFile</code>&#x51FD;&#x6570;&#x7684;&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5C31;&#x662F;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4EFB;&#x52A1;&#x7684;&#x7B2C;&#x4E8C;&#x6BB5;&#x3002;&#x7B49;&#x5230;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x8FD4;&#x56DE;&#x4E86;<code>/etc/passwd</code>&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x4EE5;&#x540E;&#xFF0C;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x624D;&#x4F1A;&#x6267;&#x884C;&#x3002;</p>
+<p>&#x4E00;&#x4E2A;&#x6709;&#x8DA3;&#x7684;&#x95EE;&#x9898;&#x662F;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48; Node &#x7EA6;&#x5B9A;&#xFF0C;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5FC5;&#x987B;&#x662F;&#x9519;&#x8BEF;&#x5BF9;&#x8C61;<code>err</code>&#xFF08;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x9519;&#x8BEF;&#xFF0C;&#x8BE5;&#x53C2;&#x6570;&#x5C31;&#x662F;<code>null</code>&#xFF09;&#xFF1F;</p>
+<p>&#x539F;&#x56E0;&#x662F;&#x6267;&#x884C;&#x5206;&#x6210;&#x4E24;&#x6BB5;&#xFF0C;&#x7B2C;&#x4E00;&#x6BB5;&#x6267;&#x884C;&#x5B8C;&#x4EE5;&#x540E;&#xFF0C;&#x4EFB;&#x52A1;&#x6240;&#x5728;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x73AF;&#x5883;&#x5C31;&#x5DF2;&#x7ECF;&#x7ED3;&#x675F;&#x4E86;&#x3002;&#x5728;&#x8FD9;&#x4EE5;&#x540E;&#x629B;&#x51FA;&#x7684;&#x9519;&#x8BEF;&#xFF0C;&#x539F;&#x6765;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x73AF;&#x5883;&#x5DF2;&#x7ECF;&#x65E0;&#x6CD5;&#x6355;&#x6349;&#xFF0C;&#x53EA;&#x80FD;&#x5F53;&#x4F5C;&#x53C2;&#x6570;&#xFF0C;&#x4F20;&#x5165;&#x7B2C;&#x4E8C;&#x6BB5;&#x3002;</p>
+<h3 id="promise">Promise</h3>
+<p>&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x672C;&#x8EAB;&#x5E76;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x5B83;&#x7684;&#x95EE;&#x9898;&#x51FA;&#x73B0;&#x5728;&#x591A;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5D4C;&#x5957;&#x3002;&#x5047;&#x5B9A;&#x8BFB;&#x53D6;<code>A</code>&#x6587;&#x4EF6;&#x4E4B;&#x540E;&#xFF0C;&#x518D;&#x8BFB;&#x53D6;<code>B</code>&#x6587;&#x4EF6;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#x3002;</p>
+<pre><code class="lang-javascript">fs.readFile(fileA, <span class="hljs-string">&apos;utf-8&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, data</span>) </span>{
+  fs.readFile(fileB, <span class="hljs-string">&apos;utf-8&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, data</span>) </span>{
+    <span class="hljs-comment">// ...</span>
+  });
+});
+</code></pre>
+<p>&#x4E0D;&#x96BE;&#x60F3;&#x8C61;&#xFF0C;&#x5982;&#x679C;&#x4F9D;&#x6B21;&#x8BFB;&#x53D6;&#x4E24;&#x4E2A;&#x4EE5;&#x4E0A;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x5C31;&#x4F1A;&#x51FA;&#x73B0;&#x591A;&#x91CD;&#x5D4C;&#x5957;&#x3002;&#x4EE3;&#x7801;&#x4E0D;&#x662F;&#x7EB5;&#x5411;&#x53D1;&#x5C55;&#xFF0C;&#x800C;&#x662F;&#x6A2A;&#x5411;&#x53D1;&#x5C55;&#xFF0C;&#x5F88;&#x5FEB;&#x5C31;&#x4F1A;&#x4E71;&#x6210;&#x4E00;&#x56E2;&#xFF0C;&#x65E0;&#x6CD5;&#x7BA1;&#x7406;&#x3002;&#x56E0;&#x4E3A;&#x591A;&#x4E2A;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x5F62;&#x6210;&#x4E86;&#x5F3A;&#x8026;&#x5408;&#xFF0C;&#x53EA;&#x8981;&#x6709;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x9700;&#x8981;&#x4FEE;&#x6539;&#xFF0C;&#x5B83;&#x7684;&#x4E0A;&#x5C42;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x548C;&#x4E0B;&#x5C42;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x53EF;&#x80FD;&#x90FD;&#x8981;&#x8DDF;&#x7740;&#x4FEE;&#x6539;&#x3002;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x5C31;&#x79F0;&#x4E3A;&quot;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5730;&#x72F1;&quot;&#xFF08;callback hell&#xFF09;&#x3002;</p>
+<p>Promise &#x5BF9;&#x8C61;&#x5C31;&#x662F;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x800C;&#x63D0;&#x51FA;&#x7684;&#x3002;&#x5B83;&#x4E0D;&#x662F;&#x65B0;&#x7684;&#x8BED;&#x6CD5;&#x529F;&#x80FD;&#xFF0C;&#x800C;&#x662F;&#x4E00;&#x79CD;&#x65B0;&#x7684;&#x5199;&#x6CD5;&#xFF0C;&#x5141;&#x8BB8;&#x5C06;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x5D4C;&#x5957;&#xFF0C;&#x6539;&#x6210;&#x94FE;&#x5F0F;&#x8C03;&#x7528;&#x3002;&#x91C7;&#x7528; Promise&#xFF0C;&#x8FDE;&#x7EED;&#x8BFB;&#x53D6;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x5199;&#x6CD5;&#x5982;&#x4E0B;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> readFile = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs-readfile-promise&apos;</span>);
+
+readFile(fileA)
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(data.toString());
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> readFile(fileB);
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(data.toString());
+})
+.catch(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(err);
+});
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x6211;&#x4F7F;&#x7528;&#x4E86;<code>fs-readfile-promise</code>&#x6A21;&#x5757;&#xFF0C;&#x5B83;&#x7684;&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; Promise &#x7248;&#x672C;&#x7684;<code>readFile</code>&#x51FD;&#x6570;&#x3002;Promise &#x63D0;&#x4F9B;<code>then</code>&#x65B9;&#x6CD5;&#x52A0;&#x8F7D;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;<code>catch</code>&#x65B9;&#x6CD5;&#x6355;&#x6349;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x629B;&#x51FA;&#x7684;&#x9519;&#x8BEF;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;Promise &#x7684;&#x5199;&#x6CD5;&#x53EA;&#x662F;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x6539;&#x8FDB;&#xFF0C;&#x4F7F;&#x7528;<code>then</code>&#x65B9;&#x6CD5;&#x4EE5;&#x540E;&#xFF0C;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x7684;&#x4E24;&#x6BB5;&#x6267;&#x884C;&#x770B;&#x5F97;&#x66F4;&#x6E05;&#x695A;&#x4E86;&#xFF0C;&#x9664;&#x6B64;&#x4EE5;&#x5916;&#xFF0C;&#x5E76;&#x65E0;&#x65B0;&#x610F;&#x3002;</p>
+<p>Promise &#x7684;&#x6700;&#x5927;&#x95EE;&#x9898;&#x662F;&#x4EE3;&#x7801;&#x5197;&#x4F59;&#xFF0C;&#x539F;&#x6765;&#x7684;&#x4EFB;&#x52A1;&#x88AB; Promise &#x5305;&#x88C5;&#x4E86;&#x4E00;&#x4E0B;&#xFF0C;&#x4E0D;&#x7BA1;&#x4EC0;&#x4E48;&#x64CD;&#x4F5C;&#xFF0C;&#x4E00;&#x773C;&#x770B;&#x53BB;&#x90FD;&#x662F;&#x4E00;&#x5806;<code>then</code>&#xFF0C;&#x539F;&#x6765;&#x7684;&#x8BED;&#x4E49;&#x53D8;&#x5F97;&#x5F88;&#x4E0D;&#x6E05;&#x695A;&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#xFF0C;&#x6709;&#x6CA1;&#x6709;&#x66F4;&#x597D;&#x7684;&#x5199;&#x6CD5;&#x5462;&#xFF1F;</p>
+<h2 id="generator-&#x51FD;&#x6570;">Generator &#x51FD;&#x6570;</h2>
+<h3 id="&#x534F;&#x7A0B;">&#x534F;&#x7A0B;</h3>
+<p>&#x4F20;&#x7EDF;&#x7684;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#xFF0C;&#x65E9;&#x6709;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF08;&#x5176;&#x5B9E;&#x662F;&#x591A;&#x4EFB;&#x52A1;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF09;&#x3002;&#x5176;&#x4E2D;&#x6709;&#x4E00;&#x79CD;&#x53EB;&#x505A;&quot;&#x534F;&#x7A0B;&quot;&#xFF08;coroutine&#xFF09;&#xFF0C;&#x610F;&#x601D;&#x662F;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x4E92;&#x76F8;&#x534F;&#x4F5C;&#xFF0C;&#x5B8C;&#x6210;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x3002;</p>
+<p>&#x534F;&#x7A0B;&#x6709;&#x70B9;&#x50CF;&#x51FD;&#x6570;&#xFF0C;&#x53C8;&#x6709;&#x70B9;&#x50CF;&#x7EBF;&#x7A0B;&#x3002;&#x5B83;&#x7684;&#x8FD0;&#x884C;&#x6D41;&#x7A0B;&#x5927;&#x81F4;&#x5982;&#x4E0B;&#x3002;</p>
+<ul>
+<li>&#x7B2C;&#x4E00;&#x6B65;&#xFF0C;&#x534F;&#x7A0B;<code>A</code>&#x5F00;&#x59CB;&#x6267;&#x884C;&#x3002;</li>
+<li>&#x7B2C;&#x4E8C;&#x6B65;&#xFF0C;&#x534F;&#x7A0B;<code>A</code>&#x6267;&#x884C;&#x5230;&#x4E00;&#x534A;&#xFF0C;&#x8FDB;&#x5165;&#x6682;&#x505C;&#xFF0C;&#x6267;&#x884C;&#x6743;&#x8F6C;&#x79FB;&#x5230;&#x534F;&#x7A0B;<code>B</code>&#x3002;</li>
+<li>&#x7B2C;&#x4E09;&#x6B65;&#xFF0C;&#xFF08;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x540E;&#xFF09;&#x534F;&#x7A0B;<code>B</code>&#x4EA4;&#x8FD8;&#x6267;&#x884C;&#x6743;&#x3002;</li>
+<li>&#x7B2C;&#x56DB;&#x6B65;&#xFF0C;&#x534F;&#x7A0B;<code>A</code>&#x6062;&#x590D;&#x6267;&#x884C;&#x3002;</li>
+</ul>
+<p>&#x4E0A;&#x9762;&#x6D41;&#x7A0B;&#x7684;&#x534F;&#x7A0B;<code>A</code>&#xFF0C;&#x5C31;&#x662F;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x5206;&#x6210;&#x4E24;&#x6BB5;&#xFF08;&#x6216;&#x591A;&#x6BB5;&#xFF09;&#x6267;&#x884C;&#x3002;</p>
+<p>&#x4E3E;&#x4F8B;&#x6765;&#x8BF4;&#xFF0C;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x7684;&#x534F;&#x7A0B;&#x5199;&#x6CD5;&#x5982;&#x4E0B;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">asyncJob</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// ...&#x5176;&#x4ED6;&#x4EE3;&#x7801;</span>
+  <span class="hljs-keyword">var</span> f = <span class="hljs-keyword">yield</span> readFile(fileA);
+  <span class="hljs-comment">// ...&#x5176;&#x4ED6;&#x4EE3;&#x7801;</span>
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x7684;&#x51FD;&#x6570;<code>asyncJob</code>&#x662F;&#x4E00;&#x4E2A;&#x534F;&#x7A0B;&#xFF0C;&#x5B83;&#x7684;&#x5965;&#x5999;&#x5C31;&#x5728;&#x5176;&#x4E2D;&#x7684;<code>yield</code>&#x547D;&#x4EE4;&#x3002;&#x5B83;&#x8868;&#x793A;&#x6267;&#x884C;&#x5230;&#x6B64;&#x5904;&#xFF0C;&#x6267;&#x884C;&#x6743;&#x5C06;&#x4EA4;&#x7ED9;&#x5176;&#x4ED6;&#x534F;&#x7A0B;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;<code>yield</code>&#x547D;&#x4EE4;&#x662F;&#x5F02;&#x6B65;&#x4E24;&#x4E2A;&#x9636;&#x6BB5;&#x7684;&#x5206;&#x754C;&#x7EBF;&#x3002;</p>
+<p>&#x534F;&#x7A0B;&#x9047;&#x5230;<code>yield</code>&#x547D;&#x4EE4;&#x5C31;&#x6682;&#x505C;&#xFF0C;&#x7B49;&#x5230;&#x6267;&#x884C;&#x6743;&#x8FD4;&#x56DE;&#xFF0C;&#x518D;&#x4ECE;&#x6682;&#x505C;&#x7684;&#x5730;&#x65B9;&#x7EE7;&#x7EED;&#x5F80;&#x540E;&#x6267;&#x884C;&#x3002;&#x5B83;&#x7684;&#x6700;&#x5927;&#x4F18;&#x70B9;&#xFF0C;&#x5C31;&#x662F;&#x4EE3;&#x7801;&#x7684;&#x5199;&#x6CD5;&#x975E;&#x5E38;&#x50CF;&#x540C;&#x6B65;&#x64CD;&#x4F5C;&#xFF0C;&#x5982;&#x679C;&#x53BB;&#x9664;<code>yield</code>&#x547D;&#x4EE4;&#xFF0C;&#x7B80;&#x76F4;&#x4E00;&#x6A21;&#x4E00;&#x6837;&#x3002;</p>
+<h3 id="&#x534F;&#x7A0B;&#x7684;-generator-&#x51FD;&#x6570;&#x5B9E;&#x73B0;">&#x534F;&#x7A0B;&#x7684; Generator &#x51FD;&#x6570;&#x5B9E;&#x73B0;</h3>
+<p>Generator &#x51FD;&#x6570;&#x662F;&#x534F;&#x7A0B;&#x5728; ES6 &#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x6700;&#x5927;&#x7279;&#x70B9;&#x5C31;&#x662F;&#x53EF;&#x4EE5;&#x4EA4;&#x51FA;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x6743;&#xFF08;&#x5373;&#x6682;&#x505C;&#x6267;&#x884C;&#xFF09;&#x3002;</p>
+<p>&#x6574;&#x4E2A; Generator &#x51FD;&#x6570;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5C01;&#x88C5;&#x7684;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#xFF0C;&#x6216;&#x8005;&#x8BF4;&#x662F;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x7684;&#x5BB9;&#x5668;&#x3002;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x9700;&#x8981;&#x6682;&#x505C;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x90FD;&#x7528;<code>yield</code>&#x8BED;&#x53E5;&#x6CE8;&#x660E;&#x3002;Generator &#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">gen</span>(<span class="hljs-params">x</span>) </span>{
+  <span class="hljs-keyword">var</span> y = <span class="hljs-keyword">yield</span> x + <span class="hljs-number">2</span>;
+  <span class="hljs-keyword">return</span> y;
+}
+
+<span class="hljs-keyword">var</span> g = gen(<span class="hljs-number">1</span>);
+g.next() <span class="hljs-comment">// { value: 3, done: false }</span>
+g.next() <span class="hljs-comment">// { value: undefined, done: true }</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x8C03;&#x7528; Generator &#x51FD;&#x6570;&#xFF0C;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5185;&#x90E8;&#x6307;&#x9488;&#xFF08;&#x5373;&#x904D;&#x5386;&#x5668;&#xFF09;<code>g</code>&#x3002;&#x8FD9;&#x662F; Generator &#x51FD;&#x6570;&#x4E0D;&#x540C;&#x4E8E;&#x666E;&#x901A;&#x51FD;&#x6570;&#x7684;&#x53E6;&#x4E00;&#x4E2A;&#x5730;&#x65B9;&#xFF0C;&#x5373;&#x6267;&#x884C;&#x5B83;&#x4E0D;&#x4F1A;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x6307;&#x9488;&#x5BF9;&#x8C61;&#x3002;&#x8C03;&#x7528;&#x6307;&#x9488;<code>g</code>&#x7684;<code>next</code>&#x65B9;&#x6CD5;&#xFF0C;&#x4F1A;&#x79FB;&#x52A8;&#x5185;&#x90E8;&#x6307;&#x9488;&#xFF08;&#x5373;&#x6267;&#x884C;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x7684;&#x7B2C;&#x4E00;&#x6BB5;&#xFF09;&#xFF0C;&#x6307;&#x5411;&#x7B2C;&#x4E00;&#x4E2A;&#x9047;&#x5230;&#x7684;<code>yield</code>&#x8BED;&#x53E5;&#xFF0C;&#x4E0A;&#x4F8B;&#x662F;&#x6267;&#x884C;&#x5230;<code>x + 2</code>&#x4E3A;&#x6B62;&#x3002;</p>
+<p>&#x6362;&#x8A00;&#x4E4B;&#xFF0C;<code>next</code>&#x65B9;&#x6CD5;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x5206;&#x9636;&#x6BB5;&#x6267;&#x884C;<code>Generator</code>&#x51FD;&#x6570;&#x3002;&#x6BCF;&#x6B21;&#x8C03;&#x7528;<code>next</code>&#x65B9;&#x6CD5;&#xFF0C;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x8868;&#x793A;&#x5F53;&#x524D;&#x9636;&#x6BB5;&#x7684;&#x4FE1;&#x606F;&#xFF08;<code>value</code>&#x5C5E;&#x6027;&#x548C;<code>done</code>&#x5C5E;&#x6027;&#xFF09;&#x3002;<code>value</code>&#x5C5E;&#x6027;&#x662F;<code>yield</code>&#x8BED;&#x53E5;&#x540E;&#x9762;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x5F53;&#x524D;&#x9636;&#x6BB5;&#x7684;&#x503C;&#xFF1B;<code>done</code>&#x5C5E;&#x6027;&#x662F;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x8868;&#x793A; Generator &#x51FD;&#x6570;&#x662F;&#x5426;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#xFF0C;&#x5373;&#x662F;&#x5426;&#x8FD8;&#x6709;&#x4E0B;&#x4E00;&#x4E2A;&#x9636;&#x6BB5;&#x3002;</p>
+<h3 id="generator-&#x51FD;&#x6570;&#x7684;&#x6570;&#x636E;&#x4EA4;&#x6362;&#x548C;&#x9519;&#x8BEF;&#x5904;&#x7406;">Generator &#x51FD;&#x6570;&#x7684;&#x6570;&#x636E;&#x4EA4;&#x6362;&#x548C;&#x9519;&#x8BEF;&#x5904;&#x7406;</h3>
+<p>Generator &#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x6682;&#x505C;&#x6267;&#x884C;&#x548C;&#x6062;&#x590D;&#x6267;&#x884C;&#xFF0C;&#x8FD9;&#x662F;&#x5B83;&#x80FD;&#x5C01;&#x88C5;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x7684;&#x6839;&#x672C;&#x539F;&#x56E0;&#x3002;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF0C;&#x5B83;&#x8FD8;&#x6709;&#x4E24;&#x4E2A;&#x7279;&#x6027;&#xFF0C;&#x4F7F;&#x5B83;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x7684;&#x5B8C;&#x6574;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;&#x51FD;&#x6570;&#x4F53;&#x5185;&#x5916;&#x7684;&#x6570;&#x636E;&#x4EA4;&#x6362;&#x548C;&#x9519;&#x8BEF;&#x5904;&#x7406;&#x673A;&#x5236;&#x3002;</p>
+<p><code>next</code>&#x8FD4;&#x56DE;&#x503C;&#x7684; value &#x5C5E;&#x6027;&#xFF0C;&#x662F; Generator &#x51FD;&#x6570;&#x5411;&#x5916;&#x8F93;&#x51FA;&#x6570;&#x636E;&#xFF1B;<code>next</code>&#x65B9;&#x6CD5;&#x8FD8;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x53C2;&#x6570;&#xFF0C;&#x5411; Generator &#x51FD;&#x6570;&#x4F53;&#x5185;&#x8F93;&#x5165;&#x6570;&#x636E;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">gen</span>(<span class="hljs-params">x</span>)</span>{
+  <span class="hljs-keyword">var</span> y = <span class="hljs-keyword">yield</span> x + <span class="hljs-number">2</span>;
+  <span class="hljs-keyword">return</span> y;
+}
+
+<span class="hljs-keyword">var</span> g = gen(<span class="hljs-number">1</span>);
+g.next() <span class="hljs-comment">// { value: 3, done: false }</span>
+g.next(<span class="hljs-number">2</span>) <span class="hljs-comment">// { value: 2, done: true }</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;<code>next</code>&#x65B9;&#x6CD5;&#x7684;<code>value</code>&#x5C5E;&#x6027;&#xFF0C;&#x8FD4;&#x56DE;&#x8868;&#x8FBE;&#x5F0F;<code>x + 2</code>&#x7684;&#x503C;<code>3</code>&#x3002;&#x7B2C;&#x4E8C;&#x4E2A;<code>next</code>&#x65B9;&#x6CD5;&#x5E26;&#x6709;&#x53C2;&#x6570;<code>2</code>&#xFF0C;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x4F20;&#x5165; Generator &#x51FD;&#x6570;&#xFF0C;&#x4F5C;&#x4E3A;&#x4E0A;&#x4E2A;&#x9636;&#x6BB5;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x7684;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#xFF0C;&#x88AB;&#x51FD;&#x6570;&#x4F53;&#x5185;&#x7684;&#x53D8;&#x91CF;<code>y</code>&#x63A5;&#x6536;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x8FD9;&#x4E00;&#x6B65;&#x7684;<code>value</code>&#x5C5E;&#x6027;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x5C31;&#x662F;<code>2</code>&#xFF08;&#x53D8;&#x91CF;<code>y</code>&#x7684;&#x503C;&#xFF09;&#x3002;</p>
+<p>Generator &#x51FD;&#x6570;&#x5185;&#x90E8;&#x8FD8;&#x53EF;&#x4EE5;&#x90E8;&#x7F72;&#x9519;&#x8BEF;&#x5904;&#x7406;&#x4EE3;&#x7801;&#xFF0C;&#x6355;&#x83B7;&#x51FD;&#x6570;&#x4F53;&#x5916;&#x629B;&#x51FA;&#x7684;&#x9519;&#x8BEF;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">gen</span>(<span class="hljs-params">x</span>)</span>{
+  <span class="hljs-keyword">try</span> {
+    <span class="hljs-keyword">var</span> y = <span class="hljs-keyword">yield</span> x + <span class="hljs-number">2</span>;
+  } <span class="hljs-keyword">catch</span> (e){
+    <span class="hljs-built_in">console</span>.log(e);
+  }
+  <span class="hljs-keyword">return</span> y;
+}
+
+<span class="hljs-keyword">var</span> g = gen(<span class="hljs-number">1</span>);
+g.next();
+g.throw(<span class="hljs-string">&apos;&#x51FA;&#x9519;&#x4E86;&apos;</span>);
+<span class="hljs-comment">// &#x51FA;&#x9519;&#x4E86;</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x7684;&#x6700;&#x540E;&#x4E00;&#x884C;&#xFF0C;Generator &#x51FD;&#x6570;&#x4F53;&#x5916;&#xFF0C;&#x4F7F;&#x7528;&#x6307;&#x9488;&#x5BF9;&#x8C61;&#x7684;<code>throw</code>&#x65B9;&#x6CD5;&#x629B;&#x51FA;&#x7684;&#x9519;&#x8BEF;&#xFF0C;&#x53EF;&#x4EE5;&#x88AB;&#x51FD;&#x6570;&#x4F53;&#x5185;&#x7684;<code>try...catch</code>&#x4EE3;&#x7801;&#x5757;&#x6355;&#x83B7;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x51FA;&#x9519;&#x7684;&#x4EE3;&#x7801;&#x4E0E;&#x5904;&#x7406;&#x9519;&#x8BEF;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5B9E;&#x73B0;&#x4E86;&#x65F6;&#x95F4;&#x548C;&#x7A7A;&#x95F4;&#x4E0A;&#x7684;&#x5206;&#x79BB;&#xFF0C;&#x8FD9;&#x5BF9;&#x4E8E;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x65E0;&#x7591;&#x662F;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x3002;</p>
+<h3 id="&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x7684;&#x5C01;&#x88C5;">&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x7684;&#x5C01;&#x88C5;</h3>
+<p>&#x4E0B;&#x9762;&#x770B;&#x770B;&#x5982;&#x4F55;&#x4F7F;&#x7528; Generator &#x51FD;&#x6570;&#xFF0C;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x771F;&#x5B9E;&#x7684;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> fetch = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;node-fetch&apos;</span>);
+
+<span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">gen</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-keyword">var</span> url = <span class="hljs-string">&apos;https://api.github.com/users/github&apos;</span>;
+  <span class="hljs-keyword">var</span> result = <span class="hljs-keyword">yield</span> fetch(url);
+  <span class="hljs-built_in">console</span>.log(result.bio);
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;Generator &#x51FD;&#x6570;&#x5C01;&#x88C5;&#x4E86;&#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#xFF0C;&#x8BE5;&#x64CD;&#x4F5C;&#x5148;&#x8BFB;&#x53D6;&#x4E00;&#x4E2A;&#x8FDC;&#x7A0B;&#x63A5;&#x53E3;&#xFF0C;&#x7136;&#x540E;&#x4ECE; JSON &#x683C;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x89E3;&#x6790;&#x4FE1;&#x606F;&#x3002;&#x5C31;&#x50CF;&#x524D;&#x9762;&#x8BF4;&#x8FC7;&#x7684;&#xFF0C;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x975E;&#x5E38;&#x50CF;&#x540C;&#x6B65;&#x64CD;&#x4F5C;&#xFF0C;&#x9664;&#x4E86;&#x52A0;&#x4E0A;&#x4E86;<code>yield</code>&#x547D;&#x4EE4;&#x3002;</p>
+<p>&#x6267;&#x884C;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x7684;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> g = gen();
+<span class="hljs-keyword">var</span> result = g.next();
+
+result.value.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>{
+  <span class="hljs-keyword">return</span> data.json();
+}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>{
+  g.next(data);
+});
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x9996;&#x5148;&#x6267;&#x884C; Generator &#x51FD;&#x6570;&#xFF0C;&#x83B7;&#x53D6;&#x904D;&#x5386;&#x5668;&#x5BF9;&#x8C61;&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528;<code>next</code>&#x65B9;&#x6CD5;&#xFF08;&#x7B2C;&#x4E8C;&#x884C;&#xFF09;&#xFF0C;&#x6267;&#x884C;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x7684;&#x7B2C;&#x4E00;&#x9636;&#x6BB5;&#x3002;&#x7531;&#x4E8E;<code>Fetch</code>&#x6A21;&#x5757;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A; Promise &#x5BF9;&#x8C61;&#xFF0C;&#x56E0;&#x6B64;&#x8981;&#x7528;<code>then</code>&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x4E0B;&#x4E00;&#x4E2A;<code>next</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x867D;&#x7136; Generator &#x51FD;&#x6570;&#x5C06;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x8868;&#x793A;&#x5F97;&#x5F88;&#x7B80;&#x6D01;&#xFF0C;&#x4F46;&#x662F;&#x6D41;&#x7A0B;&#x7BA1;&#x7406;&#x5374;&#x4E0D;&#x65B9;&#x4FBF;&#xFF08;&#x5373;&#x4F55;&#x65F6;&#x6267;&#x884C;&#x7B2C;&#x4E00;&#x9636;&#x6BB5;&#x3001;&#x4F55;&#x65F6;&#x6267;&#x884C;&#x7B2C;&#x4E8C;&#x9636;&#x6BB5;&#xFF09;&#x3002;</p>
+<h2 id="thunk-&#x51FD;&#x6570;">Thunk &#x51FD;&#x6570;</h2>
+<p>Thunk &#x51FD;&#x6570;&#x662F;&#x81EA;&#x52A8;&#x6267;&#x884C; Generator &#x51FD;&#x6570;&#x7684;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x3002;</p>
+<h3 id="&#x53C2;&#x6570;&#x7684;&#x6C42;&#x503C;&#x7B56;&#x7565;">&#x53C2;&#x6570;&#x7684;&#x6C42;&#x503C;&#x7B56;&#x7565;</h3>
+<p>Thunk &#x51FD;&#x6570;&#x65E9;&#x5728;&#x4E0A;&#x4E2A;&#x4E16;&#x7EAA; 60 &#x5E74;&#x4EE3;&#x5C31;&#x8BDE;&#x751F;&#x4E86;&#x3002;</p>
+<p>&#x90A3;&#x65F6;&#xFF0C;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x521A;&#x521A;&#x8D77;&#x6B65;&#xFF0C;&#x8BA1;&#x7B97;&#x673A;&#x5B66;&#x5BB6;&#x8FD8;&#x5728;&#x7814;&#x7A76;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x600E;&#x4E48;&#x5199;&#x6BD4;&#x8F83;&#x597D;&#x3002;&#x4E00;&#x4E2A;&#x4E89;&#x8BBA;&#x7684;&#x7126;&#x70B9;&#x662F;&quot;&#x6C42;&#x503C;&#x7B56;&#x7565;&quot;&#xFF0C;&#x5373;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x5230;&#x5E95;&#x5E94;&#x8BE5;&#x4F55;&#x65F6;&#x6C42;&#x503C;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> x = <span class="hljs-number">1</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span>(<span class="hljs-params">m</span>) </span>{
+  <span class="hljs-keyword">return</span> m * <span class="hljs-number">2</span>;
+}
+
+f(x + <span class="hljs-number">5</span>)
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x5148;&#x5B9A;&#x4E49;&#x51FD;&#x6570;<code>f</code>&#xFF0C;&#x7136;&#x540E;&#x5411;&#x5B83;&#x4F20;&#x5165;&#x8868;&#x8FBE;&#x5F0F;<code>x + 5</code>&#x3002;&#x8BF7;&#x95EE;&#xFF0C;&#x8FD9;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x5E94;&#x8BE5;&#x4F55;&#x65F6;&#x6C42;&#x503C;&#xFF1F;</p>
+<p>&#x4E00;&#x79CD;&#x610F;&#x89C1;&#x662F;&quot;&#x4F20;&#x503C;&#x8C03;&#x7528;&quot;&#xFF08;call by value&#xFF09;&#xFF0C;&#x5373;&#x5728;&#x8FDB;&#x5165;&#x51FD;&#x6570;&#x4F53;&#x4E4B;&#x524D;&#xFF0C;&#x5C31;&#x8BA1;&#x7B97;<code>x + 5</code>&#x7684;&#x503C;&#xFF08;&#x7B49;&#x4E8E; 6&#xFF09;&#xFF0C;&#x518D;&#x5C06;&#x8FD9;&#x4E2A;&#x503C;&#x4F20;&#x5165;&#x51FD;&#x6570;<code>f</code>&#x3002;C &#x8BED;&#x8A00;&#x5C31;&#x91C7;&#x7528;&#x8FD9;&#x79CD;&#x7B56;&#x7565;&#x3002;</p>
+<pre><code class="lang-javascript">f(x + <span class="hljs-number">5</span>)
+<span class="hljs-comment">// &#x4F20;&#x503C;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x7B49;&#x540C;&#x4E8E;</span>
+f(<span class="hljs-number">6</span>)
+</code></pre>
+<p>&#x53E6;&#x4E00;&#x79CD;&#x610F;&#x89C1;&#x662F;&#x201C;&#x4F20;&#x540D;&#x8C03;&#x7528;&#x201D;&#xFF08;call by name&#xFF09;&#xFF0C;&#x5373;&#x76F4;&#x63A5;&#x5C06;&#x8868;&#x8FBE;&#x5F0F;<code>x + 5</code>&#x4F20;&#x5165;&#x51FD;&#x6570;&#x4F53;&#xFF0C;&#x53EA;&#x5728;&#x7528;&#x5230;&#x5B83;&#x7684;&#x65F6;&#x5019;&#x6C42;&#x503C;&#x3002;Haskell &#x8BED;&#x8A00;&#x91C7;&#x7528;&#x8FD9;&#x79CD;&#x7B56;&#x7565;&#x3002;</p>
+<pre><code class="lang-javascript">f(x + <span class="hljs-number">5</span>)
+<span class="hljs-comment">// &#x4F20;&#x540D;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x7B49;&#x540C;&#x4E8E;</span>
+(x + <span class="hljs-number">5</span>) * <span class="hljs-number">2</span>
+</code></pre>
+<p>&#x4F20;&#x503C;&#x8C03;&#x7528;&#x548C;&#x4F20;&#x540D;&#x8C03;&#x7528;&#xFF0C;&#x54EA;&#x4E00;&#x79CD;&#x6BD4;&#x8F83;&#x597D;&#xFF1F;</p>
+<p>&#x56DE;&#x7B54;&#x662F;&#x5404;&#x6709;&#x5229;&#x5F0A;&#x3002;&#x4F20;&#x503C;&#x8C03;&#x7528;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x4F46;&#x662F;&#x5BF9;&#x53C2;&#x6570;&#x6C42;&#x503C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x8FD8;&#x6CA1;&#x7528;&#x5230;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x6709;&#x53EF;&#x80FD;&#x9020;&#x6210;&#x6027;&#x80FD;&#x635F;&#x5931;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span>(<span class="hljs-params">a, b</span>)</span>{
+  <span class="hljs-keyword">return</span> b;
+}
+
+f(<span class="hljs-number">3</span> * x * x - <span class="hljs-number">2</span> * x - <span class="hljs-number">1</span>, x);
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x51FD;&#x6570;<code>f</code>&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x590D;&#x6742;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x4F46;&#x662F;&#x51FD;&#x6570;&#x4F53;&#x5185;&#x6839;&#x672C;&#x6CA1;&#x7528;&#x5230;&#x3002;&#x5BF9;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x6C42;&#x503C;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x6709;&#x4E00;&#x4E9B;&#x8BA1;&#x7B97;&#x673A;&#x5B66;&#x5BB6;&#x503E;&#x5411;&#x4E8E;&quot;&#x4F20;&#x540D;&#x8C03;&#x7528;&quot;&#xFF0C;&#x5373;&#x53EA;&#x5728;&#x6267;&#x884C;&#x65F6;&#x6C42;&#x503C;&#x3002;</p>
+<h3 id="thunk-&#x51FD;&#x6570;&#x7684;&#x542B;&#x4E49;">Thunk &#x51FD;&#x6570;&#x7684;&#x542B;&#x4E49;</h3>
+<p>&#x7F16;&#x8BD1;&#x5668;&#x7684;&#x201C;&#x4F20;&#x540D;&#x8C03;&#x7528;&#x201D;&#x5B9E;&#x73B0;&#xFF0C;&#x5F80;&#x5F80;&#x662F;&#x5C06;&#x53C2;&#x6570;&#x653E;&#x5230;&#x4E00;&#x4E2A;&#x4E34;&#x65F6;&#x51FD;&#x6570;&#x4E4B;&#x4E2D;&#xFF0C;&#x518D;&#x5C06;&#x8FD9;&#x4E2A;&#x4E34;&#x65F6;&#x51FD;&#x6570;&#x4F20;&#x5165;&#x51FD;&#x6570;&#x4F53;&#x3002;&#x8FD9;&#x4E2A;&#x4E34;&#x65F6;&#x51FD;&#x6570;&#x5C31;&#x53EB;&#x505A; Thunk &#x51FD;&#x6570;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span>(<span class="hljs-params">m</span>) </span>{
+  <span class="hljs-keyword">return</span> m * <span class="hljs-number">2</span>;
+}
+
+f(x + <span class="hljs-number">5</span>);
+
+<span class="hljs-comment">// &#x7B49;&#x540C;&#x4E8E;</span>
+
+<span class="hljs-keyword">var</span> thunk = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> x + <span class="hljs-number">5</span>;
+};
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span>(<span class="hljs-params">thunk</span>) </span>{
+  <span class="hljs-keyword">return</span> thunk() * <span class="hljs-number">2</span>;
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x51FD;&#x6570; f &#x7684;&#x53C2;&#x6570;<code>x + 5</code>&#x88AB;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x66FF;&#x6362;&#x4E86;&#x3002;&#x51E1;&#x662F;&#x7528;&#x5230;&#x539F;&#x53C2;&#x6570;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x5BF9;<code>Thunk</code>&#x51FD;&#x6570;&#x6C42;&#x503C;&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x8FD9;&#x5C31;&#x662F; Thunk &#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#xFF0C;&#x5B83;&#x662F;&#x201C;&#x4F20;&#x540D;&#x8C03;&#x7528;&#x201D;&#x7684;&#x4E00;&#x79CD;&#x5B9E;&#x73B0;&#x7B56;&#x7565;&#xFF0C;&#x7528;&#x6765;&#x66FF;&#x6362;&#x67D0;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x3002;</p>
+<h3 id="javascript-&#x8BED;&#x8A00;&#x7684;-thunk-&#x51FD;&#x6570;">JavaScript &#x8BED;&#x8A00;&#x7684; Thunk &#x51FD;&#x6570;</h3>
+<p>JavaScript &#x8BED;&#x8A00;&#x662F;&#x4F20;&#x503C;&#x8C03;&#x7528;&#xFF0C;&#x5B83;&#x7684; Thunk &#x51FD;&#x6570;&#x542B;&#x4E49;&#x6709;&#x6240;&#x4E0D;&#x540C;&#x3002;&#x5728; JavaScript &#x8BED;&#x8A00;&#x4E2D;&#xFF0C;Thunk &#x51FD;&#x6570;&#x66FF;&#x6362;&#x7684;&#x4E0D;&#x662F;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x800C;&#x662F;&#x591A;&#x53C2;&#x6570;&#x51FD;&#x6570;&#xFF0C;&#x5C06;&#x5176;&#x66FF;&#x6362;&#x6210;&#x4E00;&#x4E2A;&#x53EA;&#x63A5;&#x53D7;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x7684;&#x5355;&#x53C2;&#x6570;&#x51FD;&#x6570;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x6B63;&#x5E38;&#x7248;&#x672C;&#x7684;readFile&#xFF08;&#x591A;&#x53C2;&#x6570;&#x7248;&#x672C;&#xFF09;</span>
+fs.readFile(fileName, callback);
+
+<span class="hljs-comment">// Thunk&#x7248;&#x672C;&#x7684;readFile&#xFF08;&#x5355;&#x53C2;&#x6570;&#x7248;&#x672C;&#xFF09;</span>
+<span class="hljs-keyword">var</span> Thunk = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">fileName</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">callback</span>) </span>{
+    <span class="hljs-keyword">return</span> fs.readFile(fileName, callback);
+  };
+};
+
+<span class="hljs-keyword">var</span> readFileThunk = Thunk(fileName);
+readFileThunk(callback);
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>fs</code>&#x6A21;&#x5757;&#x7684;<code>readFile</code>&#x65B9;&#x6CD5;&#x662F;&#x4E00;&#x4E2A;&#x591A;&#x53C2;&#x6570;&#x51FD;&#x6570;&#xFF0C;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x5206;&#x522B;&#x4E3A;&#x6587;&#x4EF6;&#x540D;&#x548C;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;&#x7ECF;&#x8FC7;&#x8F6C;&#x6362;&#x5668;&#x5904;&#x7406;&#xFF0C;&#x5B83;&#x53D8;&#x6210;&#x4E86;&#x4E00;&#x4E2A;&#x5355;&#x53C2;&#x6570;&#x51FD;&#x6570;&#xFF0C;&#x53EA;&#x63A5;&#x53D7;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x3002;&#x8FD9;&#x4E2A;&#x5355;&#x53C2;&#x6570;&#x7248;&#x672C;&#xFF0C;&#x5C31;&#x53EB;&#x505A; Thunk &#x51FD;&#x6570;&#x3002;</p>
+<p>&#x4EFB;&#x4F55;&#x51FD;&#x6570;&#xFF0C;&#x53EA;&#x8981;&#x53C2;&#x6570;&#x6709;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x5C31;&#x80FD;&#x5199;&#x6210; Thunk &#x51FD;&#x6570;&#x7684;&#x5F62;&#x5F0F;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684; Thunk &#x51FD;&#x6570;&#x8F6C;&#x6362;&#x5668;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// ES5&#x7248;&#x672C;</span>
+<span class="hljs-keyword">var</span> Thunk = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">fn</span>)</span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">var</span> args = <span class="hljs-built_in">Array</span>.prototype.slice.call(<span class="hljs-built_in">arguments</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">callback</span>)</span>{
+      args.push(callback);
+      <span class="hljs-keyword">return</span> fn.apply(<span class="hljs-keyword">this</span>, args);
+    }
+  };
+};
+
+<span class="hljs-comment">// ES6&#x7248;&#x672C;</span>
+<span class="hljs-keyword">const</span> Thunk = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">fn</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">...args</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">callback</span>) </span>{
+      <span class="hljs-keyword">return</span> fn.call(<span class="hljs-keyword">this</span>, ...args, callback);
+    }
+  };
+};
+</code></pre>
+<p>&#x4F7F;&#x7528;&#x4E0A;&#x9762;&#x7684;&#x8F6C;&#x6362;&#x5668;&#xFF0C;&#x751F;&#x6210;<code>fs.readFile</code>&#x7684; Thunk &#x51FD;&#x6570;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> readFileThunk = Thunk(fs.readFile);
+readFileThunk(fileA)(callback);
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x4F8B;&#x5B50;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span>(<span class="hljs-params">a, cb</span>) </span>{
+  cb(a);
+}
+<span class="hljs-keyword">const</span> ft = Thunk(f);
+
+ft(<span class="hljs-number">1</span>)(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// 1</span>
+</code></pre>
+<h3 id="thunkify-&#x6A21;&#x5757;">Thunkify &#x6A21;&#x5757;</h3>
+<p>&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x7684;&#x8F6C;&#x6362;&#x5668;&#xFF0C;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528; Thunkify &#x6A21;&#x5757;&#x3002;</p>
+<p>&#x9996;&#x5148;&#x662F;&#x5B89;&#x88C5;&#x3002;</p>
+<pre><code class="lang-bash">$ npm install thunkify
+</code></pre>
+<p>&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x5982;&#x4E0B;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> thunkify = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;thunkify&apos;</span>);
+<span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+
+<span class="hljs-keyword">var</span> read = thunkify(fs.readFile);
+read(<span class="hljs-string">&apos;package.json&apos;</span>)(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, str</span>)</span>{
+  <span class="hljs-comment">// ...</span>
+});
+</code></pre>
+<p>Thunkify &#x7684;&#x6E90;&#x7801;&#x4E0E;&#x4E0A;&#x4E00;&#x8282;&#x90A3;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x8F6C;&#x6362;&#x5668;&#x975E;&#x5E38;&#x50CF;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">thunkify</span>(<span class="hljs-params">fn</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> args = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-built_in">arguments</span>.length);
+    <span class="hljs-keyword">var</span> ctx = <span class="hljs-keyword">this</span>;
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; args.length; ++i) {
+      args[i] = <span class="hljs-built_in">arguments</span>[i];
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">done</span>) </span>{
+      <span class="hljs-keyword">var</span> called;
+
+      args.push(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">if</span> (called) <span class="hljs-keyword">return</span>;
+        called = <span class="hljs-literal">true</span>;
+        done.apply(<span class="hljs-literal">null</span>, <span class="hljs-built_in">arguments</span>);
+      });
+
+      <span class="hljs-keyword">try</span> {
+        fn.apply(ctx, args);
+      } <span class="hljs-keyword">catch</span> (err) {
+        done(err);
+      }
+    }
+  }
+};
+</code></pre>
+<p>&#x5B83;&#x7684;&#x6E90;&#x7801;&#x4E3B;&#x8981;&#x591A;&#x4E86;&#x4E00;&#x4E2A;&#x68C0;&#x67E5;&#x673A;&#x5236;&#xFF0C;&#x53D8;&#x91CF;<code>called</code>&#x786E;&#x4FDD;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x53EA;&#x8FD0;&#x884C;&#x4E00;&#x6B21;&#x3002;&#x8FD9;&#x6837;&#x7684;&#x8BBE;&#x8BA1;&#x4E0E;&#x4E0B;&#x6587;&#x7684; Generator &#x51FD;&#x6570;&#x76F8;&#x5173;&#x3002;&#x8BF7;&#x770B;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span>(<span class="hljs-params">a, b, callback</span>)</span>{
+  <span class="hljs-keyword">var</span> sum = a + b;
+  callback(sum);
+  callback(sum);
+}
+
+<span class="hljs-keyword">var</span> ft = thunkify(f);
+<span class="hljs-keyword">var</span> print = <span class="hljs-built_in">console</span>.log.bind(<span class="hljs-built_in">console</span>);
+ft(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)(print);
+<span class="hljs-comment">// 3</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x7531;&#x4E8E;<code>thunkify</code>&#x53EA;&#x5141;&#x8BB8;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x6267;&#x884C;&#x4E00;&#x6B21;&#xFF0C;&#x6240;&#x4EE5;&#x53EA;&#x8F93;&#x51FA;&#x4E00;&#x884C;&#x7ED3;&#x679C;&#x3002;</p>
+<h3 id="generator-&#x51FD;&#x6570;&#x7684;&#x6D41;&#x7A0B;&#x7BA1;&#x7406;">Generator &#x51FD;&#x6570;&#x7684;&#x6D41;&#x7A0B;&#x7BA1;&#x7406;</h3>
+<p>&#x4F60;&#x53EF;&#x80FD;&#x4F1A;&#x95EE;&#xFF0C; Thunk &#x51FD;&#x6570;&#x6709;&#x4EC0;&#x4E48;&#x7528;&#xFF1F;&#x56DE;&#x7B54;&#x662F;&#x4EE5;&#x524D;&#x786E;&#x5B9E;&#x6CA1;&#x4EC0;&#x4E48;&#x7528;&#xFF0C;&#x4F46;&#x662F; ES6 &#x6709;&#x4E86; Generator &#x51FD;&#x6570;&#xFF0C;Thunk &#x51FD;&#x6570;&#x73B0;&#x5728;&#x53EF;&#x4EE5;&#x7528;&#x4E8E; Generator &#x51FD;&#x6570;&#x7684;&#x81EA;&#x52A8;&#x6D41;&#x7A0B;&#x7BA1;&#x7406;&#x3002;</p>
+<p>Generator &#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">gen</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// ...</span>
+}
+
+<span class="hljs-keyword">var</span> g = gen();
+<span class="hljs-keyword">var</span> res = g.next();
+
+<span class="hljs-keyword">while</span>(!res.done){
+  <span class="hljs-built_in">console</span>.log(res.value);
+  res = g.next();
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;Generator &#x51FD;&#x6570;<code>gen</code>&#x4F1A;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x5B8C;&#x6240;&#x6709;&#x6B65;&#x9AA4;&#x3002;</p>
+<p>&#x4F46;&#x662F;&#xFF0C;&#x8FD9;&#x4E0D;&#x9002;&#x5408;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x3002;&#x5982;&#x679C;&#x5FC5;&#x987B;&#x4FDD;&#x8BC1;&#x524D;&#x4E00;&#x6B65;&#x6267;&#x884C;&#x5B8C;&#xFF0C;&#x624D;&#x80FD;&#x6267;&#x884C;&#x540E;&#x4E00;&#x6B65;&#xFF0C;&#x4E0A;&#x9762;&#x7684;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x5C31;&#x4E0D;&#x53EF;&#x884C;&#x3002;&#x8FD9;&#x65F6;&#xFF0C;Thunk &#x51FD;&#x6570;&#x5C31;&#x80FD;&#x6D3E;&#x4E0A;&#x7528;&#x5904;&#x3002;&#x4EE5;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x4E3A;&#x4F8B;&#x3002;&#x4E0B;&#x9762;&#x7684; Generator &#x51FD;&#x6570;&#x5C01;&#x88C5;&#x4E86;&#x4E24;&#x4E2A;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+<span class="hljs-keyword">var</span> thunkify = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;thunkify&apos;</span>);
+<span class="hljs-keyword">var</span> readFileThunk = thunkify(fs.readFile);
+
+<span class="hljs-keyword">var</span> gen = <span class="hljs-function"><span class="hljs-keyword">function</span>* (<span class="hljs-params"></span>)</span>{
+  <span class="hljs-keyword">var</span> r1 = <span class="hljs-keyword">yield</span> readFileThunk(<span class="hljs-string">&apos;/etc/fstab&apos;</span>);
+  <span class="hljs-built_in">console</span>.log(r1.toString());
+  <span class="hljs-keyword">var</span> r2 = <span class="hljs-keyword">yield</span> readFileThunk(<span class="hljs-string">&apos;/etc/shells&apos;</span>);
+  <span class="hljs-built_in">console</span>.log(r2.toString());
+};
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>yield</code>&#x547D;&#x4EE4;&#x7528;&#x4E8E;&#x5C06;&#x7A0B;&#x5E8F;&#x7684;&#x6267;&#x884C;&#x6743;&#x79FB;&#x51FA; Generator &#x51FD;&#x6570;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x9700;&#x8981;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;&#x5C06;&#x6267;&#x884C;&#x6743;&#x518D;&#x4EA4;&#x8FD8;&#x7ED9; Generator &#x51FD;&#x6570;&#x3002;</p>
+<p>&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x5C31;&#x662F; Thunk &#x51FD;&#x6570;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x53EF;&#x4EE5;&#x5728;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x91CC;&#xFF0C;&#x5C06;&#x6267;&#x884C;&#x6743;&#x4EA4;&#x8FD8;&#x7ED9; Generator &#x51FD;&#x6570;&#x3002;&#x4E3A;&#x4E86;&#x4FBF;&#x4E8E;&#x7406;&#x89E3;&#xFF0C;&#x6211;&#x4EEC;&#x5148;&#x770B;&#x5982;&#x4F55;&#x624B;&#x52A8;&#x6267;&#x884C;&#x4E0A;&#x9762;&#x8FD9;&#x4E2A; Generator &#x51FD;&#x6570;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> g = gen();
+
+<span class="hljs-keyword">var</span> r1 = g.next();
+r1.value(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, data</span>) </span>{
+  <span class="hljs-keyword">if</span> (err) <span class="hljs-keyword">throw</span> err;
+  <span class="hljs-keyword">var</span> r2 = g.next(data);
+  r2.value(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, data</span>) </span>{
+    <span class="hljs-keyword">if</span> (err) <span class="hljs-keyword">throw</span> err;
+    g.next(data);
+  });
+});
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x53D8;&#x91CF;<code>g</code>&#x662F; Generator &#x51FD;&#x6570;&#x7684;&#x5185;&#x90E8;&#x6307;&#x9488;&#xFF0C;&#x8868;&#x793A;&#x76EE;&#x524D;&#x6267;&#x884C;&#x5230;&#x54EA;&#x4E00;&#x6B65;&#x3002;<code>next</code>&#x65B9;&#x6CD5;&#x8D1F;&#x8D23;&#x5C06;&#x6307;&#x9488;&#x79FB;&#x52A8;&#x5230;&#x4E0B;&#x4E00;&#x6B65;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x8BE5;&#x6B65;&#x7684;&#x4FE1;&#x606F;&#xFF08;<code>value</code>&#x5C5E;&#x6027;&#x548C;<code>done</code>&#x5C5E;&#x6027;&#xFF09;&#x3002;</p>
+<p>&#x4ED4;&#x7EC6;&#x67E5;&#x770B;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x53EF;&#x4EE5;&#x53D1;&#x73B0; Generator &#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#xFF0C;&#x5176;&#x5B9E;&#x662F;&#x5C06;&#x540C;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x53CD;&#x590D;&#x4F20;&#x5165;<code>next</code>&#x65B9;&#x6CD5;&#x7684;<code>value</code>&#x5C5E;&#x6027;&#x3002;&#x8FD9;&#x4F7F;&#x5F97;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;&#x9012;&#x5F52;&#x6765;&#x81EA;&#x52A8;&#x5B8C;&#x6210;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x3002;</p>
+<h3 id="thunk-&#x51FD;&#x6570;&#x7684;&#x81EA;&#x52A8;&#x6D41;&#x7A0B;&#x7BA1;&#x7406;">Thunk &#x51FD;&#x6570;&#x7684;&#x81EA;&#x52A8;&#x6D41;&#x7A0B;&#x7BA1;&#x7406;</h3>
+<p>Thunk &#x51FD;&#x6570;&#x771F;&#x6B63;&#x7684;&#x5A01;&#x529B;&#xFF0C;&#x5728;&#x4E8E;&#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x6267;&#x884C; Generator &#x51FD;&#x6570;&#x3002;&#x4E0B;&#x9762;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E; Thunk &#x51FD;&#x6570;&#x7684; Generator &#x6267;&#x884C;&#x5668;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">run</span>(<span class="hljs-params">fn</span>) </span>{
+  <span class="hljs-keyword">var</span> gen = fn();
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">next</span>(<span class="hljs-params">err, data</span>) </span>{
+    <span class="hljs-keyword">var</span> result = gen.next(data);
+    <span class="hljs-keyword">if</span> (result.done) <span class="hljs-keyword">return</span>;
+    result.value(next);
+  }
+
+  next();
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">g</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// ...</span>
+}
+
+run(g);
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x7684;<code>run</code>&#x51FD;&#x6570;&#xFF0C;&#x5C31;&#x662F;&#x4E00;&#x4E2A; Generator &#x51FD;&#x6570;&#x7684;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x5668;&#x3002;&#x5185;&#x90E8;&#x7684;<code>next</code>&#x51FD;&#x6570;&#x5C31;&#x662F; Thunk &#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;<code>next</code>&#x51FD;&#x6570;&#x5148;&#x5C06;&#x6307;&#x9488;&#x79FB;&#x5230; Generator &#x51FD;&#x6570;&#x7684;&#x4E0B;&#x4E00;&#x6B65;&#xFF08;<code>gen.next</code>&#x65B9;&#x6CD5;&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x5224;&#x65AD; Generator &#x51FD;&#x6570;&#x662F;&#x5426;&#x7ED3;&#x675F;&#xFF08;<code>result.done</code>&#x5C5E;&#x6027;&#xFF09;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x7ED3;&#x675F;&#xFF0C;&#x5C31;&#x5C06;<code>next</code>&#x51FD;&#x6570;&#x518D;&#x4F20;&#x5165; Thunk &#x51FD;&#x6570;&#xFF08;<code>result.value</code>&#x5C5E;&#x6027;&#xFF09;&#xFF0C;&#x5426;&#x5219;&#x5C31;&#x76F4;&#x63A5;&#x9000;&#x51FA;&#x3002;</p>
+<p>&#x6709;&#x4E86;&#x8FD9;&#x4E2A;&#x6267;&#x884C;&#x5668;&#xFF0C;&#x6267;&#x884C; Generator &#x51FD;&#x6570;&#x65B9;&#x4FBF;&#x591A;&#x4E86;&#x3002;&#x4E0D;&#x7BA1;&#x5185;&#x90E8;&#x6709;&#x591A;&#x5C11;&#x4E2A;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#xFF0C;&#x76F4;&#x63A5;&#x628A; Generator &#x51FD;&#x6570;&#x4F20;&#x5165;<code>run</code>&#x51FD;&#x6570;&#x5373;&#x53EF;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x524D;&#x63D0;&#x662F;&#x6BCF;&#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#xFF0C;&#x90FD;&#x8981;&#x662F; Thunk &#x51FD;&#x6570;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x8DDF;&#x5728;<code>yield</code>&#x547D;&#x4EE4;&#x540E;&#x9762;&#x7684;&#x5FC5;&#x987B;&#x662F; Thunk &#x51FD;&#x6570;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> g = <span class="hljs-function"><span class="hljs-keyword">function</span>* (<span class="hljs-params"></span>)</span>{
+  <span class="hljs-keyword">var</span> f1 = <span class="hljs-keyword">yield</span> readFileThunk(<span class="hljs-string">&apos;fileA&apos;</span>);
+  <span class="hljs-keyword">var</span> f2 = <span class="hljs-keyword">yield</span> readFileThunk(<span class="hljs-string">&apos;fileB&apos;</span>);
+  <span class="hljs-comment">// ...</span>
+  <span class="hljs-keyword">var</span> fn = <span class="hljs-keyword">yield</span> readFileThunk(<span class="hljs-string">&apos;fileN&apos;</span>);
+};
+
+run(g);
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x51FD;&#x6570;<code>g</code>&#x5C01;&#x88C5;&#x4E86;<code>n</code>&#x4E2A;&#x5F02;&#x6B65;&#x7684;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;&#xFF0C;&#x53EA;&#x8981;&#x6267;&#x884C;<code>run</code>&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x4E9B;&#x64CD;&#x4F5C;&#x5C31;&#x4F1A;&#x81EA;&#x52A8;&#x5B8C;&#x6210;&#x3002;&#x8FD9;&#x6837;&#x4E00;&#x6765;&#xFF0C;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x4E0D;&#x4EC5;&#x53EF;&#x4EE5;&#x5199;&#x5F97;&#x50CF;&#x540C;&#x6B65;&#x64CD;&#x4F5C;&#xFF0C;&#x800C;&#x4E14;&#x4E00;&#x884C;&#x4EE3;&#x7801;&#x5C31;&#x53EF;&#x4EE5;&#x6267;&#x884C;&#x3002;</p>
+<p>Thunk &#x51FD;&#x6570;&#x5E76;&#x4E0D;&#x662F; Generator &#x51FD;&#x6570;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x7684;&#x552F;&#x4E00;&#x65B9;&#x6848;&#x3002;&#x56E0;&#x4E3A;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x7684;&#x5173;&#x952E;&#x662F;&#xFF0C;&#x5FC5;&#x987B;&#x6709;&#x4E00;&#x79CD;&#x673A;&#x5236;&#xFF0C;&#x81EA;&#x52A8;&#x63A7;&#x5236; Generator &#x51FD;&#x6570;&#x7684;&#x6D41;&#x7A0B;&#xFF0C;&#x63A5;&#x6536;&#x548C;&#x4EA4;&#x8FD8;&#x7A0B;&#x5E8F;&#x7684;&#x6267;&#x884C;&#x6743;&#x3002;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x505A;&#x5230;&#x8FD9;&#x4E00;&#x70B9;&#xFF0C;Promise &#x5BF9;&#x8C61;&#x4E5F;&#x53EF;&#x4EE5;&#x505A;&#x5230;&#x8FD9;&#x4E00;&#x70B9;&#x3002;</p>
+<h2 id="co-&#x6A21;&#x5757;">co &#x6A21;&#x5757;</h2>
+<h3 id="&#x57FA;&#x672C;&#x7528;&#x6CD5;">&#x57FA;&#x672C;&#x7528;&#x6CD5;</h3>
+<p><a href="https://github.com/tj/co" target="_blank">co &#x6A21;&#x5757;</a>&#x662F;&#x8457;&#x540D;&#x7A0B;&#x5E8F;&#x5458; TJ Holowaychuk &#x4E8E; 2013 &#x5E74; 6 &#x6708;&#x53D1;&#x5E03;&#x7684;&#x4E00;&#x4E2A;&#x5C0F;&#x5DE5;&#x5177;&#xFF0C;&#x7528;&#x4E8E; Generator &#x51FD;&#x6570;&#x7684;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A; Generator &#x51FD;&#x6570;&#xFF0C;&#x7528;&#x4E8E;&#x4F9D;&#x6B21;&#x8BFB;&#x53D6;&#x4E24;&#x4E2A;&#x6587;&#x4EF6;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> gen = <span class="hljs-function"><span class="hljs-keyword">function</span>* (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> f1 = <span class="hljs-keyword">yield</span> readFile(<span class="hljs-string">&apos;/etc/fstab&apos;</span>);
+  <span class="hljs-keyword">var</span> f2 = <span class="hljs-keyword">yield</span> readFile(<span class="hljs-string">&apos;/etc/shells&apos;</span>);
+  <span class="hljs-built_in">console</span>.log(f1.toString());
+  <span class="hljs-built_in">console</span>.log(f2.toString());
+};
+</code></pre>
+<p>co &#x6A21;&#x5757;&#x53EF;&#x4EE5;&#x8BA9;&#x4F60;&#x4E0D;&#x7528;&#x7F16;&#x5199; Generator &#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x5668;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> co = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;co&apos;</span>);
+co(gen);
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;Generator &#x51FD;&#x6570;&#x53EA;&#x8981;&#x4F20;&#x5165;<code>co</code>&#x51FD;&#x6570;&#xFF0C;&#x5C31;&#x4F1A;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x3002;</p>
+<p><code>co</code>&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;<code>Promise</code>&#x5BF9;&#x8C61;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x7528;<code>then</code>&#x65B9;&#x6CD5;&#x6DFB;&#x52A0;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;</p>
+<pre><code class="lang-javascript">co(gen).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Generator &#x51FD;&#x6570;&#x6267;&#x884C;&#x5B8C;&#x6210;&apos;</span>);
+});
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x7B49;&#x5230; Generator &#x51FD;&#x6570;&#x6267;&#x884C;&#x7ED3;&#x675F;&#xFF0C;&#x5C31;&#x4F1A;&#x8F93;&#x51FA;&#x4E00;&#x884C;&#x63D0;&#x793A;&#x3002;</p>
+<h3 id="co-&#x6A21;&#x5757;&#x7684;&#x539F;&#x7406;">co &#x6A21;&#x5757;&#x7684;&#x539F;&#x7406;</h3>
+<p>&#x4E3A;&#x4EC0;&#x4E48; co &#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x6267;&#x884C; Generator &#x51FD;&#x6570;&#xFF1F;</p>
+<p>&#x524D;&#x9762;&#x8BF4;&#x8FC7;&#xFF0C;Generator &#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x7684;&#x5BB9;&#x5668;&#x3002;&#x5B83;&#x7684;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x9700;&#x8981;&#x4E00;&#x79CD;&#x673A;&#x5236;&#xFF0C;&#x5F53;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x6709;&#x4E86;&#x7ED3;&#x679C;&#xFF0C;&#x80FD;&#x591F;&#x81EA;&#x52A8;&#x4EA4;&#x56DE;&#x6267;&#x884C;&#x6743;&#x3002;</p>
+<p>&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x505A;&#x5230;&#x8FD9;&#x4E00;&#x70B9;&#x3002;</p>
+<p>&#xFF08;1&#xFF09;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;&#x5C06;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x5305;&#x88C5;&#x6210; Thunk &#x51FD;&#x6570;&#xFF0C;&#x5728;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x91CC;&#x9762;&#x4EA4;&#x56DE;&#x6267;&#x884C;&#x6743;&#x3002;</p>
+<p>&#xFF08;2&#xFF09;Promise &#x5BF9;&#x8C61;&#x3002;&#x5C06;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x5305;&#x88C5;&#x6210; Promise &#x5BF9;&#x8C61;&#xFF0C;&#x7528;<code>then</code>&#x65B9;&#x6CD5;&#x4EA4;&#x56DE;&#x6267;&#x884C;&#x6743;&#x3002;</p>
+<p>co &#x6A21;&#x5757;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x5C06;&#x4E24;&#x79CD;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x5668;&#xFF08;Thunk &#x51FD;&#x6570;&#x548C; Promise &#x5BF9;&#x8C61;&#xFF09;&#xFF0C;&#x5305;&#x88C5;&#x6210;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x3002;&#x4F7F;&#x7528; co &#x7684;&#x524D;&#x63D0;&#x6761;&#x4EF6;&#x662F;&#xFF0C;Generator &#x51FD;&#x6570;&#x7684;<code>yield</code>&#x547D;&#x4EE4;&#x540E;&#x9762;&#xFF0C;&#x53EA;&#x80FD;&#x662F; Thunk &#x51FD;&#x6570;&#x6216; Promise &#x5BF9;&#x8C61;&#x3002;&#x5982;&#x679C;&#x6570;&#x7EC4;&#x6216;&#x5BF9;&#x8C61;&#x7684;&#x6210;&#x5458;&#xFF0C;&#x5168;&#x90E8;&#x90FD;&#x662F; Promise &#x5BF9;&#x8C61;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; co&#xFF0C;&#x8BE6;&#x89C1;&#x540E;&#x6587;&#x7684;&#x4F8B;&#x5B50;&#x3002;</p>
+<p>&#x4E0A;&#x4E00;&#x8282;&#x5DF2;&#x7ECF;&#x4ECB;&#x7ECD;&#x4E86;&#x57FA;&#x4E8E; Thunk &#x51FD;&#x6570;&#x7684;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x5668;&#x3002;&#x4E0B;&#x9762;&#x6765;&#x770B;&#xFF0C;&#x57FA;&#x4E8E; Promise &#x5BF9;&#x8C61;&#x7684;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x5668;&#x3002;&#x8FD9;&#x662F;&#x7406;&#x89E3; co &#x6A21;&#x5757;&#x5FC5;&#x987B;&#x7684;&#x3002;</p>
+<h3 id="&#x57FA;&#x4E8E;-promise-&#x5BF9;&#x8C61;&#x7684;&#x81EA;&#x52A8;&#x6267;&#x884C;">&#x57FA;&#x4E8E; Promise &#x5BF9;&#x8C61;&#x7684;&#x81EA;&#x52A8;&#x6267;&#x884C;</h3>
+<p>&#x8FD8;&#x662F;&#x6CBF;&#x7528;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x3002;&#x9996;&#x5148;&#xFF0C;&#x628A;<code>fs</code>&#x6A21;&#x5757;&#x7684;<code>readFile</code>&#x65B9;&#x6CD5;&#x5305;&#x88C5;&#x6210;&#x4E00;&#x4E2A; Promise &#x5BF9;&#x8C61;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+
+<span class="hljs-keyword">var</span> readFile = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">fileName</span>)</span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">resolve, reject</span>)</span>{
+    fs.readFile(fileName, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error, data</span>)</span>{
+      <span class="hljs-keyword">if</span> (error) <span class="hljs-keyword">return</span> reject(error);
+      resolve(data);
+    });
+  });
+};
+
+<span class="hljs-keyword">var</span> gen = <span class="hljs-function"><span class="hljs-keyword">function</span>* (<span class="hljs-params"></span>)</span>{
+  <span class="hljs-keyword">var</span> f1 = <span class="hljs-keyword">yield</span> readFile(<span class="hljs-string">&apos;/etc/fstab&apos;</span>);
+  <span class="hljs-keyword">var</span> f2 = <span class="hljs-keyword">yield</span> readFile(<span class="hljs-string">&apos;/etc/shells&apos;</span>);
+  <span class="hljs-built_in">console</span>.log(f1.toString());
+  <span class="hljs-built_in">console</span>.log(f2.toString());
+};
+</code></pre>
+<p>&#x7136;&#x540E;&#xFF0C;&#x624B;&#x52A8;&#x6267;&#x884C;&#x4E0A;&#x9762;&#x7684; Generator &#x51FD;&#x6570;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> g = gen();
+
+g.next().value.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>{
+  g.next(data).value.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>{
+    g.next(data);
+  });
+});
+</code></pre>
+<p>&#x624B;&#x52A8;&#x6267;&#x884C;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x7528;<code>then</code>&#x65B9;&#x6CD5;&#xFF0C;&#x5C42;&#x5C42;&#x6DFB;&#x52A0;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;&#x7406;&#x89E3;&#x4E86;&#x8FD9;&#x4E00;&#x70B9;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5199;&#x51FA;&#x4E00;&#x4E2A;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x5668;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">run</span>(<span class="hljs-params">gen</span>)</span>{
+  <span class="hljs-keyword">var</span> g = gen();
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">next</span>(<span class="hljs-params">data</span>)</span>{
+    <span class="hljs-keyword">var</span> result = g.next(data);
+    <span class="hljs-keyword">if</span> (result.done) <span class="hljs-keyword">return</span> result.value;
+    result.value.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>{
+      next(data);
+    });
+  }
+
+  next();
+}
+
+run(gen);
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x53EA;&#x8981; Generator &#x51FD;&#x6570;&#x8FD8;&#x6CA1;&#x6267;&#x884C;&#x5230;&#x6700;&#x540E;&#x4E00;&#x6B65;&#xFF0C;<code>next</code>&#x51FD;&#x6570;&#x5C31;&#x8C03;&#x7528;&#x81EA;&#x8EAB;&#xFF0C;&#x4EE5;&#x6B64;&#x5B9E;&#x73B0;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x3002;</p>
+<h3 id="co-&#x6A21;&#x5757;&#x7684;&#x6E90;&#x7801;">co &#x6A21;&#x5757;&#x7684;&#x6E90;&#x7801;</h3>
+<p>co &#x5C31;&#x662F;&#x4E0A;&#x9762;&#x90A3;&#x4E2A;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x5668;&#x7684;&#x6269;&#x5C55;&#xFF0C;&#x5B83;&#x7684;&#x6E90;&#x7801;&#x53EA;&#x6709;&#x51E0;&#x5341;&#x884C;&#xFF0C;&#x975E;&#x5E38;&#x7B80;&#x5355;&#x3002;</p>
+<p>&#x9996;&#x5148;&#xFF0C;co &#x51FD;&#x6570;&#x63A5;&#x53D7; Generator &#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; Promise &#x5BF9;&#x8C61;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">co</span>(<span class="hljs-params">gen</span>) </span>{
+  <span class="hljs-keyword">var</span> ctx = <span class="hljs-keyword">this</span>;
+
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>) </span>{
+  });
+}
+</code></pre>
+<p>&#x5728;&#x8FD4;&#x56DE;&#x7684; Promise &#x5BF9;&#x8C61;&#x91CC;&#x9762;&#xFF0C;co &#x5148;&#x68C0;&#x67E5;&#x53C2;&#x6570;<code>gen</code>&#x662F;&#x5426;&#x4E3A; Generator &#x51FD;&#x6570;&#x3002;&#x5982;&#x679C;&#x662F;&#xFF0C;&#x5C31;&#x6267;&#x884C;&#x8BE5;&#x51FD;&#x6570;&#xFF0C;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x5185;&#x90E8;&#x6307;&#x9488;&#x5BF9;&#x8C61;&#xFF1B;&#x5982;&#x679C;&#x4E0D;&#x662F;&#x5C31;&#x8FD4;&#x56DE;&#xFF0C;&#x5E76;&#x5C06; Promise &#x5BF9;&#x8C61;&#x7684;&#x72B6;&#x6001;&#x6539;&#x4E3A;<code>resolved</code>&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">co</span>(<span class="hljs-params">gen</span>) </span>{
+  <span class="hljs-keyword">var</span> ctx = <span class="hljs-keyword">this</span>;
+
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>) </span>{
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> gen === <span class="hljs-string">&apos;function&apos;</span>) gen = gen.call(ctx);
+    <span class="hljs-keyword">if</span> (!gen || <span class="hljs-keyword">typeof</span> gen.next !== <span class="hljs-string">&apos;function&apos;</span>) <span class="hljs-keyword">return</span> resolve(gen);
+  });
+}
+</code></pre>
+<p>&#x63A5;&#x7740;&#xFF0C;co &#x5C06; Generator &#x51FD;&#x6570;&#x7684;&#x5185;&#x90E8;&#x6307;&#x9488;&#x5BF9;&#x8C61;&#x7684;<code>next</code>&#x65B9;&#x6CD5;&#xFF0C;&#x5305;&#x88C5;&#x6210;<code>onFulfilled</code>&#x51FD;&#x6570;&#x3002;&#x8FD9;&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x80FD;&#x591F;&#x6355;&#x6349;&#x629B;&#x51FA;&#x7684;&#x9519;&#x8BEF;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">co</span>(<span class="hljs-params">gen</span>) </span>{
+  <span class="hljs-keyword">var</span> ctx = <span class="hljs-keyword">this</span>;
+
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>) </span>{
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> gen === <span class="hljs-string">&apos;function&apos;</span>) gen = gen.call(ctx);
+    <span class="hljs-keyword">if</span> (!gen || <span class="hljs-keyword">typeof</span> gen.next !== <span class="hljs-string">&apos;function&apos;</span>) <span class="hljs-keyword">return</span> resolve(gen);
+
+    onFulfilled();
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onFulfilled</span>(<span class="hljs-params">res</span>) </span>{
+      <span class="hljs-keyword">var</span> ret;
+      <span class="hljs-keyword">try</span> {
+        ret = gen.next(res);
+      } <span class="hljs-keyword">catch</span> (e) {
+        <span class="hljs-keyword">return</span> reject(e);
+      }
+      next(ret);
+    }
+  });
+}
+</code></pre>
+<p>&#x6700;&#x540E;&#xFF0C;&#x5C31;&#x662F;&#x5173;&#x952E;&#x7684;<code>next</code>&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x4F1A;&#x53CD;&#x590D;&#x8C03;&#x7528;&#x81EA;&#x8EAB;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">next</span>(<span class="hljs-params">ret</span>) </span>{
+  <span class="hljs-keyword">if</span> (ret.done) <span class="hljs-keyword">return</span> resolve(ret.value);
+  <span class="hljs-keyword">var</span> value = toPromise.call(ctx, ret.value);
+  <span class="hljs-keyword">if</span> (value &amp;&amp; isPromise(value)) <span class="hljs-keyword">return</span> value.then(onFulfilled, onRejected);
+  <span class="hljs-keyword">return</span> onRejected(
+    <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(
+      <span class="hljs-string">&apos;You may only yield a function, promise, generator, array, or object, &apos;</span>
+      + <span class="hljs-string">&apos;but the following object was passed: &quot;&apos;</span>
+      + <span class="hljs-built_in">String</span>(ret.value)
+      + <span class="hljs-string">&apos;&quot;&apos;</span>
+    )
+  );
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>next</code>&#x51FD;&#x6570;&#x7684;&#x5185;&#x90E8;&#x4EE3;&#x7801;&#xFF0C;&#x4E00;&#x5171;&#x53EA;&#x6709;&#x56DB;&#x884C;&#x547D;&#x4EE4;&#x3002;</p>
+<p>&#x7B2C;&#x4E00;&#x884C;&#xFF0C;&#x68C0;&#x67E5;&#x5F53;&#x524D;&#x662F;&#x5426;&#x4E3A; Generator &#x51FD;&#x6570;&#x7684;&#x6700;&#x540E;&#x4E00;&#x6B65;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x5C31;&#x8FD4;&#x56DE;&#x3002;</p>
+<p>&#x7B2C;&#x4E8C;&#x884C;&#xFF0C;&#x786E;&#x4FDD;&#x6BCF;&#x4E00;&#x6B65;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x662F; Promise &#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x7B2C;&#x4E09;&#x884C;&#xFF0C;&#x4F7F;&#x7528;<code>then</code>&#x65B9;&#x6CD5;&#xFF0C;&#x4E3A;&#x8FD4;&#x56DE;&#x503C;&#x52A0;&#x4E0A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;<code>onFulfilled</code>&#x51FD;&#x6570;&#x518D;&#x6B21;&#x8C03;&#x7528;<code>next</code>&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x7B2C;&#x56DB;&#x884C;&#xFF0C;&#x5728;&#x53C2;&#x6570;&#x4E0D;&#x7B26;&#x5408;&#x8981;&#x6C42;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF08;&#x53C2;&#x6570;&#x975E; Thunk &#x51FD;&#x6570;&#x548C; Promise &#x5BF9;&#x8C61;&#xFF09;&#xFF0C;&#x5C06; Promise &#x5BF9;&#x8C61;&#x7684;&#x72B6;&#x6001;&#x6539;&#x4E3A;<code>rejected</code>&#xFF0C;&#x4ECE;&#x800C;&#x7EC8;&#x6B62;&#x6267;&#x884C;&#x3002;</p>
+<h3 id="&#x5904;&#x7406;&#x5E76;&#x53D1;&#x7684;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;">&#x5904;&#x7406;&#x5E76;&#x53D1;&#x7684;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;</h3>
+<p>co &#x652F;&#x6301;&#x5E76;&#x53D1;&#x7684;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#xFF0C;&#x5373;&#x5141;&#x8BB8;&#x67D0;&#x4E9B;&#x64CD;&#x4F5C;&#x540C;&#x65F6;&#x8FDB;&#x884C;&#xFF0C;&#x7B49;&#x5230;&#x5B83;&#x4EEC;&#x5168;&#x90E8;&#x5B8C;&#x6210;&#xFF0C;&#x624D;&#x8FDB;&#x884C;&#x4E0B;&#x4E00;&#x6B65;&#x3002;</p>
+<p>&#x8FD9;&#x65F6;&#xFF0C;&#x8981;&#x628A;&#x5E76;&#x53D1;&#x7684;&#x64CD;&#x4F5C;&#x90FD;&#x653E;&#x5728;&#x6570;&#x7EC4;&#x6216;&#x5BF9;&#x8C61;&#x91CC;&#x9762;&#xFF0C;&#x8DDF;&#x5728;<code>yield</code>&#x8BED;&#x53E5;&#x540E;&#x9762;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x6570;&#x7EC4;&#x7684;&#x5199;&#x6CD5;</span>
+co(<span class="hljs-function"><span class="hljs-keyword">function</span>* (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> res = <span class="hljs-keyword">yield</span> [
+    <span class="hljs-built_in">Promise</span>.resolve(<span class="hljs-number">1</span>),
+    <span class="hljs-built_in">Promise</span>.resolve(<span class="hljs-number">2</span>)
+  ];
+  <span class="hljs-built_in">console</span>.log(res);
+}).catch(onerror);
+
+<span class="hljs-comment">// &#x5BF9;&#x8C61;&#x7684;&#x5199;&#x6CD5;</span>
+co(<span class="hljs-function"><span class="hljs-keyword">function</span>* (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> res = <span class="hljs-keyword">yield</span> {
+    <span class="hljs-number">1</span>: <span class="hljs-built_in">Promise</span>.resolve(<span class="hljs-number">1</span>),
+    <span class="hljs-number">2</span>: <span class="hljs-built_in">Promise</span>.resolve(<span class="hljs-number">2</span>),
+  };
+  <span class="hljs-built_in">console</span>.log(res);
+}).catch(onerror);
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#x3002;</p>
+<pre><code class="lang-javascript">co(<span class="hljs-function"><span class="hljs-keyword">function</span>* (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> values = [n1, n2, n3];
+  <span class="hljs-keyword">yield</span> values.map(somethingAsync);
+});
+
+<span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">somethingAsync</span>(<span class="hljs-params">x</span>) </span>{
+  <span class="hljs-comment">// do something async</span>
+  <span class="hljs-keyword">return</span> y
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x5141;&#x8BB8;&#x5E76;&#x53D1;&#x4E09;&#x4E2A;<code>somethingAsync</code>&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#xFF0C;&#x7B49;&#x5230;&#x5B83;&#x4EEC;&#x5168;&#x90E8;&#x5B8C;&#x6210;&#xFF0C;&#x624D;&#x4F1A;&#x8FDB;&#x884C;&#x4E0B;&#x4E00;&#x6B65;&#x3002;</p>
+<h3 id="&#x5B9E;&#x4F8B;&#xFF1A;&#x5904;&#x7406;-stream">&#x5B9E;&#x4F8B;&#xFF1A;&#x5904;&#x7406; Stream</h3>
+<p>Node &#x63D0;&#x4F9B; Stream &#x6A21;&#x5F0F;&#x8BFB;&#x5199;&#x6570;&#x636E;&#xFF0C;&#x7279;&#x70B9;&#x662F;&#x4E00;&#x6B21;&#x53EA;&#x5904;&#x7406;&#x6570;&#x636E;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x6570;&#x636E;&#x5206;&#x6210;&#x4E00;&#x5757;&#x5757;&#x4F9D;&#x6B21;&#x5904;&#x7406;&#xFF0C;&#x5C31;&#x597D;&#x50CF;&#x201C;&#x6570;&#x636E;&#x6D41;&#x201D;&#x4E00;&#x6837;&#x3002;&#x8FD9;&#x5BF9;&#x4E8E;&#x5904;&#x7406;&#x5927;&#x89C4;&#x6A21;&#x6570;&#x636E;&#x975E;&#x5E38;&#x6709;&#x5229;&#x3002;Stream &#x6A21;&#x5F0F;&#x4F7F;&#x7528; EventEmitter API&#xFF0C;&#x4F1A;&#x91CA;&#x653E;&#x4E09;&#x4E2A;&#x4E8B;&#x4EF6;&#x3002;</p>
+<ul>
+<li><code>data</code>&#x4E8B;&#x4EF6;&#xFF1A;&#x4E0B;&#x4E00;&#x5757;&#x6570;&#x636E;&#x5757;&#x5DF2;&#x7ECF;&#x51C6;&#x5907;&#x597D;&#x4E86;&#x3002;</li>
+<li><code>end</code>&#x4E8B;&#x4EF6;&#xFF1A;&#x6574;&#x4E2A;&#x201C;&#x6570;&#x636E;&#x6D41;&#x201D;&#x5904;&#x7406;&#x5B8C;&#x4E86;&#x3002;</li>
+<li><code>error</code>&#x4E8B;&#x4EF6;&#xFF1A;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x3002;</li>
+</ul>
+<p>&#x4F7F;&#x7528;<code>Promise.race()</code>&#x51FD;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x5224;&#x65AD;&#x8FD9;&#x4E09;&#x4E2A;&#x4E8B;&#x4EF6;&#x4E4B;&#x4E2D;&#x54EA;&#x4E00;&#x4E2A;&#x6700;&#x5148;&#x53D1;&#x751F;&#xFF0C;&#x53EA;&#x6709;&#x5F53;<code>data</code>&#x4E8B;&#x4EF6;&#x6700;&#x5148;&#x53D1;&#x751F;&#x65F6;&#xFF0C;&#x624D;&#x8FDB;&#x5165;&#x4E0B;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5757;&#x7684;&#x5904;&#x7406;&#x3002;&#x4ECE;&#x800C;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;<code>while</code>&#x5FAA;&#x73AF;&#xFF0C;&#x5B8C;&#x6210;&#x6240;&#x6709;&#x6570;&#x636E;&#x7684;&#x8BFB;&#x53D6;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> co = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;co&apos;</span>);
+<span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+
+<span class="hljs-keyword">const</span> stream = fs.createReadStream(<span class="hljs-string">&apos;./les_miserables.txt&apos;</span>);
+<span class="hljs-keyword">let</span> valjeanCount = <span class="hljs-number">0</span>;
+
+co(<span class="hljs-function"><span class="hljs-keyword">function</span>*(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">while</span>(<span class="hljs-literal">true</span>) {
+    <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">yield</span> <span class="hljs-built_in">Promise</span>.race([
+      <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(resolve =&gt; stream.once(<span class="hljs-string">&apos;data&apos;</span>, resolve)),
+      <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(resolve =&gt; stream.once(<span class="hljs-string">&apos;end&apos;</span>, resolve)),
+      <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>((resolve, reject) =&gt; stream.once(<span class="hljs-string">&apos;error&apos;</span>, reject))
+    ]);
+    <span class="hljs-keyword">if</span> (!res) {
+      <span class="hljs-keyword">break</span>;
+    }
+    stream.removeAllListeners(<span class="hljs-string">&apos;data&apos;</span>);
+    stream.removeAllListeners(<span class="hljs-string">&apos;end&apos;</span>);
+    stream.removeAllListeners(<span class="hljs-string">&apos;error&apos;</span>);
+    valjeanCount += (res.toString().match(<span class="hljs-regexp">/valjean/ig</span>) || []).length;
+  }
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;count:&apos;</span>, valjeanCount); <span class="hljs-comment">// count: 1120</span>
+});
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x91C7;&#x7528; Stream &#x6A21;&#x5F0F;&#x8BFB;&#x53D6;&#x300A;&#x60B2;&#x60E8;&#x4E16;&#x754C;&#x300B;&#x7684;&#x6587;&#x672C;&#x6587;&#x4EF6;&#xFF0C;&#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;&#x6570;&#x636E;&#x5757;&#x90FD;&#x4F7F;&#x7528;<code>stream.once</code>&#x65B9;&#x6CD5;&#xFF0C;&#x5728;<code>data</code>&#x3001;<code>end</code>&#x3001;<code>error</code>&#x4E09;&#x4E2A;&#x4E8B;&#x4EF6;&#x4E0A;&#x6DFB;&#x52A0;&#x4E00;&#x6B21;&#x6027;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;&#x53D8;&#x91CF;<code>res</code>&#x53EA;&#x6709;&#x5728;<code>data</code>&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x65F6;&#x624D;&#x6709;&#x503C;&#xFF0C;&#x7136;&#x540E;&#x7D2F;&#x52A0;&#x6BCF;&#x4E2A;&#x6570;&#x636E;&#x5757;&#x4E4B;&#x4E2D;<code>valjean</code>&#x8FD9;&#x4E2A;&#x8BCD;&#x51FA;&#x73B0;&#x7684;&#x6B21;&#x6570;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="generator.html" class="navigation navigation-prev " aria-label="Previous page: 16. Generator 函数的语法">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="async.html" class="navigation navigation-next " aria-label="Next page: 18. async 函数">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"17. Generator 函数的异步应用","level":"1.18","depth":1,"next":{"title":"18. async 函数","level":"1.19","depth":1,"path":"docs/async.md","ref":"docs/async.md","articles":[]},"previous":{"title":"16. Generator 函数的语法","level":"1.17","depth":1,"path":"docs/generator.md","ref":"docs/generator.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"阮一峰","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"9787121324758","variables":{},"title":"ECMAScript 6 入门","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"阮一峰的个人网站":"http://www.ruanyifeng.com/blog/"}},"gitbook":"*","description":"《ECMAScript 6 入门》是一本开源的 JavaScript 语言教程，全面介绍 ECMAScript 6 新引入的语法特性。","extension":null},"file":{"path":"docs/generator-async.md","mtime":"2019-08-26T10:52:54.077Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-26T12:40:06.208Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

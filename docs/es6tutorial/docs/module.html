@@ -1,0 +1,1150 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>22. Module 的语法 · ECMAScript 6 入门</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="阮一峰">
+        <meta name="identifier" content="9787121324758" scheme="ISBN">
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="module-loader.html" />
+    
+    
+    <link rel="prev" href="decorator.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://www.ruanyifeng.com/blog/" target="_blank" class="custom-link">阮一峰的个人网站</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    0. 前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="intro.html">
+            
+                <a href="intro.html">
+            
+                    
+                    1. ECMAScript 6简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="let.html">
+            
+                <a href="let.html">
+            
+                    
+                    2. let 和 const 命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="destructuring.html">
+            
+                <a href="destructuring.html">
+            
+                    
+                    3. 变量的解构赋值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="string.html">
+            
+                <a href="string.html">
+            
+                    
+                    4. 字符串的扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="regex.html">
+            
+                <a href="regex.html">
+            
+                    
+                    5. 正则的扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="number.html">
+            
+                <a href="number.html">
+            
+                    
+                    6. 数值的扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="function.html">
+            
+                <a href="function.html">
+            
+                    
+                    7. 函数的扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="array.html">
+            
+                <a href="array.html">
+            
+                    
+                    8. 数组的扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="object.html">
+            
+                <a href="object.html">
+            
+                    
+                    9. 对象的扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="symbol.html">
+            
+                <a href="symbol.html">
+            
+                    
+                    10. Symbol
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="set-map.html">
+            
+                <a href="set-map.html">
+            
+                    
+                    11. Set 和 Map 数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="proxy.html">
+            
+                <a href="proxy.html">
+            
+                    
+                    12. Proxy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="reflect.html">
+            
+                <a href="reflect.html">
+            
+                    
+                    13. Reflect
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="promise.html">
+            
+                <a href="promise.html">
+            
+                    
+                    14. Promise 对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="iterator.html">
+            
+                <a href="iterator.html">
+            
+                    
+                    15. Iterator 和 for...of 循环
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="generator.html">
+            
+                <a href="generator.html">
+            
+                    
+                    16. Generator 函数的语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="generator-async.html">
+            
+                <a href="generator-async.html">
+            
+                    
+                    17. Generator 函数的异步应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="async.html">
+            
+                <a href="async.html">
+            
+                    
+                    18. async 函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="class.html">
+            
+                <a href="class.html">
+            
+                    
+                    19. Class 的基本语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="class-extends.html">
+            
+                <a href="class-extends.html">
+            
+                    
+                    20. Class 的继承
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="decorator.html">
+            
+                <a href="decorator.html">
+            
+                    
+                    21. Decorator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.23" data-path="module.html">
+            
+                <a href="module.html">
+            
+                    
+                    22. Module 的语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.24" data-path="module-loader.html">
+            
+                <a href="module-loader.html">
+            
+                    
+                    23. Module 的加载实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25" data-path="style.html">
+            
+                <a href="style.html">
+            
+                    
+                    24. 编程风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.26" data-path="spec.html">
+            
+                <a href="spec.html">
+            
+                    
+                    25. 读懂规格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.27" data-path="arraybuffer.html">
+            
+                <a href="arraybuffer.html">
+            
+                    
+                    26. ArrayBuffer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.28" data-path="proposals.html">
+            
+                <a href="proposals.html">
+            
+                    
+                    27. 最新提案
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.29" data-path="reference.html">
+            
+                <a href="reference.html">
+            
+                    
+                    28. 参考链接
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >22. Module 的语法</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="module-&#x7684;&#x8BED;&#x6CD5;">Module &#x7684;&#x8BED;&#x6CD5;</h1>
+<h2 id="&#x6982;&#x8FF0;">&#x6982;&#x8FF0;</h2>
+<p>&#x5386;&#x53F2;&#x4E0A;&#xFF0C;JavaScript &#x4E00;&#x76F4;&#x6CA1;&#x6709;&#x6A21;&#x5757;&#xFF08;module&#xFF09;&#x4F53;&#x7CFB;&#xFF0C;&#x65E0;&#x6CD5;&#x5C06;&#x4E00;&#x4E2A;&#x5927;&#x7A0B;&#x5E8F;&#x62C6;&#x5206;&#x6210;&#x4E92;&#x76F8;&#x4F9D;&#x8D56;&#x7684;&#x5C0F;&#x6587;&#x4EF6;&#xFF0C;&#x518D;&#x7528;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x6CD5;&#x62FC;&#x88C5;&#x8D77;&#x6765;&#x3002;&#x5176;&#x4ED6;&#x8BED;&#x8A00;&#x90FD;&#x6709;&#x8FD9;&#x9879;&#x529F;&#x80FD;&#xFF0C;&#x6BD4;&#x5982; Ruby &#x7684;<code>require</code>&#x3001;Python &#x7684;<code>import</code>&#xFF0C;&#x751A;&#x81F3;&#x5C31;&#x8FDE; CSS &#x90FD;&#x6709;<code>@import</code>&#xFF0C;&#x4F46;&#x662F; JavaScript &#x4EFB;&#x4F55;&#x8FD9;&#x65B9;&#x9762;&#x7684;&#x652F;&#x6301;&#x90FD;&#x6CA1;&#x6709;&#xFF0C;&#x8FD9;&#x5BF9;&#x5F00;&#x53D1;&#x5927;&#x578B;&#x7684;&#x3001;&#x590D;&#x6742;&#x7684;&#x9879;&#x76EE;&#x5F62;&#x6210;&#x4E86;&#x5DE8;&#x5927;&#x969C;&#x788D;&#x3002;</p>
+<p>&#x5728; ES6 &#x4E4B;&#x524D;&#xFF0C;&#x793E;&#x533A;&#x5236;&#x5B9A;&#x4E86;&#x4E00;&#x4E9B;&#x6A21;&#x5757;&#x52A0;&#x8F7D;&#x65B9;&#x6848;&#xFF0C;&#x6700;&#x4E3B;&#x8981;&#x7684;&#x6709; CommonJS &#x548C; AMD &#x4E24;&#x79CD;&#x3002;&#x524D;&#x8005;&#x7528;&#x4E8E;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x540E;&#x8005;&#x7528;&#x4E8E;&#x6D4F;&#x89C8;&#x5668;&#x3002;ES6 &#x5728;&#x8BED;&#x8A00;&#x6807;&#x51C6;&#x7684;&#x5C42;&#x9762;&#x4E0A;&#xFF0C;&#x5B9E;&#x73B0;&#x4E86;&#x6A21;&#x5757;&#x529F;&#x80FD;&#xFF0C;&#x800C;&#x4E14;&#x5B9E;&#x73B0;&#x5F97;&#x76F8;&#x5F53;&#x7B80;&#x5355;&#xFF0C;&#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x53D6;&#x4EE3; CommonJS &#x548C; AMD &#x89C4;&#x8303;&#xFF0C;&#x6210;&#x4E3A;&#x6D4F;&#x89C8;&#x5668;&#x548C;&#x670D;&#x52A1;&#x5668;&#x901A;&#x7528;&#x7684;&#x6A21;&#x5757;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;</p>
+<p>ES6 &#x6A21;&#x5757;&#x7684;&#x8BBE;&#x8BA1;&#x601D;&#x60F3;&#x662F;&#x5C3D;&#x91CF;&#x7684;&#x9759;&#x6001;&#x5316;&#xFF0C;&#x4F7F;&#x5F97;&#x7F16;&#x8BD1;&#x65F6;&#x5C31;&#x80FD;&#x786E;&#x5B9A;&#x6A21;&#x5757;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#xFF0C;&#x4EE5;&#x53CA;&#x8F93;&#x5165;&#x548C;&#x8F93;&#x51FA;&#x7684;&#x53D8;&#x91CF;&#x3002;CommonJS &#x548C; AMD &#x6A21;&#x5757;&#xFF0C;&#x90FD;&#x53EA;&#x80FD;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x786E;&#x5B9A;&#x8FD9;&#x4E9B;&#x4E1C;&#x897F;&#x3002;&#x6BD4;&#x5982;&#xFF0C;CommonJS &#x6A21;&#x5757;&#x5C31;&#x662F;&#x5BF9;&#x8C61;&#xFF0C;&#x8F93;&#x5165;&#x65F6;&#x5FC5;&#x987B;&#x67E5;&#x627E;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// CommonJS&#x6A21;&#x5757;</span>
+<span class="hljs-keyword">let</span> { stat, exists, readFile } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+
+<span class="hljs-comment">// &#x7B49;&#x540C;&#x4E8E;</span>
+<span class="hljs-keyword">let</span> _fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+<span class="hljs-keyword">let</span> stat = _fs.stat;
+<span class="hljs-keyword">let</span> exists = _fs.exists;
+<span class="hljs-keyword">let</span> readfile = _fs.readfile;
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x7684;&#x5B9E;&#x8D28;&#x662F;&#x6574;&#x4F53;&#x52A0;&#x8F7D;<code>fs</code>&#x6A21;&#x5757;&#xFF08;&#x5373;&#x52A0;&#x8F7D;<code>fs</code>&#x7684;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#xFF09;&#xFF0C;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF08;<code>_fs</code>&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x4ECE;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x4E0A;&#x9762;&#x8BFB;&#x53D6; 3 &#x4E2A;&#x65B9;&#x6CD5;&#x3002;&#x8FD9;&#x79CD;&#x52A0;&#x8F7D;&#x79F0;&#x4E3A;&#x201C;&#x8FD0;&#x884C;&#x65F6;&#x52A0;&#x8F7D;&#x201D;&#xFF0C;&#x56E0;&#x4E3A;&#x53EA;&#x6709;&#x8FD0;&#x884C;&#x65F6;&#x624D;&#x80FD;&#x5F97;&#x5230;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5BFC;&#x81F4;&#x5B8C;&#x5168;&#x6CA1;&#x529E;&#x6CD5;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x505A;&#x201C;&#x9759;&#x6001;&#x4F18;&#x5316;&#x201D;&#x3002;</p>
+<p>ES6 &#x6A21;&#x5757;&#x4E0D;&#x662F;&#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x662F;&#x901A;&#x8FC7;<code>export</code>&#x547D;&#x4EE4;&#x663E;&#x5F0F;&#x6307;&#x5B9A;&#x8F93;&#x51FA;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x518D;&#x901A;&#x8FC7;<code>import</code>&#x547D;&#x4EE4;&#x8F93;&#x5165;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// ES6&#x6A21;&#x5757;</span>
+<span class="hljs-keyword">import</span> { stat, exists, readFile } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;fs&apos;</span>;
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x7684;&#x5B9E;&#x8D28;&#x662F;&#x4ECE;<code>fs</code>&#x6A21;&#x5757;&#x52A0;&#x8F7D; 3 &#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#x4E0D;&#x52A0;&#x8F7D;&#x3002;&#x8FD9;&#x79CD;&#x52A0;&#x8F7D;&#x79F0;&#x4E3A;&#x201C;&#x7F16;&#x8BD1;&#x65F6;&#x52A0;&#x8F7D;&#x201D;&#x6216;&#x8005;&#x9759;&#x6001;&#x52A0;&#x8F7D;&#xFF0C;&#x5373; ES6 &#x53EF;&#x4EE5;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x5C31;&#x5B8C;&#x6210;&#x6A21;&#x5757;&#x52A0;&#x8F7D;&#xFF0C;&#x6548;&#x7387;&#x8981;&#x6BD4; CommonJS &#x6A21;&#x5757;&#x7684;&#x52A0;&#x8F7D;&#x65B9;&#x5F0F;&#x9AD8;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x8FD9;&#x4E5F;&#x5BFC;&#x81F4;&#x4E86;&#x6CA1;&#x6CD5;&#x5F15;&#x7528; ES6 &#x6A21;&#x5757;&#x672C;&#x8EAB;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4E0D;&#x662F;&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x7531;&#x4E8E; ES6 &#x6A21;&#x5757;&#x662F;&#x7F16;&#x8BD1;&#x65F6;&#x52A0;&#x8F7D;&#xFF0C;&#x4F7F;&#x5F97;&#x9759;&#x6001;&#x5206;&#x6790;&#x6210;&#x4E3A;&#x53EF;&#x80FD;&#x3002;&#x6709;&#x4E86;&#x5B83;&#xFF0C;&#x5C31;&#x80FD;&#x8FDB;&#x4E00;&#x6B65;&#x62D3;&#x5BBD; JavaScript &#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x6BD4;&#x5982;&#x5F15;&#x5165;&#x5B8F;&#xFF08;macro&#xFF09;&#x548C;&#x7C7B;&#x578B;&#x68C0;&#x9A8C;&#xFF08;type system&#xFF09;&#x8FD9;&#x4E9B;&#x53EA;&#x80FD;&#x9760;&#x9759;&#x6001;&#x5206;&#x6790;&#x5B9E;&#x73B0;&#x7684;&#x529F;&#x80FD;&#x3002;</p>
+<p>&#x9664;&#x4E86;&#x9759;&#x6001;&#x52A0;&#x8F7D;&#x5E26;&#x6765;&#x7684;&#x5404;&#x79CD;&#x597D;&#x5904;&#xFF0C;ES6 &#x6A21;&#x5757;&#x8FD8;&#x6709;&#x4EE5;&#x4E0B;&#x597D;&#x5904;&#x3002;</p>
+<ul>
+<li>&#x4E0D;&#x518D;&#x9700;&#x8981;<code>UMD</code>&#x6A21;&#x5757;&#x683C;&#x5F0F;&#x4E86;&#xFF0C;&#x5C06;&#x6765;&#x670D;&#x52A1;&#x5668;&#x548C;&#x6D4F;&#x89C8;&#x5668;&#x90FD;&#x4F1A;&#x652F;&#x6301; ES6 &#x6A21;&#x5757;&#x683C;&#x5F0F;&#x3002;&#x76EE;&#x524D;&#xFF0C;&#x901A;&#x8FC7;&#x5404;&#x79CD;&#x5DE5;&#x5177;&#x5E93;&#xFF0C;&#x5176;&#x5B9E;&#x5DF2;&#x7ECF;&#x505A;&#x5230;&#x4E86;&#x8FD9;&#x4E00;&#x70B9;&#x3002;</li>
+<li>&#x5C06;&#x6765;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x65B0; API &#x5C31;&#x80FD;&#x7528;&#x6A21;&#x5757;&#x683C;&#x5F0F;&#x63D0;&#x4F9B;&#xFF0C;&#x4E0D;&#x518D;&#x5FC5;&#x987B;&#x505A;&#x6210;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x6216;&#x8005;<code>navigator</code>&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x3002;</li>
+<li>&#x4E0D;&#x518D;&#x9700;&#x8981;&#x5BF9;&#x8C61;&#x4F5C;&#x4E3A;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#xFF08;&#x6BD4;&#x5982;<code>Math</code>&#x5BF9;&#x8C61;&#xFF09;&#xFF0C;&#x672A;&#x6765;&#x8FD9;&#x4E9B;&#x529F;&#x80FD;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x3002;</li>
+</ul>
+<p>&#x672C;&#x7AE0;&#x4ECB;&#x7ECD; ES6 &#x6A21;&#x5757;&#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x4E0B;&#x4E00;&#x7AE0;&#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x548C; Node &#x4E4B;&#x4E2D;&#xFF0C;&#x52A0;&#x8F7D; ES6 &#x6A21;&#x5757;&#x3002;</p>
+<h2 id="&#x4E25;&#x683C;&#x6A21;&#x5F0F;">&#x4E25;&#x683C;&#x6A21;&#x5F0F;</h2>
+<p>ES6 &#x7684;&#x6A21;&#x5757;&#x81EA;&#x52A8;&#x91C7;&#x7528;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#xFF0C;&#x4E0D;&#x7BA1;&#x4F60;&#x6709;&#x6CA1;&#x6709;&#x5728;&#x6A21;&#x5757;&#x5934;&#x90E8;&#x52A0;&#x4E0A;<code>&quot;use strict&quot;;</code>&#x3002;</p>
+<p>&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E3B;&#x8981;&#x6709;&#x4EE5;&#x4E0B;&#x9650;&#x5236;&#x3002;</p>
+<ul>
+<li>&#x53D8;&#x91CF;&#x5FC5;&#x987B;&#x58F0;&#x660E;&#x540E;&#x518D;&#x4F7F;&#x7528;</li>
+<li>&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x4E0D;&#x80FD;&#x6709;&#x540C;&#x540D;&#x5C5E;&#x6027;&#xFF0C;&#x5426;&#x5219;&#x62A5;&#x9519;</li>
+<li>&#x4E0D;&#x80FD;&#x4F7F;&#x7528;<code>with</code>&#x8BED;&#x53E5;</li>
+<li>&#x4E0D;&#x80FD;&#x5BF9;&#x53EA;&#x8BFB;&#x5C5E;&#x6027;&#x8D4B;&#x503C;&#xFF0C;&#x5426;&#x5219;&#x62A5;&#x9519;</li>
+<li>&#x4E0D;&#x80FD;&#x4F7F;&#x7528;&#x524D;&#x7F00; 0 &#x8868;&#x793A;&#x516B;&#x8FDB;&#x5236;&#x6570;&#xFF0C;&#x5426;&#x5219;&#x62A5;&#x9519;</li>
+<li>&#x4E0D;&#x80FD;&#x5220;&#x9664;&#x4E0D;&#x53EF;&#x5220;&#x9664;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x5426;&#x5219;&#x62A5;&#x9519;</li>
+<li>&#x4E0D;&#x80FD;&#x5220;&#x9664;&#x53D8;&#x91CF;<code>delete prop</code>&#xFF0C;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x53EA;&#x80FD;&#x5220;&#x9664;&#x5C5E;&#x6027;<code>delete global[prop]</code></li>
+<li><code>eval</code>&#x4E0D;&#x4F1A;&#x5728;&#x5B83;&#x7684;&#x5916;&#x5C42;&#x4F5C;&#x7528;&#x57DF;&#x5F15;&#x5165;&#x53D8;&#x91CF;</li>
+<li><code>eval</code>&#x548C;<code>arguments</code>&#x4E0D;&#x80FD;&#x88AB;&#x91CD;&#x65B0;&#x8D4B;&#x503C;</li>
+<li><code>arguments</code>&#x4E0D;&#x4F1A;&#x81EA;&#x52A8;&#x53CD;&#x6620;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x7684;&#x53D8;&#x5316;</li>
+<li>&#x4E0D;&#x80FD;&#x4F7F;&#x7528;<code>arguments.callee</code></li>
+<li>&#x4E0D;&#x80FD;&#x4F7F;&#x7528;<code>arguments.caller</code></li>
+<li>&#x7981;&#x6B62;<code>this</code>&#x6307;&#x5411;&#x5168;&#x5C40;&#x5BF9;&#x8C61;</li>
+<li>&#x4E0D;&#x80FD;&#x4F7F;&#x7528;<code>fn.caller</code>&#x548C;<code>fn.arguments</code>&#x83B7;&#x53D6;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7684;&#x5806;&#x6808;</li>
+<li>&#x589E;&#x52A0;&#x4E86;&#x4FDD;&#x7559;&#x5B57;&#xFF08;&#x6BD4;&#x5982;<code>protected</code>&#x3001;<code>static</code>&#x548C;<code>interface</code>&#xFF09;</li>
+</ul>
+<p>&#x4E0A;&#x9762;&#x8FD9;&#x4E9B;&#x9650;&#x5236;&#xFF0C;&#x6A21;&#x5757;&#x90FD;&#x5FC5;&#x987B;&#x9075;&#x5B88;&#x3002;&#x7531;&#x4E8E;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x662F; ES5 &#x5F15;&#x5165;&#x7684;&#xFF0C;&#x4E0D;&#x5C5E;&#x4E8E; ES6&#xFF0C;&#x6240;&#x4EE5;&#x8BF7;&#x53C2;&#x9605;&#x76F8;&#x5173; ES5 &#x4E66;&#x7C4D;&#xFF0C;&#x672C;&#x4E66;&#x4E0D;&#x518D;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x4E86;&#x3002;</p>
+<p>&#x5176;&#x4E2D;&#xFF0C;&#x5C24;&#x5176;&#x9700;&#x8981;&#x6CE8;&#x610F;<code>this</code>&#x7684;&#x9650;&#x5236;&#x3002;ES6 &#x6A21;&#x5757;&#x4E4B;&#x4E2D;&#xFF0C;&#x9876;&#x5C42;&#x7684;<code>this</code>&#x6307;&#x5411;<code>undefined</code>&#xFF0C;&#x5373;&#x4E0D;&#x5E94;&#x8BE5;&#x5728;&#x9876;&#x5C42;&#x4EE3;&#x7801;&#x4F7F;&#x7528;<code>this</code>&#x3002;</p>
+<h2 id="export-&#x547D;&#x4EE4;">export &#x547D;&#x4EE4;</h2>
+<p>&#x6A21;&#x5757;&#x529F;&#x80FD;&#x4E3B;&#x8981;&#x7531;&#x4E24;&#x4E2A;&#x547D;&#x4EE4;&#x6784;&#x6210;&#xFF1A;<code>export</code>&#x548C;<code>import</code>&#x3002;<code>export</code>&#x547D;&#x4EE4;&#x7528;&#x4E8E;&#x89C4;&#x5B9A;&#x6A21;&#x5757;&#x7684;&#x5BF9;&#x5916;&#x63A5;&#x53E3;&#xFF0C;<code>import</code>&#x547D;&#x4EE4;&#x7528;&#x4E8E;&#x8F93;&#x5165;&#x5176;&#x4ED6;&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x7684;&#x529F;&#x80FD;&#x3002;</p>
+<p>&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x6587;&#x4EF6;&#x3002;&#x8BE5;&#x6587;&#x4EF6;&#x5185;&#x90E8;&#x7684;&#x6240;&#x6709;&#x53D8;&#x91CF;&#xFF0C;&#x5916;&#x90E8;&#x65E0;&#x6CD5;&#x83B7;&#x53D6;&#x3002;&#x5982;&#x679C;&#x4F60;&#x5E0C;&#x671B;&#x5916;&#x90E8;&#x80FD;&#x591F;&#x8BFB;&#x53D6;&#x6A21;&#x5757;&#x5185;&#x90E8;&#x7684;&#x67D0;&#x4E2A;&#x53D8;&#x91CF;&#xFF0C;&#x5C31;&#x5FC5;&#x987B;&#x4F7F;&#x7528;<code>export</code>&#x5173;&#x952E;&#x5B57;&#x8F93;&#x51FA;&#x8BE5;&#x53D8;&#x91CF;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A; JS &#x6587;&#x4EF6;&#xFF0C;&#x91CC;&#x9762;&#x4F7F;&#x7528;<code>export</code>&#x547D;&#x4EE4;&#x8F93;&#x51FA;&#x53D8;&#x91CF;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// profile.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">var</span> firstName = <span class="hljs-string">&apos;Michael&apos;</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">var</span> lastName = <span class="hljs-string">&apos;Jackson&apos;</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">var</span> year = <span class="hljs-number">1958</span>;
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x662F;<code>profile.js</code>&#x6587;&#x4EF6;&#xFF0C;&#x4FDD;&#x5B58;&#x4E86;&#x7528;&#x6237;&#x4FE1;&#x606F;&#x3002;ES6 &#x5C06;&#x5176;&#x89C6;&#x4E3A;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x91CC;&#x9762;&#x7528;<code>export</code>&#x547D;&#x4EE4;&#x5BF9;&#x5916;&#x90E8;&#x8F93;&#x51FA;&#x4E86;&#x4E09;&#x4E2A;&#x53D8;&#x91CF;&#x3002;</p>
+<p><code>export</code>&#x7684;&#x5199;&#x6CD5;&#xFF0C;&#x9664;&#x4E86;&#x50CF;&#x4E0A;&#x9762;&#x8FD9;&#x6837;&#xFF0C;&#x8FD8;&#x6709;&#x53E6;&#x5916;&#x4E00;&#x79CD;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// profile.js</span>
+<span class="hljs-keyword">var</span> firstName = <span class="hljs-string">&apos;Michael&apos;</span>;
+<span class="hljs-keyword">var</span> lastName = <span class="hljs-string">&apos;Jackson&apos;</span>;
+<span class="hljs-keyword">var</span> year = <span class="hljs-number">1958</span>;
+
+<span class="hljs-keyword">export</span> { firstName, lastName, year };
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x5728;<code>export</code>&#x547D;&#x4EE4;&#x540E;&#x9762;&#xFF0C;&#x4F7F;&#x7528;&#x5927;&#x62EC;&#x53F7;&#x6307;&#x5B9A;&#x6240;&#x8981;&#x8F93;&#x51FA;&#x7684;&#x4E00;&#x7EC4;&#x53D8;&#x91CF;&#x3002;&#x5B83;&#x4E0E;&#x524D;&#x4E00;&#x79CD;&#x5199;&#x6CD5;&#xFF08;&#x76F4;&#x63A5;&#x653E;&#x7F6E;&#x5728;<code>var</code>&#x8BED;&#x53E5;&#x524D;&#xFF09;&#x662F;&#x7B49;&#x4EF7;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x5E94;&#x8BE5;&#x4F18;&#x5148;&#x8003;&#x8651;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x5199;&#x6CD5;&#x3002;&#x56E0;&#x4E3A;&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x811A;&#x672C;&#x5C3E;&#x90E8;&#xFF0C;&#x4E00;&#x773C;&#x770B;&#x6E05;&#x695A;&#x8F93;&#x51FA;&#x4E86;&#x54EA;&#x4E9B;&#x53D8;&#x91CF;&#x3002;</p>
+<p><code>export</code>&#x547D;&#x4EE4;&#x9664;&#x4E86;&#x8F93;&#x51FA;&#x53D8;&#x91CF;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x8F93;&#x51FA;&#x51FD;&#x6570;&#x6216;&#x7C7B;&#xFF08;class&#xFF09;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">multiply</span>(<span class="hljs-params">x, y</span>) </span>{
+  <span class="hljs-keyword">return</span> x * y;
+};
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x5BF9;&#x5916;&#x8F93;&#x51FA;&#x4E00;&#x4E2A;&#x51FD;&#x6570;<code>multiply</code>&#x3002;</p>
+<p>&#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>export</code>&#x8F93;&#x51FA;&#x7684;&#x53D8;&#x91CF;&#x5C31;&#x662F;&#x672C;&#x6765;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x4F46;&#x662F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>as</code>&#x5173;&#x952E;&#x5B57;&#x91CD;&#x547D;&#x540D;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">v1</span>(<span class="hljs-params"></span>) </span>{ ... }
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">v2</span>(<span class="hljs-params"></span>) </span>{ ... }
+
+<span class="hljs-keyword">export</span> {
+  v1 <span class="hljs-keyword">as</span> streamV1,
+  v2 <span class="hljs-keyword">as</span> streamV2,
+  v2 <span class="hljs-keyword">as</span> streamLatestVersion
+};
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4F7F;&#x7528;<code>as</code>&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x91CD;&#x547D;&#x540D;&#x4E86;&#x51FD;&#x6570;<code>v1</code>&#x548C;<code>v2</code>&#x7684;&#x5BF9;&#x5916;&#x63A5;&#x53E3;&#x3002;&#x91CD;&#x547D;&#x540D;&#x540E;&#xFF0C;<code>v2</code>&#x53EF;&#x4EE5;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x540D;&#x5B57;&#x8F93;&#x51FA;&#x4E24;&#x6B21;&#x3002;</p>
+<p>&#x9700;&#x8981;&#x7279;&#x522B;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;<code>export</code>&#x547D;&#x4EE4;&#x89C4;&#x5B9A;&#x7684;&#x662F;&#x5BF9;&#x5916;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x5FC5;&#x987B;&#x4E0E;&#x6A21;&#x5757;&#x5185;&#x90E8;&#x7684;&#x53D8;&#x91CF;&#x5EFA;&#x7ACB;&#x4E00;&#x4E00;&#x5BF9;&#x5E94;&#x5173;&#x7CFB;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x62A5;&#x9519;</span>
+<span class="hljs-keyword">export</span> <span class="hljs-number">1</span>;
+
+<span class="hljs-comment">// &#x62A5;&#x9519;</span>
+<span class="hljs-keyword">var</span> m = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">export</span> m;
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4E24;&#x79CD;&#x5199;&#x6CD5;&#x90FD;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x56E0;&#x4E3A;&#x6CA1;&#x6709;&#x63D0;&#x4F9B;&#x5BF9;&#x5916;&#x7684;&#x63A5;&#x53E3;&#x3002;&#x7B2C;&#x4E00;&#x79CD;&#x5199;&#x6CD5;&#x76F4;&#x63A5;&#x8F93;&#x51FA; 1&#xFF0C;&#x7B2C;&#x4E8C;&#x79CD;&#x5199;&#x6CD5;&#x901A;&#x8FC7;&#x53D8;&#x91CF;<code>m</code>&#xFF0C;&#x8FD8;&#x662F;&#x76F4;&#x63A5;&#x8F93;&#x51FA; 1&#x3002;<code>1</code>&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x4E0D;&#x662F;&#x63A5;&#x53E3;&#x3002;&#x6B63;&#x786E;&#x7684;&#x5199;&#x6CD5;&#x662F;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x5199;&#x6CD5;&#x4E00;</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">var</span> m = <span class="hljs-number">1</span>;
+
+<span class="hljs-comment">// &#x5199;&#x6CD5;&#x4E8C;</span>
+<span class="hljs-keyword">var</span> m = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">export</span> {m};
+
+<span class="hljs-comment">// &#x5199;&#x6CD5;&#x4E09;</span>
+<span class="hljs-keyword">var</span> n = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">export</span> {n <span class="hljs-keyword">as</span> m};
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4E09;&#x79CD;&#x5199;&#x6CD5;&#x90FD;&#x662F;&#x6B63;&#x786E;&#x7684;&#xFF0C;&#x89C4;&#x5B9A;&#x4E86;&#x5BF9;&#x5916;&#x7684;&#x63A5;&#x53E3;<code>m</code>&#x3002;&#x5176;&#x4ED6;&#x811A;&#x672C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x53D6;&#x5230;&#x503C;<code>1</code>&#x3002;&#x5B83;&#x4EEC;&#x7684;&#x5B9E;&#x8D28;&#x662F;&#xFF0C;&#x5728;&#x63A5;&#x53E3;&#x540D;&#x4E0E;&#x6A21;&#x5757;&#x5185;&#x90E8;&#x53D8;&#x91CF;&#x4E4B;&#x95F4;&#xFF0C;&#x5EFA;&#x7ACB;&#x4E86;&#x4E00;&#x4E00;&#x5BF9;&#x5E94;&#x7684;&#x5173;&#x7CFB;&#x3002;</p>
+<p>&#x540C;&#x6837;&#x7684;&#xFF0C;<code>function</code>&#x548C;<code>class</code>&#x7684;&#x8F93;&#x51FA;&#xFF0C;&#x4E5F;&#x5FC5;&#x987B;&#x9075;&#x5B88;&#x8FD9;&#x6837;&#x7684;&#x5199;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x62A5;&#x9519;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span>(<span class="hljs-params"></span>) </span>{}
+<span class="hljs-keyword">export</span> f;
+
+<span class="hljs-comment">// &#x6B63;&#x786E;</span>
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span>(<span class="hljs-params"></span>) </span>{};
+
+<span class="hljs-comment">// &#x6B63;&#x786E;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span>(<span class="hljs-params"></span>) </span>{}
+<span class="hljs-keyword">export</span> {f};
+</code></pre>
+<p>&#x53E6;&#x5916;&#xFF0C;<code>export</code>&#x8BED;&#x53E5;&#x8F93;&#x51FA;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x4E0E;&#x5176;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#x662F;&#x52A8;&#x6001;&#x7ED1;&#x5B9A;&#x5173;&#x7CFB;&#xFF0C;&#x5373;&#x901A;&#x8FC7;&#x8BE5;&#x63A5;&#x53E3;&#xFF0C;&#x53EF;&#x4EE5;&#x53D6;&#x5230;&#x6A21;&#x5757;&#x5185;&#x90E8;&#x5B9E;&#x65F6;&#x7684;&#x503C;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">var</span> foo = <span class="hljs-string">&apos;bar&apos;</span>;
+setTimeout(() =&gt; foo = <span class="hljs-string">&apos;baz&apos;</span>, <span class="hljs-number">500</span>);
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x8F93;&#x51FA;&#x53D8;&#x91CF;<code>foo</code>&#xFF0C;&#x503C;&#x4E3A;<code>bar</code>&#xFF0C;500 &#x6BEB;&#x79D2;&#x4E4B;&#x540E;&#x53D8;&#x6210;<code>baz</code>&#x3002;</p>
+<p>&#x8FD9;&#x4E00;&#x70B9;&#x4E0E; CommonJS &#x89C4;&#x8303;&#x5B8C;&#x5168;&#x4E0D;&#x540C;&#x3002;CommonJS &#x6A21;&#x5757;&#x8F93;&#x51FA;&#x7684;&#x662F;&#x503C;&#x7684;&#x7F13;&#x5B58;&#xFF0C;&#x4E0D;&#x5B58;&#x5728;&#x52A8;&#x6001;&#x66F4;&#x65B0;&#xFF0C;&#x8BE6;&#x89C1;&#x4E0B;&#x6587;&#x300A;Module &#x7684;&#x52A0;&#x8F7D;&#x5B9E;&#x73B0;&#x300B;&#x4E00;&#x8282;&#x3002;</p>
+<p>&#x6700;&#x540E;&#xFF0C;<code>export</code>&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x51FA;&#x73B0;&#x5728;&#x6A21;&#x5757;&#x7684;&#x4EFB;&#x4F55;&#x4F4D;&#x7F6E;&#xFF0C;&#x53EA;&#x8981;&#x5904;&#x4E8E;&#x6A21;&#x5757;&#x9876;&#x5C42;&#x5C31;&#x53EF;&#x4EE5;&#x3002;&#x5982;&#x679C;&#x5904;&#x4E8E;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x5185;&#xFF0C;&#x5C31;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x4E0B;&#x4E00;&#x8282;&#x7684;<code>import</code>&#x547D;&#x4EE4;&#x4E5F;&#x662F;&#x5982;&#x6B64;&#x3002;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x5904;&#x4E8E;&#x6761;&#x4EF6;&#x4EE3;&#x7801;&#x5757;&#x4E4B;&#x4E2D;&#xFF0C;&#x5C31;&#x6CA1;&#x6CD5;&#x505A;&#x9759;&#x6001;&#x4F18;&#x5316;&#x4E86;&#xFF0C;&#x8FDD;&#x80CC;&#x4E86; ES6 &#x6A21;&#x5757;&#x7684;&#x8BBE;&#x8BA1;&#x521D;&#x8877;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-string">&apos;bar&apos;</span> <span class="hljs-comment">// SyntaxError</span>
+}
+foo()
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>export</code>&#x8BED;&#x53E5;&#x653E;&#x5728;&#x51FD;&#x6570;&#x4E4B;&#x4E2D;&#xFF0C;&#x7ED3;&#x679C;&#x62A5;&#x9519;&#x3002;</p>
+<h2 id="import-&#x547D;&#x4EE4;">import &#x547D;&#x4EE4;</h2>
+<p>&#x4F7F;&#x7528;<code>export</code>&#x547D;&#x4EE4;&#x5B9A;&#x4E49;&#x4E86;&#x6A21;&#x5757;&#x7684;&#x5BF9;&#x5916;&#x63A5;&#x53E3;&#x4EE5;&#x540E;&#xFF0C;&#x5176;&#x4ED6; JS &#x6587;&#x4EF6;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>import</code>&#x547D;&#x4EE4;&#x52A0;&#x8F7D;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// main.js</span>
+<span class="hljs-keyword">import</span> { firstName, lastName, year } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./profile.js&apos;</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setName</span>(<span class="hljs-params">element</span>) </span>{
+  element.textContent = firstName + <span class="hljs-string">&apos; &apos;</span> + lastName;
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x7684;<code>import</code>&#x547D;&#x4EE4;&#xFF0C;&#x7528;&#x4E8E;&#x52A0;&#x8F7D;<code>profile.js</code>&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x4ECE;&#x4E2D;&#x8F93;&#x5165;&#x53D8;&#x91CF;&#x3002;<code>import</code>&#x547D;&#x4EE4;&#x63A5;&#x53D7;&#x4E00;&#x5BF9;&#x5927;&#x62EC;&#x53F7;&#xFF0C;&#x91CC;&#x9762;&#x6307;&#x5B9A;&#x8981;&#x4ECE;&#x5176;&#x4ED6;&#x6A21;&#x5757;&#x5BFC;&#x5165;&#x7684;&#x53D8;&#x91CF;&#x540D;&#x3002;&#x5927;&#x62EC;&#x53F7;&#x91CC;&#x9762;&#x7684;&#x53D8;&#x91CF;&#x540D;&#xFF0C;&#x5FC5;&#x987B;&#x4E0E;&#x88AB;&#x5BFC;&#x5165;&#x6A21;&#x5757;&#xFF08;<code>profile.js</code>&#xFF09;&#x5BF9;&#x5916;&#x63A5;&#x53E3;&#x7684;&#x540D;&#x79F0;&#x76F8;&#x540C;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x60F3;&#x4E3A;&#x8F93;&#x5165;&#x7684;&#x53D8;&#x91CF;&#x91CD;&#x65B0;&#x53D6;&#x4E00;&#x4E2A;&#x540D;&#x5B57;&#xFF0C;<code>import</code>&#x547D;&#x4EE4;&#x8981;&#x4F7F;&#x7528;<code>as</code>&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x5C06;&#x8F93;&#x5165;&#x7684;&#x53D8;&#x91CF;&#x91CD;&#x547D;&#x540D;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { lastName <span class="hljs-keyword">as</span> surname } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./profile.js&apos;</span>;
+</code></pre>
+<p><code>import</code>&#x547D;&#x4EE4;&#x8F93;&#x5165;&#x7684;&#x53D8;&#x91CF;&#x90FD;&#x662F;&#x53EA;&#x8BFB;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x7684;&#x672C;&#x8D28;&#x662F;&#x8F93;&#x5165;&#x63A5;&#x53E3;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x4E0D;&#x5141;&#x8BB8;&#x5728;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#x7684;&#x811A;&#x672C;&#x91CC;&#x9762;&#xFF0C;&#x6539;&#x5199;&#x63A5;&#x53E3;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> {a} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./xxx.js&apos;</span>
+
+a = {}; <span class="hljs-comment">// Syntax Error : &apos;a&apos; is read-only;</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x811A;&#x672C;&#x52A0;&#x8F7D;&#x4E86;&#x53D8;&#x91CF;<code>a</code>&#xFF0C;&#x5BF9;&#x5176;&#x91CD;&#x65B0;&#x8D4B;&#x503C;&#x5C31;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x56E0;&#x4E3A;<code>a</code>&#x662F;&#x4E00;&#x4E2A;&#x53EA;&#x8BFB;&#x7684;&#x63A5;&#x53E3;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x5982;&#x679C;<code>a</code>&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x6539;&#x5199;<code>a</code>&#x7684;&#x5C5E;&#x6027;&#x662F;&#x5141;&#x8BB8;&#x7684;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> {a} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./xxx.js&apos;</span>
+
+a.foo = <span class="hljs-string">&apos;hello&apos;</span>; <span class="hljs-comment">// &#x5408;&#x6CD5;&#x64CD;&#x4F5C;</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>a</code>&#x7684;&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x6210;&#x529F;&#x6539;&#x5199;&#xFF0C;&#x5E76;&#x4E14;&#x5176;&#x4ED6;&#x6A21;&#x5757;&#x4E5F;&#x53EF;&#x4EE5;&#x8BFB;&#x5230;&#x6539;&#x5199;&#x540E;&#x7684;&#x503C;&#x3002;&#x4E0D;&#x8FC7;&#xFF0C;&#x8FD9;&#x79CD;&#x5199;&#x6CD5;&#x5F88;&#x96BE;&#x67E5;&#x9519;&#xFF0C;&#x5EFA;&#x8BAE;&#x51E1;&#x662F;&#x8F93;&#x5165;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x90FD;&#x5F53;&#x4F5C;&#x5B8C;&#x5168;&#x53EA;&#x8BFB;&#xFF0C;&#x8F7B;&#x6613;&#x4E0D;&#x8981;&#x6539;&#x53D8;&#x5B83;&#x7684;&#x5C5E;&#x6027;&#x3002;</p>
+<p><code>import</code>&#x540E;&#x9762;&#x7684;<code>from</code>&#x6307;&#x5B9A;&#x6A21;&#x5757;&#x6587;&#x4EF6;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x53EF;&#x4EE5;&#x662F;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;<code>.js</code>&#x540E;&#x7F00;&#x53EF;&#x4EE5;&#x7701;&#x7565;&#x3002;&#x5982;&#x679C;&#x53EA;&#x662F;&#x6A21;&#x5757;&#x540D;&#xFF0C;&#x4E0D;&#x5E26;&#x6709;&#x8DEF;&#x5F84;&#xFF0C;&#x90A3;&#x4E48;&#x5FC5;&#x987B;&#x6709;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x544A;&#x8BC9; JavaScript &#x5F15;&#x64CE;&#x8BE5;&#x6A21;&#x5757;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> {myMethod} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;util&apos;</span>;
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>util</code>&#x662F;&#x6A21;&#x5757;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x7531;&#x4E8E;&#x4E0D;&#x5E26;&#x6709;&#x8DEF;&#x5F84;&#xFF0C;&#x5FC5;&#x987B;&#x901A;&#x8FC7;&#x914D;&#x7F6E;&#xFF0C;&#x544A;&#x8BC9;&#x5F15;&#x64CE;&#x600E;&#x4E48;&#x53D6;&#x5230;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;<code>import</code>&#x547D;&#x4EE4;&#x5177;&#x6709;&#x63D0;&#x5347;&#x6548;&#x679C;&#xFF0C;&#x4F1A;&#x63D0;&#x5347;&#x5230;&#x6574;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#x5934;&#x90E8;&#xFF0C;&#x9996;&#x5148;&#x6267;&#x884C;&#x3002;</p>
+<pre><code class="lang-javascript">foo();
+
+<span class="hljs-keyword">import</span> { foo } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;my_module&apos;</span>;
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4E0D;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x56E0;&#x4E3A;<code>import</code>&#x7684;&#x6267;&#x884C;&#x65E9;&#x4E8E;<code>foo</code>&#x7684;&#x8C03;&#x7528;&#x3002;&#x8FD9;&#x79CD;&#x884C;&#x4E3A;&#x7684;&#x672C;&#x8D28;&#x662F;&#xFF0C;<code>import</code>&#x547D;&#x4EE4;&#x662F;&#x7F16;&#x8BD1;&#x9636;&#x6BB5;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x5728;&#x4EE3;&#x7801;&#x8FD0;&#x884C;&#x4E4B;&#x524D;&#x3002;</p>
+<p>&#x7531;&#x4E8E;<code>import</code>&#x662F;&#x9759;&#x6001;&#x6267;&#x884C;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;&#x8868;&#x8FBE;&#x5F0F;&#x548C;&#x53D8;&#x91CF;&#xFF0C;&#x8FD9;&#x4E9B;&#x53EA;&#x6709;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x624D;&#x80FD;&#x5F97;&#x5230;&#x7ED3;&#x679C;&#x7684;&#x8BED;&#x6CD5;&#x7ED3;&#x6784;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x62A5;&#x9519;</span>
+<span class="hljs-keyword">import</span> { <span class="hljs-string">&apos;f&apos;</span> + <span class="hljs-string">&apos;oo&apos;</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;my_module&apos;</span>;
+
+<span class="hljs-comment">// &#x62A5;&#x9519;</span>
+<span class="hljs-keyword">let</span> <span class="hljs-built_in">module</span> = <span class="hljs-string">&apos;my_module&apos;</span>;
+<span class="hljs-keyword">import</span> { foo } <span class="hljs-keyword">from</span> <span class="hljs-built_in">module</span>;
+
+<span class="hljs-comment">// &#x62A5;&#x9519;</span>
+<span class="hljs-keyword">if</span> (x === <span class="hljs-number">1</span>) {
+  <span class="hljs-keyword">import</span> { foo } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;module1&apos;</span>;
+} <span class="hljs-keyword">else</span> {
+  <span class="hljs-keyword">import</span> { foo } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;module2&apos;</span>;
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4E09;&#x79CD;&#x5199;&#x6CD5;&#x90FD;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x7528;&#x5230;&#x4E86;&#x8868;&#x8FBE;&#x5F0F;&#x3001;&#x53D8;&#x91CF;&#x548C;<code>if</code>&#x7ED3;&#x6784;&#x3002;&#x5728;&#x9759;&#x6001;&#x5206;&#x6790;&#x9636;&#x6BB5;&#xFF0C;&#x8FD9;&#x4E9B;&#x8BED;&#x6CD5;&#x90FD;&#x662F;&#x6CA1;&#x6CD5;&#x5F97;&#x5230;&#x503C;&#x7684;&#x3002;</p>
+<p>&#x6700;&#x540E;&#xFF0C;<code>import</code>&#x8BED;&#x53E5;&#x4F1A;&#x6267;&#x884C;&#x6240;&#x52A0;&#x8F7D;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x6709;&#x4E0B;&#x9762;&#x7684;&#x5199;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> <span class="hljs-string">&apos;lodash&apos;</span>;
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4EC5;&#x4EC5;&#x6267;&#x884C;<code>lodash</code>&#x6A21;&#x5757;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x8F93;&#x5165;&#x4EFB;&#x4F55;&#x503C;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x591A;&#x6B21;&#x91CD;&#x590D;&#x6267;&#x884C;&#x540C;&#x4E00;&#x53E5;<code>import</code>&#x8BED;&#x53E5;&#xFF0C;&#x90A3;&#x4E48;&#x53EA;&#x4F1A;&#x6267;&#x884C;&#x4E00;&#x6B21;&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x6267;&#x884C;&#x591A;&#x6B21;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> <span class="hljs-string">&apos;lodash&apos;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;lodash&apos;</span>;
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x52A0;&#x8F7D;&#x4E86;&#x4E24;&#x6B21;<code>lodash</code>&#xFF0C;&#x4F46;&#x662F;&#x53EA;&#x4F1A;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { foo } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;my_module&apos;</span>;
+<span class="hljs-keyword">import</span> { bar } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;my_module&apos;</span>;
+
+<span class="hljs-comment">// &#x7B49;&#x540C;&#x4E8E;</span>
+<span class="hljs-keyword">import</span> { foo, bar } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;my_module&apos;</span>;
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x867D;&#x7136;<code>foo</code>&#x548C;<code>bar</code>&#x5728;&#x4E24;&#x4E2A;&#x8BED;&#x53E5;&#x4E2D;&#x52A0;&#x8F7D;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x4EEC;&#x5BF9;&#x5E94;&#x7684;&#x662F;&#x540C;&#x4E00;&#x4E2A;<code>my_module</code>&#x5B9E;&#x4F8B;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;<code>import</code>&#x8BED;&#x53E5;&#x662F; Singleton &#x6A21;&#x5F0F;&#x3002;</p>
+<p>&#x76EE;&#x524D;&#x9636;&#x6BB5;&#xFF0C;&#x901A;&#x8FC7; Babel &#x8F6C;&#x7801;&#xFF0C;CommonJS &#x6A21;&#x5757;&#x7684;<code>require</code>&#x547D;&#x4EE4;&#x548C; ES6 &#x6A21;&#x5757;&#x7684;<code>import</code>&#x547D;&#x4EE4;&#xFF0C;&#x53EF;&#x4EE5;&#x5199;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x91CC;&#x9762;&#xFF0C;&#x4F46;&#x662F;&#x6700;&#x597D;&#x4E0D;&#x8981;&#x8FD9;&#x6837;&#x505A;&#x3002;&#x56E0;&#x4E3A;<code>import</code>&#x5728;&#x9759;&#x6001;&#x89E3;&#x6790;&#x9636;&#x6BB5;&#x6267;&#x884C;&#xFF0C;&#x6240;&#x4EE5;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x4E4B;&#x4E2D;&#x6700;&#x65E9;&#x6267;&#x884C;&#x7684;&#x3002;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x53EF;&#x80FD;&#x4E0D;&#x4F1A;&#x5F97;&#x5230;&#x9884;&#x671F;&#x7ED3;&#x679C;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;core-js/modules/es6.symbol&apos;</span>);
+<span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;core-js/modules/es6.promise&apos;</span>);
+<span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;React&apos;</span>;
+</code></pre>
+<h2 id="&#x6A21;&#x5757;&#x7684;&#x6574;&#x4F53;&#x52A0;&#x8F7D;">&#x6A21;&#x5757;&#x7684;&#x6574;&#x4F53;&#x52A0;&#x8F7D;</h2>
+<p>&#x9664;&#x4E86;&#x6307;&#x5B9A;&#x52A0;&#x8F7D;&#x67D0;&#x4E2A;&#x8F93;&#x51FA;&#x503C;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6574;&#x4F53;&#x52A0;&#x8F7D;&#xFF0C;&#x5373;&#x7528;&#x661F;&#x53F7;&#xFF08;<code>*</code>&#xFF09;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x6709;&#x8F93;&#x51FA;&#x503C;&#x90FD;&#x52A0;&#x8F7D;&#x5728;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x4E0A;&#x9762;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;<code>circle.js</code>&#x6587;&#x4EF6;&#xFF0C;&#x5B83;&#x8F93;&#x51FA;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;<code>area</code>&#x548C;<code>circumference</code>&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// circle.js</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">area</span>(<span class="hljs-params">radius</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.PI * radius * radius;
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">circumference</span>(<span class="hljs-params">radius</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-number">2</span> * <span class="hljs-built_in">Math</span>.PI * radius;
+}
+</code></pre>
+<p>&#x73B0;&#x5728;&#xFF0C;&#x52A0;&#x8F7D;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// main.js</span>
+
+<span class="hljs-keyword">import</span> { area, circumference } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./circle&apos;</span>;
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x5706;&#x9762;&#x79EF;&#xFF1A;&apos;</span> + area(<span class="hljs-number">4</span>));
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x5706;&#x5468;&#x957F;&#xFF1A;&apos;</span> + circumference(<span class="hljs-number">14</span>));
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x5199;&#x6CD5;&#x662F;&#x9010;&#x4E00;&#x6307;&#x5B9A;&#x8981;&#x52A0;&#x8F7D;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x6574;&#x4F53;&#x52A0;&#x8F7D;&#x7684;&#x5199;&#x6CD5;&#x5982;&#x4E0B;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> circle <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./circle&apos;</span>;
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x5706;&#x9762;&#x79EF;&#xFF1A;&apos;</span> + circle.area(<span class="hljs-number">4</span>));
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x5706;&#x5468;&#x957F;&#xFF1A;&apos;</span> + circle.circumference(<span class="hljs-number">14</span>));
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x6A21;&#x5757;&#x6574;&#x4F53;&#x52A0;&#x8F7D;&#x6240;&#x5728;&#x7684;&#x90A3;&#x4E2A;&#x5BF9;&#x8C61;&#xFF08;&#x4E0A;&#x4F8B;&#x662F;<code>circle</code>&#xFF09;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x53EF;&#x4EE5;&#x9759;&#x6001;&#x5206;&#x6790;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x5141;&#x8BB8;&#x8FD0;&#x884C;&#x65F6;&#x6539;&#x53D8;&#x3002;&#x4E0B;&#x9762;&#x7684;&#x5199;&#x6CD5;&#x90FD;&#x662F;&#x4E0D;&#x5141;&#x8BB8;&#x7684;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> circle <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./circle&apos;</span>;
+
+<span class="hljs-comment">// &#x4E0B;&#x9762;&#x4E24;&#x884C;&#x90FD;&#x662F;&#x4E0D;&#x5141;&#x8BB8;&#x7684;</span>
+circle.foo = <span class="hljs-string">&apos;hello&apos;</span>;
+circle.area = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{};
+</code></pre>
+<h2 id="export-default-&#x547D;&#x4EE4;">export default &#x547D;&#x4EE4;</h2>
+<p>&#x4ECE;&#x524D;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x4F7F;&#x7528;<code>import</code>&#x547D;&#x4EE4;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x7528;&#x6237;&#x9700;&#x8981;&#x77E5;&#x9053;&#x6240;&#x8981;&#x52A0;&#x8F7D;&#x7684;&#x53D8;&#x91CF;&#x540D;&#x6216;&#x51FD;&#x6570;&#x540D;&#xFF0C;&#x5426;&#x5219;&#x65E0;&#x6CD5;&#x52A0;&#x8F7D;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x7528;&#x6237;&#x80AF;&#x5B9A;&#x5E0C;&#x671B;&#x5FEB;&#x901F;&#x4E0A;&#x624B;&#xFF0C;&#x672A;&#x5FC5;&#x613F;&#x610F;&#x9605;&#x8BFB;&#x6587;&#x6863;&#xFF0C;&#x53BB;&#x4E86;&#x89E3;&#x6A21;&#x5757;&#x6709;&#x54EA;&#x4E9B;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x7ED9;&#x7528;&#x6237;&#x63D0;&#x4F9B;&#x65B9;&#x4FBF;&#xFF0C;&#x8BA9;&#x4ED6;&#x4EEC;&#x4E0D;&#x7528;&#x9605;&#x8BFB;&#x6587;&#x6863;&#x5C31;&#x80FD;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#xFF0C;&#x5C31;&#x8981;&#x7528;&#x5230;<code>export default</code>&#x547D;&#x4EE4;&#xFF0C;&#x4E3A;&#x6A21;&#x5757;&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x8F93;&#x51FA;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// export-default.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;foo&apos;</span>);
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x662F;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x6587;&#x4EF6;<code>export-default.js</code>&#xFF0C;&#x5B83;&#x7684;&#x9ED8;&#x8BA4;&#x8F93;&#x51FA;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x5176;&#x4ED6;&#x6A21;&#x5757;&#x52A0;&#x8F7D;&#x8BE5;&#x6A21;&#x5757;&#x65F6;&#xFF0C;<code>import</code>&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x4E3A;&#x8BE5;&#x533F;&#x540D;&#x51FD;&#x6570;&#x6307;&#x5B9A;&#x4EFB;&#x610F;&#x540D;&#x5B57;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// import-default.js</span>
+<span class="hljs-keyword">import</span> customName <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./export-default&apos;</span>;
+customName(); <span class="hljs-comment">// &apos;foo&apos;</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x7684;<code>import</code>&#x547D;&#x4EE4;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x4EFB;&#x610F;&#x540D;&#x79F0;&#x6307;&#x5411;<code>export-default.js</code>&#x8F93;&#x51FA;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x65F6;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x77E5;&#x9053;&#x539F;&#x6A21;&#x5757;&#x8F93;&#x51FA;&#x7684;&#x51FD;&#x6570;&#x540D;&#x3002;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x8FD9;&#x65F6;<code>import</code>&#x547D;&#x4EE4;&#x540E;&#x9762;&#xFF0C;&#x4E0D;&#x4F7F;&#x7528;&#x5927;&#x62EC;&#x53F7;&#x3002;</p>
+<p><code>export default</code>&#x547D;&#x4EE4;&#x7528;&#x5728;&#x975E;&#x533F;&#x540D;&#x51FD;&#x6570;&#x524D;&#xFF0C;&#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x7684;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// export-default.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;foo&apos;</span>);
+}
+
+<span class="hljs-comment">// &#x6216;&#x8005;&#x5199;&#x6210;</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;foo&apos;</span>);
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> foo;
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>foo</code>&#x51FD;&#x6570;&#x7684;&#x51FD;&#x6570;&#x540D;<code>foo</code>&#xFF0C;&#x5728;&#x6A21;&#x5757;&#x5916;&#x90E8;&#x662F;&#x65E0;&#x6548;&#x7684;&#x3002;&#x52A0;&#x8F7D;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x89C6;&#x540C;&#x533F;&#x540D;&#x51FD;&#x6570;&#x52A0;&#x8F7D;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x6BD4;&#x8F83;&#x4E00;&#x4E0B;&#x9ED8;&#x8BA4;&#x8F93;&#x51FA;&#x548C;&#x6B63;&#x5E38;&#x8F93;&#x51FA;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x7B2C;&#x4E00;&#x7EC4;</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">crc32</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-comment">// &#x8F93;&#x51FA;</span>
+  <span class="hljs-comment">// ...</span>
+}
+
+<span class="hljs-keyword">import</span> crc32 <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;crc32&apos;</span>; <span class="hljs-comment">// &#x8F93;&#x5165;</span>
+
+<span class="hljs-comment">// &#x7B2C;&#x4E8C;&#x7EC4;</span>
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">crc32</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-comment">// &#x8F93;&#x51FA;</span>
+  <span class="hljs-comment">// ...</span>
+};
+
+<span class="hljs-keyword">import</span> {crc32} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;crc32&apos;</span>; <span class="hljs-comment">// &#x8F93;&#x5165;</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x7684;&#x4E24;&#x7EC4;&#x5199;&#x6CD5;&#xFF0C;&#x7B2C;&#x4E00;&#x7EC4;&#x662F;&#x4F7F;&#x7528;<code>export default</code>&#x65F6;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;<code>import</code>&#x8BED;&#x53E5;&#x4E0D;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5927;&#x62EC;&#x53F7;&#xFF1B;&#x7B2C;&#x4E8C;&#x7EC4;&#x662F;&#x4E0D;&#x4F7F;&#x7528;<code>export default</code>&#x65F6;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;<code>import</code>&#x8BED;&#x53E5;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5927;&#x62EC;&#x53F7;&#x3002;</p>
+<p><code>export default</code>&#x547D;&#x4EE4;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x6A21;&#x5757;&#x7684;&#x9ED8;&#x8BA4;&#x8F93;&#x51FA;&#x3002;&#x663E;&#x7136;&#xFF0C;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x8F93;&#x51FA;&#xFF0C;&#x56E0;&#x6B64;<code>export default</code>&#x547D;&#x4EE4;&#x53EA;&#x80FD;&#x4F7F;&#x7528;&#x4E00;&#x6B21;&#x3002;&#x6240;&#x4EE5;&#xFF0C;import&#x547D;&#x4EE4;&#x540E;&#x9762;&#x624D;&#x4E0D;&#x7528;&#x52A0;&#x5927;&#x62EC;&#x53F7;&#xFF0C;&#x56E0;&#x4E3A;&#x53EA;&#x53EF;&#x80FD;&#x552F;&#x4E00;&#x5BF9;&#x5E94;<code>export default</code>&#x547D;&#x4EE4;&#x3002;</p>
+<p>&#x672C;&#x8D28;&#x4E0A;&#xFF0C;<code>export default</code>&#x5C31;&#x662F;&#x8F93;&#x51FA;&#x4E00;&#x4E2A;&#x53EB;&#x505A;<code>default</code>&#x7684;&#x53D8;&#x91CF;&#x6216;&#x65B9;&#x6CD5;&#xFF0C;&#x7136;&#x540E;&#x7CFB;&#x7EDF;&#x5141;&#x8BB8;&#x4F60;&#x4E3A;&#x5B83;&#x53D6;&#x4EFB;&#x610F;&#x540D;&#x5B57;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x5199;&#x6CD5;&#x662F;&#x6709;&#x6548;&#x7684;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// modules.js</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">x, y</span>) </span>{
+  <span class="hljs-keyword">return</span> x * y;
+}
+<span class="hljs-keyword">export</span> {add <span class="hljs-keyword">as</span> <span class="hljs-keyword">default</span>};
+<span class="hljs-comment">// &#x7B49;&#x540C;&#x4E8E;</span>
+<span class="hljs-comment">// export default add;</span>
+
+<span class="hljs-comment">// app.js</span>
+<span class="hljs-keyword">import</span> { <span class="hljs-keyword">default</span> <span class="hljs-keyword">as</span> foo } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;modules&apos;</span>;
+<span class="hljs-comment">// &#x7B49;&#x540C;&#x4E8E;</span>
+<span class="hljs-comment">// import foo from &apos;modules&apos;;</span>
+</code></pre>
+<p>&#x6B63;&#x662F;&#x56E0;&#x4E3A;<code>export default</code>&#x547D;&#x4EE4;&#x5176;&#x5B9E;&#x53EA;&#x662F;&#x8F93;&#x51FA;&#x4E00;&#x4E2A;&#x53EB;&#x505A;<code>default</code>&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x6240;&#x4EE5;&#x5B83;&#x540E;&#x9762;&#x4E0D;&#x80FD;&#x8DDF;&#x53D8;&#x91CF;&#x58F0;&#x660E;&#x8BED;&#x53E5;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x6B63;&#x786E;</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span>;
+
+<span class="hljs-comment">// &#x6B63;&#x786E;</span>
+<span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> a;
+
+<span class="hljs-comment">// &#x9519;&#x8BEF;</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span>;
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>export default a</code>&#x7684;&#x542B;&#x4E49;&#x662F;&#x5C06;&#x53D8;&#x91CF;<code>a</code>&#x7684;&#x503C;&#x8D4B;&#x7ED9;&#x53D8;&#x91CF;<code>default</code>&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x6700;&#x540E;&#x4E00;&#x79CD;&#x5199;&#x6CD5;&#x4F1A;&#x62A5;&#x9519;&#x3002;</p>
+<p>&#x540C;&#x6837;&#x5730;&#xFF0C;&#x56E0;&#x4E3A;<code>export default</code>&#x547D;&#x4EE4;&#x7684;&#x672C;&#x8D28;&#x662F;&#x5C06;&#x540E;&#x9762;&#x7684;&#x503C;&#xFF0C;&#x8D4B;&#x7ED9;<code>default</code>&#x53D8;&#x91CF;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5C06;&#x4E00;&#x4E2A;&#x503C;&#x5199;&#x5728;<code>export default</code>&#x4E4B;&#x540E;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x6B63;&#x786E;</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-number">42</span>;
+
+<span class="hljs-comment">// &#x62A5;&#x9519;</span>
+<span class="hljs-keyword">export</span> <span class="hljs-number">42</span>;
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x540E;&#x4E00;&#x53E5;&#x62A5;&#x9519;&#x662F;&#x56E0;&#x4E3A;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#x5BF9;&#x5916;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x800C;&#x524D;&#x4E00;&#x53E5;&#x6307;&#x5B9A;&#x5BF9;&#x5916;&#x63A5;&#x53E3;&#x4E3A;<code>default</code>&#x3002;</p>
+<p>&#x6709;&#x4E86;<code>export default</code>&#x547D;&#x4EE4;&#xFF0C;&#x8F93;&#x5165;&#x6A21;&#x5757;&#x65F6;&#x5C31;&#x975E;&#x5E38;&#x76F4;&#x89C2;&#x4E86;&#xFF0C;&#x4EE5;&#x8F93;&#x5165; lodash &#x6A21;&#x5757;&#x4E3A;&#x4F8B;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> _ <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;lodash&apos;</span>;
+</code></pre>
+<p>&#x5982;&#x679C;&#x60F3;&#x5728;&#x4E00;&#x6761;<code>import</code>&#x8BED;&#x53E5;&#x4E2D;&#xFF0C;&#x540C;&#x65F6;&#x8F93;&#x5165;&#x9ED8;&#x8BA4;&#x65B9;&#x6CD5;&#x548C;&#x5176;&#x4ED6;&#x63A5;&#x53E3;&#xFF0C;&#x53EF;&#x4EE5;&#x5199;&#x6210;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> _, { each, forEach } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;lodash&apos;</span>;
+</code></pre>
+<p>&#x5BF9;&#x5E94;&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x7684;<code>export</code>&#x8BED;&#x53E5;&#x5982;&#x4E0B;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">obj</span>) </span>{
+  <span class="hljs-comment">// &#xB7;&#xB7;&#xB7;</span>
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">each</span>(<span class="hljs-params">obj, iterator, context</span>) </span>{
+  <span class="hljs-comment">// &#xB7;&#xB7;&#xB7;</span>
+}
+
+<span class="hljs-keyword">export</span> { each <span class="hljs-keyword">as</span> forEach };
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x7684;&#x6700;&#x540E;&#x4E00;&#x884C;&#x7684;&#x610F;&#x601D;&#x662F;&#xFF0C;&#x66B4;&#x9732;&#x51FA;<code>forEach</code>&#x63A5;&#x53E3;&#xFF0C;&#x9ED8;&#x8BA4;&#x6307;&#x5411;<code>each</code>&#x63A5;&#x53E3;&#xFF0C;&#x5373;<code>forEach</code>&#x548C;<code>each</code>&#x6307;&#x5411;&#x540C;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;</p>
+<p><code>export default</code>&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x8F93;&#x51FA;&#x7C7B;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// MyClass.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> </span>{ ... }
+
+<span class="hljs-comment">// main.js</span>
+<span class="hljs-keyword">import</span> MyClass <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;MyClass&apos;</span>;
+<span class="hljs-keyword">let</span> o = <span class="hljs-keyword">new</span> MyClass();
+</code></pre>
+<h2 id="export-&#x4E0E;-import-&#x7684;&#x590D;&#x5408;&#x5199;&#x6CD5;">export &#x4E0E; import &#x7684;&#x590D;&#x5408;&#x5199;&#x6CD5;</h2>
+<p>&#x5982;&#x679C;&#x5728;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x4E4B;&#x4E2D;&#xFF0C;&#x5148;&#x8F93;&#x5165;&#x540E;&#x8F93;&#x51FA;&#x540C;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;<code>import</code>&#x8BED;&#x53E5;&#x53EF;&#x4EE5;&#x4E0E;<code>export</code>&#x8BED;&#x53E5;&#x5199;&#x5728;&#x4E00;&#x8D77;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">export</span> { foo, bar } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;my_module&apos;</span>;
+
+<span class="hljs-comment">// &#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x7406;&#x89E3;&#x4E3A;</span>
+<span class="hljs-keyword">import</span> { foo, bar } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;my_module&apos;</span>;
+<span class="hljs-keyword">export</span> { foo, bar };
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>export</code>&#x548C;<code>import</code>&#x8BED;&#x53E5;&#x53EF;&#x4EE5;&#x7ED3;&#x5408;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x5199;&#x6210;&#x4E00;&#x884C;&#x3002;&#x4F46;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x5199;&#x6210;&#x4E00;&#x884C;&#x4EE5;&#x540E;&#xFF0C;<code>foo</code>&#x548C;<code>bar</code>&#x5B9E;&#x9645;&#x4E0A;&#x5E76;&#x6CA1;&#x6709;&#x88AB;&#x5BFC;&#x5165;&#x5F53;&#x524D;&#x6A21;&#x5757;&#xFF0C;&#x53EA;&#x662F;&#x76F8;&#x5F53;&#x4E8E;&#x5BF9;&#x5916;&#x8F6C;&#x53D1;&#x4E86;&#x8FD9;&#x4E24;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x5BFC;&#x81F4;&#x5F53;&#x524D;&#x6A21;&#x5757;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x4F7F;&#x7528;<code>foo</code>&#x548C;<code>bar</code>&#x3002;</p>
+<p>&#x6A21;&#x5757;&#x7684;&#x63A5;&#x53E3;&#x6539;&#x540D;&#x548C;&#x6574;&#x4F53;&#x8F93;&#x51FA;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x91C7;&#x7528;&#x8FD9;&#x79CD;&#x5199;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x63A5;&#x53E3;&#x6539;&#x540D;</span>
+<span class="hljs-keyword">export</span> { foo <span class="hljs-keyword">as</span> myFoo } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;my_module&apos;</span>;
+
+<span class="hljs-comment">// &#x6574;&#x4F53;&#x8F93;&#x51FA;</span>
+<span class="hljs-keyword">export</span> * <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;my_module&apos;</span>;
+</code></pre>
+<p>&#x9ED8;&#x8BA4;&#x63A5;&#x53E3;&#x7684;&#x5199;&#x6CD5;&#x5982;&#x4E0B;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">export</span> { <span class="hljs-keyword">default</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;foo&apos;</span>;
+</code></pre>
+<p>&#x5177;&#x540D;&#x63A5;&#x53E3;&#x6539;&#x4E3A;&#x9ED8;&#x8BA4;&#x63A5;&#x53E3;&#x7684;&#x5199;&#x6CD5;&#x5982;&#x4E0B;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">export</span> { es6 <span class="hljs-keyword">as</span> <span class="hljs-keyword">default</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./someModule&apos;</span>;
+
+<span class="hljs-comment">// &#x7B49;&#x540C;&#x4E8E;</span>
+<span class="hljs-keyword">import</span> { es6 } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./someModule&apos;</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> es6;
+</code></pre>
+<p>&#x540C;&#x6837;&#x5730;&#xFF0C;&#x9ED8;&#x8BA4;&#x63A5;&#x53E3;&#x4E5F;&#x53EF;&#x4EE5;&#x6539;&#x540D;&#x4E3A;&#x5177;&#x540D;&#x63A5;&#x53E3;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">export</span> { <span class="hljs-keyword">default</span> <span class="hljs-keyword">as</span> es6 } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./someModule&apos;</span>;
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x4E09;&#x79CD;<code>import</code>&#x8BED;&#x53E5;&#xFF0C;&#x6CA1;&#x6709;&#x5BF9;&#x5E94;&#x7684;&#x590D;&#x5408;&#x5199;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> someIdentifier <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;someModule&quot;</span>;
+<span class="hljs-keyword">import</span> someIdentifier <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;someModule&quot;</span>;
+<span class="hljs-keyword">import</span> someIdentifier, { namedIdentifier } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;someModule&quot;</span>;
+</code></pre>
+<p>&#x4E3A;&#x4E86;&#x505A;&#x5230;&#x5F62;&#x5F0F;&#x7684;&#x5BF9;&#x79F0;&#xFF0C;&#x73B0;&#x5728;&#x6709;<a href="https://github.com/leebyron/ecmascript-export-default-from" target="_blank">&#x63D0;&#x6848;</a>&#xFF0C;&#x63D0;&#x51FA;&#x8865;&#x4E0A;&#x8FD9;&#x4E09;&#x79CD;&#x590D;&#x5408;&#x5199;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">export</span> * <span class="hljs-keyword">as</span> someIdentifier <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;someModule&quot;</span>;
+<span class="hljs-keyword">export</span> someIdentifier <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;someModule&quot;</span>;
+<span class="hljs-keyword">export</span> someIdentifier, { namedIdentifier } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;someModule&quot;</span>;
+</code></pre>
+<h2 id="&#x6A21;&#x5757;&#x7684;&#x7EE7;&#x627F;">&#x6A21;&#x5757;&#x7684;&#x7EE7;&#x627F;</h2>
+<p>&#x6A21;&#x5757;&#x4E4B;&#x95F4;&#x4E5F;&#x53EF;&#x4EE5;&#x7EE7;&#x627F;&#x3002;</p>
+<p>&#x5047;&#x8BBE;&#x6709;&#x4E00;&#x4E2A;<code>circleplus</code>&#x6A21;&#x5757;&#xFF0C;&#x7EE7;&#x627F;&#x4E86;<code>circle</code>&#x6A21;&#x5757;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// circleplus.js</span>
+
+<span class="hljs-keyword">export</span> * <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;circle&apos;</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">var</span> e = <span class="hljs-number">2.71828182846</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.exp(x);
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#x7684;<code>export *</code>&#xFF0C;&#x8868;&#x793A;&#x518D;&#x8F93;&#x51FA;<code>circle</code>&#x6A21;&#x5757;&#x7684;&#x6240;&#x6709;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x3002;&#x6CE8;&#x610F;&#xFF0C;<code>export *</code>&#x547D;&#x4EE4;&#x4F1A;&#x5FFD;&#x7565;<code>circle</code>&#x6A21;&#x5757;&#x7684;<code>default</code>&#x65B9;&#x6CD5;&#x3002;&#x7136;&#x540E;&#xFF0C;&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x53C8;&#x8F93;&#x51FA;&#x4E86;&#x81EA;&#x5B9A;&#x4E49;&#x7684;<code>e</code>&#x53D8;&#x91CF;&#x548C;&#x9ED8;&#x8BA4;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x8FD9;&#x65F6;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5C06;<code>circle</code>&#x7684;&#x5C5E;&#x6027;&#x6216;&#x65B9;&#x6CD5;&#xFF0C;&#x6539;&#x540D;&#x540E;&#x518D;&#x8F93;&#x51FA;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// circleplus.js</span>
+
+<span class="hljs-keyword">export</span> { area <span class="hljs-keyword">as</span> circleArea } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;circle&apos;</span>;
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x8868;&#x793A;&#xFF0C;&#x53EA;&#x8F93;&#x51FA;<code>circle</code>&#x6A21;&#x5757;&#x7684;<code>area</code>&#x65B9;&#x6CD5;&#xFF0C;&#x4E14;&#x5C06;&#x5176;&#x6539;&#x540D;&#x4E3A;<code>circleArea</code>&#x3002;</p>
+<p>&#x52A0;&#x8F7D;&#x4E0A;&#x9762;&#x6A21;&#x5757;&#x7684;&#x5199;&#x6CD5;&#x5982;&#x4E0B;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// main.js</span>
+
+<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> math <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;circleplus&apos;</span>;
+<span class="hljs-keyword">import</span> exp <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;circleplus&apos;</span>;
+<span class="hljs-built_in">console</span>.log(exp(math.e));
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#x7684;<code>import exp</code>&#x8868;&#x793A;&#xFF0C;&#x5C06;<code>circleplus</code>&#x6A21;&#x5757;&#x7684;&#x9ED8;&#x8BA4;&#x65B9;&#x6CD5;&#x52A0;&#x8F7D;&#x4E3A;<code>exp</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<h2 id="&#x8DE8;&#x6A21;&#x5757;&#x5E38;&#x91CF;">&#x8DE8;&#x6A21;&#x5757;&#x5E38;&#x91CF;</h2>
+<p>&#x672C;&#x4E66;&#x4ECB;&#x7ECD;<code>const</code>&#x547D;&#x4EE4;&#x7684;&#x65F6;&#x5019;&#x8BF4;&#x8FC7;&#xFF0C;<code>const</code>&#x58F0;&#x660E;&#x7684;&#x5E38;&#x91CF;&#x53EA;&#x5728;&#x5F53;&#x524D;&#x4EE3;&#x7801;&#x5757;&#x6709;&#x6548;&#x3002;&#x5982;&#x679C;&#x60F3;&#x8BBE;&#x7F6E;&#x8DE8;&#x6A21;&#x5757;&#x7684;&#x5E38;&#x91CF;&#xFF08;&#x5373;&#x8DE8;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#xFF09;&#xFF0C;&#x6216;&#x8005;&#x8BF4;&#x4E00;&#x4E2A;&#x503C;&#x8981;&#x88AB;&#x591A;&#x4E2A;&#x6A21;&#x5757;&#x5171;&#x4EAB;&#xFF0C;&#x53EF;&#x4EE5;&#x91C7;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x5199;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// constants.js &#x6A21;&#x5757;</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> A = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> B = <span class="hljs-number">3</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> C = <span class="hljs-number">4</span>;
+
+<span class="hljs-comment">// test1.js &#x6A21;&#x5757;</span>
+<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> constants <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./constants&apos;</span>;
+<span class="hljs-built_in">console</span>.log(constants.A); <span class="hljs-comment">// 1</span>
+<span class="hljs-built_in">console</span>.log(constants.B); <span class="hljs-comment">// 3</span>
+
+<span class="hljs-comment">// test2.js &#x6A21;&#x5757;</span>
+<span class="hljs-keyword">import</span> {A, B} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./constants&apos;</span>;
+<span class="hljs-built_in">console</span>.log(A); <span class="hljs-comment">// 1</span>
+<span class="hljs-built_in">console</span>.log(B); <span class="hljs-comment">// 3</span>
+</code></pre>
+<p>&#x5982;&#x679C;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x5E38;&#x91CF;&#x975E;&#x5E38;&#x591A;&#xFF0C;&#x53EF;&#x4EE5;&#x5EFA;&#x4E00;&#x4E2A;&#x4E13;&#x95E8;&#x7684;<code>constants</code>&#x76EE;&#x5F55;&#xFF0C;&#x5C06;&#x5404;&#x79CD;&#x5E38;&#x91CF;&#x5199;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x6587;&#x4EF6;&#x91CC;&#x9762;&#xFF0C;&#x4FDD;&#x5B58;&#x5728;&#x8BE5;&#x76EE;&#x5F55;&#x4E0B;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// constants/db.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> db = {
+  url: <span class="hljs-string">&apos;http://my.couchdbserver.local:5984&apos;</span>,
+  admin_username: <span class="hljs-string">&apos;admin&apos;</span>,
+  admin_password: <span class="hljs-string">&apos;admin password&apos;</span>
+};
+
+<span class="hljs-comment">// constants/user.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> users = [<span class="hljs-string">&apos;root&apos;</span>, <span class="hljs-string">&apos;admin&apos;</span>, <span class="hljs-string">&apos;staff&apos;</span>, <span class="hljs-string">&apos;ceo&apos;</span>, <span class="hljs-string">&apos;chief&apos;</span>, <span class="hljs-string">&apos;moderator&apos;</span>];
+</code></pre>
+<p>&#x7136;&#x540E;&#xFF0C;&#x5C06;&#x8FD9;&#x4E9B;&#x6587;&#x4EF6;&#x8F93;&#x51FA;&#x7684;&#x5E38;&#x91CF;&#xFF0C;&#x5408;&#x5E76;&#x5728;<code>index.js</code>&#x91CC;&#x9762;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// constants/index.js</span>
+<span class="hljs-keyword">export</span> {db} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./db&apos;</span>;
+<span class="hljs-keyword">export</span> {users} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./users&apos;</span>;
+</code></pre>
+<p>&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x76F4;&#x63A5;&#x52A0;&#x8F7D;<code>index.js</code>&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// script.js</span>
+<span class="hljs-keyword">import</span> {db, users} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./constants/index&apos;</span>;
+</code></pre>
+<h2 id="import">import()</h2>
+<h3 id="&#x7B80;&#x4ECB;">&#x7B80;&#x4ECB;</h3>
+<p>&#x524D;&#x9762;&#x4ECB;&#x7ECD;&#x8FC7;&#xFF0C;<code>import</code>&#x547D;&#x4EE4;&#x4F1A;&#x88AB; JavaScript &#x5F15;&#x64CE;&#x9759;&#x6001;&#x5206;&#x6790;&#xFF0C;&#x5148;&#x4E8E;&#x6A21;&#x5757;&#x5185;&#x7684;&#x5176;&#x4ED6;&#x8BED;&#x53E5;&#x6267;&#x884C;&#xFF08;<code>import</code>&#x547D;&#x4EE4;&#x53EB;&#x505A;&#x201C;&#x8FDE;&#x63A5;&#x201D; binding &#x5176;&#x5B9E;&#x66F4;&#x5408;&#x9002;&#xFF09;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4F1A;&#x62A5;&#x9519;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x62A5;&#x9519;</span>
+<span class="hljs-keyword">if</span> (x === <span class="hljs-number">2</span>) {
+  <span class="hljs-keyword">import</span> MyModual <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./myModual&apos;</span>;
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x5F15;&#x64CE;&#x5904;&#x7406;<code>import</code>&#x8BED;&#x53E5;&#x662F;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#xFF0C;&#x8FD9;&#x65F6;&#x4E0D;&#x4F1A;&#x53BB;&#x5206;&#x6790;&#x6216;&#x6267;&#x884C;<code>if</code>&#x8BED;&#x53E5;&#xFF0C;&#x6240;&#x4EE5;<code>import</code>&#x8BED;&#x53E5;&#x653E;&#x5728;<code>if</code>&#x4EE3;&#x7801;&#x5757;&#x4E4B;&#x4E2D;&#x6BEB;&#x65E0;&#x610F;&#x4E49;&#xFF0C;&#x56E0;&#x6B64;&#x4F1A;&#x62A5;&#x53E5;&#x6CD5;&#x9519;&#x8BEF;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6267;&#x884C;&#x65F6;&#x9519;&#x8BEF;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;<code>import</code>&#x548C;<code>export</code>&#x547D;&#x4EE4;&#x53EA;&#x80FD;&#x5728;&#x6A21;&#x5757;&#x7684;&#x9876;&#x5C42;&#xFF0C;&#x4E0D;&#x80FD;&#x5728;&#x4EE3;&#x7801;&#x5757;&#x4E4B;&#x4E2D;&#xFF08;&#x6BD4;&#x5982;&#xFF0C;&#x5728;<code>if</code>&#x4EE3;&#x7801;&#x5757;&#x4E4B;&#x4E2D;&#xFF0C;&#x6216;&#x5728;&#x51FD;&#x6570;&#x4E4B;&#x4E2D;&#xFF09;&#x3002;</p>
+<p>&#x8FD9;&#x6837;&#x7684;&#x8BBE;&#x8BA1;&#xFF0C;&#x56FA;&#x7136;&#x6709;&#x5229;&#x4E8E;&#x7F16;&#x8BD1;&#x5668;&#x63D0;&#x9AD8;&#x6548;&#x7387;&#xFF0C;&#x4F46;&#x4E5F;&#x5BFC;&#x81F4;&#x65E0;&#x6CD5;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#x3002;&#x5728;&#x8BED;&#x6CD5;&#x4E0A;&#xFF0C;&#x6761;&#x4EF6;&#x52A0;&#x8F7D;&#x5C31;&#x4E0D;&#x53EF;&#x80FD;&#x5B9E;&#x73B0;&#x3002;&#x5982;&#x679C;<code>import</code>&#x547D;&#x4EE4;&#x8981;&#x53D6;&#x4EE3; Node &#x7684;<code>require</code>&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x5C31;&#x5F62;&#x6210;&#x4E86;&#x4E00;&#x4E2A;&#x969C;&#x788D;&#x3002;&#x56E0;&#x4E3A;<code>require</code>&#x662F;&#x8FD0;&#x884C;&#x65F6;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#xFF0C;<code>import</code>&#x547D;&#x4EE4;&#x65E0;&#x6CD5;&#x53D6;&#x4EE3;<code>require</code>&#x7684;&#x52A8;&#x6001;&#x52A0;&#x8F7D;&#x529F;&#x80FD;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> path = <span class="hljs-string">&apos;./&apos;</span> + fileName;
+<span class="hljs-keyword">const</span> myModual = <span class="hljs-built_in">require</span>(path);
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x8BED;&#x53E5;&#x5C31;&#x662F;&#x52A8;&#x6001;&#x52A0;&#x8F7D;&#xFF0C;<code>require</code>&#x5230;&#x5E95;&#x52A0;&#x8F7D;&#x54EA;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x53EA;&#x6709;&#x8FD0;&#x884C;&#x65F6;&#x624D;&#x77E5;&#x9053;&#x3002;<code>import</code>&#x547D;&#x4EE4;&#x505A;&#x4E0D;&#x5230;&#x8FD9;&#x4E00;&#x70B9;&#x3002;</p>
+<p>&#x56E0;&#x6B64;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;<a href="https://github.com/tc39/proposal-dynamic-import" target="_blank">&#x63D0;&#x6848;</a>&#xFF0C;&#x5EFA;&#x8BAE;&#x5F15;&#x5165;<code>import()</code>&#x51FD;&#x6570;&#xFF0C;&#x5B8C;&#x6210;&#x52A8;&#x6001;&#x52A0;&#x8F7D;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span>(specifier)
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>import</code>&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;<code>specifier</code>&#xFF0C;&#x6307;&#x5B9A;&#x6240;&#x8981;&#x52A0;&#x8F7D;&#x7684;&#x6A21;&#x5757;&#x7684;&#x4F4D;&#x7F6E;&#x3002;<code>import</code>&#x547D;&#x4EE4;&#x80FD;&#x591F;&#x63A5;&#x53D7;&#x4EC0;&#x4E48;&#x53C2;&#x6570;&#xFF0C;<code>import()</code>&#x51FD;&#x6570;&#x5C31;&#x80FD;&#x63A5;&#x53D7;&#x4EC0;&#x4E48;&#x53C2;&#x6570;&#xFF0C;&#x4E24;&#x8005;&#x533A;&#x522B;&#x4E3B;&#x8981;&#x662F;&#x540E;&#x8005;&#x4E3A;&#x52A8;&#x6001;&#x52A0;&#x8F7D;&#x3002;</p>
+<p><code>import()</code>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; Promise &#x5BF9;&#x8C61;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> main = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&apos;main&apos;</span>);
+
+<span class="hljs-keyword">import</span>(<span class="hljs-string">`./section-modules/<span class="hljs-subst">${someVariable}</span>.js`</span>)
+  .then(<span class="hljs-built_in">module</span> =&gt; {
+    <span class="hljs-built_in">module</span>.loadPageInto(main);
+  })
+  .catch(err =&gt; {
+    main.textContent = err.message;
+  });
+</code></pre>
+<p><code>import()</code>&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x7528;&#x5728;&#x4EFB;&#x4F55;&#x5730;&#x65B9;&#xFF0C;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F;&#x6A21;&#x5757;&#xFF0C;&#x975E;&#x6A21;&#x5757;&#x7684;&#x811A;&#x672C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x3002;&#x5B83;&#x662F;&#x8FD0;&#x884C;&#x65F6;&#x6267;&#x884C;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x8FD0;&#x884C;&#x5230;&#x8FD9;&#x4E00;&#x53E5;&#xFF0C;&#x5C31;&#x4F1A;&#x52A0;&#x8F7D;&#x6307;&#x5B9A;&#x7684;&#x6A21;&#x5757;&#x3002;&#x53E6;&#x5916;&#xFF0C;<code>import()</code>&#x51FD;&#x6570;&#x4E0E;&#x6240;&#x52A0;&#x8F7D;&#x7684;&#x6A21;&#x5757;&#x6CA1;&#x6709;&#x9759;&#x6001;&#x8FDE;&#x63A5;&#x5173;&#x7CFB;&#xFF0C;&#x8FD9;&#x70B9;&#x4E5F;&#x662F;&#x4E0E;<code>import</code>&#x8BED;&#x53E5;&#x4E0D;&#x76F8;&#x540C;&#x3002;<code>import()</code>&#x7C7B;&#x4F3C;&#x4E8E; Node &#x7684;<code>require</code>&#x65B9;&#x6CD5;&#xFF0C;&#x533A;&#x522B;&#x4E3B;&#x8981;&#x662F;&#x524D;&#x8005;&#x662F;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#xFF0C;&#x540E;&#x8005;&#x662F;&#x540C;&#x6B65;&#x52A0;&#x8F7D;&#x3002;</p>
+<h3 id="&#x9002;&#x7528;&#x573A;&#x5408;">&#x9002;&#x7528;&#x573A;&#x5408;</h3>
+<p>&#x4E0B;&#x9762;&#x662F;<code>import()</code>&#x7684;&#x4E00;&#x4E9B;&#x9002;&#x7528;&#x573A;&#x5408;&#x3002;</p>
+<p>&#xFF08;1&#xFF09;&#x6309;&#x9700;&#x52A0;&#x8F7D;&#x3002;</p>
+<p><code>import()</code>&#x53EF;&#x4EE5;&#x5728;&#x9700;&#x8981;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x518D;&#x52A0;&#x8F7D;&#x67D0;&#x4E2A;&#x6A21;&#x5757;&#x3002;</p>
+<pre><code class="lang-javascript">button.addEventListener(<span class="hljs-string">&apos;click&apos;</span>, event =&gt; {
+  <span class="hljs-keyword">import</span>(<span class="hljs-string">&apos;./dialogBox.js&apos;</span>)
+  .then(dialogBox =&gt; {
+    dialogBox.open();
+  })
+  .catch(error =&gt; {
+    <span class="hljs-comment">/* Error handling */</span>
+  })
+});
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>import()</code>&#x65B9;&#x6CD5;&#x653E;&#x5728;<code>click</code>&#x4E8B;&#x4EF6;&#x7684;&#x76D1;&#x542C;&#x51FD;&#x6570;&#x4E4B;&#x4E2D;&#xFF0C;&#x53EA;&#x6709;&#x7528;&#x6237;&#x70B9;&#x51FB;&#x4E86;&#x6309;&#x94AE;&#xFF0C;&#x624D;&#x4F1A;&#x52A0;&#x8F7D;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x3002;</p>
+<p>&#xFF08;2&#xFF09;&#x6761;&#x4EF6;&#x52A0;&#x8F7D;</p>
+<p><code>import()</code>&#x53EF;&#x4EE5;&#x653E;&#x5728;<code>if</code>&#x4EE3;&#x7801;&#x5757;&#xFF0C;&#x6839;&#x636E;&#x4E0D;&#x540C;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x52A0;&#x8F7D;&#x4E0D;&#x540C;&#x7684;&#x6A21;&#x5757;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">if</span> (condition) {
+  <span class="hljs-keyword">import</span>(<span class="hljs-string">&apos;moduleA&apos;</span>).then(...);
+} <span class="hljs-keyword">else</span> {
+  <span class="hljs-keyword">import</span>(<span class="hljs-string">&apos;moduleB&apos;</span>).then(...);
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x6EE1;&#x8DB3;&#x6761;&#x4EF6;&#xFF0C;&#x5C31;&#x52A0;&#x8F7D;&#x6A21;&#x5757; A&#xFF0C;&#x5426;&#x5219;&#x52A0;&#x8F7D;&#x6A21;&#x5757; B&#x3002;</p>
+<p>&#xFF08;3&#xFF09;&#x52A8;&#x6001;&#x7684;&#x6A21;&#x5757;&#x8DEF;&#x5F84;</p>
+<p><code>import()</code>&#x5141;&#x8BB8;&#x6A21;&#x5757;&#x8DEF;&#x5F84;&#x52A8;&#x6001;&#x751F;&#x6210;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span>(f())
+.then(...);
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x6839;&#x636E;&#x51FD;&#x6570;<code>f</code>&#x7684;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#xFF0C;&#x52A0;&#x8F7D;&#x4E0D;&#x540C;&#x7684;&#x6A21;&#x5757;&#x3002;</p>
+<h3 id="&#x6CE8;&#x610F;&#x70B9;">&#x6CE8;&#x610F;&#x70B9;</h3>
+<p><code>import()</code>&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#x6210;&#x529F;&#x4EE5;&#x540E;&#xFF0C;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x4F1A;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5F53;&#x4F5C;<code>then</code>&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5BF9;&#x8C61;&#x89E3;&#x6784;&#x8D4B;&#x503C;&#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x83B7;&#x53D6;&#x8F93;&#x51FA;&#x63A5;&#x53E3;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span>(<span class="hljs-string">&apos;./myModule.js&apos;</span>)
+.then(({export1, export2}) =&gt; {
+  <span class="hljs-comment">// ...&#xB7;</span>
+});
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>export1</code>&#x548C;<code>export2</code>&#x90FD;&#x662F;<code>myModule.js</code>&#x7684;&#x8F93;&#x51FA;&#x63A5;&#x53E3;&#xFF0C;&#x53EF;&#x4EE5;&#x89E3;&#x6784;&#x83B7;&#x5F97;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6A21;&#x5757;&#x6709;<code>default</code>&#x8F93;&#x51FA;&#x63A5;&#x53E3;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x53C2;&#x6570;&#x76F4;&#x63A5;&#x83B7;&#x5F97;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span>(<span class="hljs-string">&apos;./myModule.js&apos;</span>)
+.then(myModule =&gt; {
+  <span class="hljs-built_in">console</span>.log(myModule.default);
+});
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5177;&#x540D;&#x8F93;&#x5165;&#x7684;&#x5F62;&#x5F0F;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span>(<span class="hljs-string">&apos;./myModule.js&apos;</span>)
+.then(({<span class="hljs-keyword">default</span>: theDefault}) =&gt; {
+  <span class="hljs-built_in">console</span>.log(theDefault);
+});
+</code></pre>
+<p>&#x5982;&#x679C;&#x60F3;&#x540C;&#x65F6;&#x52A0;&#x8F7D;&#x591A;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x53EF;&#x4EE5;&#x91C7;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x5199;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">Promise</span>.all([
+  <span class="hljs-keyword">import</span>(<span class="hljs-string">&apos;./module1.js&apos;</span>),
+  <span class="hljs-keyword">import</span>(<span class="hljs-string">&apos;./module2.js&apos;</span>),
+  <span class="hljs-keyword">import</span>(<span class="hljs-string">&apos;./module3.js&apos;</span>),
+])
+.then(([module1, module2, module3]) =&gt; {
+   &#xB7;&#xB7;&#xB7;
+});
+</code></pre>
+<p><code>import()</code>&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x5728; async &#x51FD;&#x6570;&#x4E4B;&#x4E2D;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> myModule = <span class="hljs-keyword">await</span> <span class="hljs-keyword">import</span>(<span class="hljs-string">&apos;./myModule.js&apos;</span>);
+  <span class="hljs-keyword">const</span> {export1, export2} = <span class="hljs-keyword">await</span> <span class="hljs-keyword">import</span>(<span class="hljs-string">&apos;./myModule.js&apos;</span>);
+  <span class="hljs-keyword">const</span> [module1, module2, module3] =
+    <span class="hljs-keyword">await</span> <span class="hljs-built_in">Promise</span>.all([
+      <span class="hljs-keyword">import</span>(<span class="hljs-string">&apos;./module1.js&apos;</span>),
+      <span class="hljs-keyword">import</span>(<span class="hljs-string">&apos;./module2.js&apos;</span>),
+      <span class="hljs-keyword">import</span>(<span class="hljs-string">&apos;./module3.js&apos;</span>),
+    ]);
+}
+main();
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="decorator.html" class="navigation navigation-prev " aria-label="Previous page: 21. Decorator">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="module-loader.html" class="navigation navigation-next " aria-label="Next page: 23. Module 的加载实现">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"22. Module 的语法","level":"1.23","depth":1,"next":{"title":"23. Module 的加载实现","level":"1.24","depth":1,"path":"docs/module-loader.md","ref":"docs/module-loader.md","articles":[]},"previous":{"title":"21. Decorator","level":"1.22","depth":1,"path":"docs/decorator.md","ref":"docs/decorator.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"阮一峰","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"9787121324758","variables":{},"title":"ECMAScript 6 入门","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"阮一峰的个人网站":"http://www.ruanyifeng.com/blog/"}},"gitbook":"*","description":"《ECMAScript 6 入门》是一本开源的 JavaScript 语言教程，全面介绍 ECMAScript 6 新引入的语法特性。","extension":null},"file":{"path":"docs/module.md","mtime":"2019-08-26T10:52:54.081Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-26T12:40:06.208Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
