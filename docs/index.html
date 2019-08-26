@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的文档中心</title>
+</head>
+
+<body>
+    <div class="title">我的文档中心</div>
+    <div class="description">为了当有些网站可能上不去做的备份</div>
+    <div id="app">
+        <div class="list">
+            <a :href="item.url" v-for="(item,index) in list">{{item.name}}</a>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            list: [{
+                name: 'ECMAScript 6 入门',
+                url: '/es6tutorial/'
+            }]
+        }
+    })
+</script>
+
+</html>
